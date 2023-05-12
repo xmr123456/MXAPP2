@@ -14,7 +14,7 @@ class my_thread:public QThread{
     Q_OBJECT
 public:
     void run(){
-	        QString app_path=QApplication::applicationDirPath();
+        QString app_path=QApplication::applicationDirPath();
         QDir::setCurrent(app_path);
         system("./adl10-e &");
         sleep(1);

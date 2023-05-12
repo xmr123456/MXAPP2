@@ -103,7 +103,7 @@ Rectangle {
         width: 150
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.rightMargin: 150
+        anchors.rightMargin: mainWnd.height > 500 ? 150 : 75
         radius: 10
         color: "#00000000"
 
@@ -158,13 +158,14 @@ Rectangle {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.rightMargin: 15
+        anchors.bottomMargin: mainWnd.height > 500 ? 0 : 5
         color: "#28529C"
         radius: 5
 
         Text{
             visible: true
             anchors.fill: parent
-            text: "确认"
+            text: qsTr("确认")
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.family: "Microsoft YaHei"
@@ -197,6 +198,7 @@ Rectangle {
         width: 180
         anchors.right: sure_button.left
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: mainWnd.height > 500 ? 0 : 5
         anchors.rightMargin: 15
         color: "#28529C"
         radius: 5
@@ -204,7 +206,7 @@ Rectangle {
         Text{
             visible: true
             anchors.fill: parent
-            text: "取消"
+            text: qsTr("取消")
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.family: "Microsoft YaHei"
@@ -255,7 +257,7 @@ Rectangle {
             anchors.left: page_top_icon.right
             verticalAlignment: "AlignVCenter"
             horizontalAlignment: "AlignLeft"
-            text: "姓名:许梦燃\t余额:"+String((home_screen.amount).toFixed(2))
+            text: qsTr("姓名:许梦燃")+"\t"+qsTr("余额:")+String((home_screen.amount).toFixed(2))
             color: "white"
             font.family: "Microsoft YaHei"
             font.pixelSize: 20
@@ -281,17 +283,17 @@ Rectangle {
         Label{
             id:recharge_title_label
             visible: true
-            text: "充值金额"
+            text: qsTr("充值金额")
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
             //anchors.topMargin: 10
-            height: 50
+            height: mainWnd.height > 500 ? 50 : 30
             color:"white"
             verticalAlignment: "AlignVCenter"
             horizontalAlignment: "AlignHCenter"
             font.family: "Microsoft YaHei"
-            font.pixelSize: 35
+            font.pixelSize: mainWnd.height > 500 ? 35 : 25
         }
 
         Rectangle{
@@ -306,8 +308,8 @@ Rectangle {
             border.color: "#528ED4"
             border.width: 3
             color: "#00000000"
-			
-			/*
+
+            /*
             layer.enabled: true
             layer.effect: OpacityMask {
                 maskSource: Rectangle {
@@ -316,7 +318,7 @@ Rectangle {
                     radius: recharge_scheme_one.radius
                 }
             }
-			*/
+            */
 
             Text {
                 id: recharge_scheme_one_text
@@ -326,7 +328,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -363,7 +365,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -400,7 +402,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -438,7 +440,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -476,7 +478,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -514,7 +516,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 

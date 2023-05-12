@@ -16,8 +16,8 @@ SystemWindow {
     title: "browser"
     property int adaptive_width: Screen.desktopAvailableWidth
     property int adaptive_height: Screen.desktopAvailableHeight
-    width: mainWnd.width
-    height: mainWnd.height
+    width: adaptive_width
+    height: adaptive_height
     TitleLeftBar{
         id: leftBar
         titleIcon: "images/wvga/back_icon_nor.png"

@@ -58,7 +58,7 @@
 <context>
     <name>CameraWindow</name>
     <message>
-        <location filename="../CameraWindow.qml" line="115"/>
+        <location filename="../CameraWindow.qml" line="118"/>
         <source>所有图片</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,82 +113,92 @@
 <context>
     <name>HomeWindow</name>
     <message>
-        <location filename="../HomeWindow.qml" line="574"/>
+        <location filename="../HomeWindow.qml" line="516"/>
         <source>toMENU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="83"/>
+        <location filename="../HomeWindow.qml" line="74"/>
         <source>多媒体</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="87"/>
+        <location filename="../HomeWindow.qml" line="78"/>
         <source>摄像头</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="93"/>
+        <location filename="../HomeWindow.qml" line="84"/>
         <source>播放器</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="99"/>
+        <location filename="../HomeWindow.qml" line="90"/>
         <source>音乐</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="114"/>
+        <location filename="../HomeWindow.qml" line="105"/>
         <source>系统</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="118"/>
+        <location filename="../HomeWindow.qml" line="109"/>
         <source>系统信息</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="124"/>
+        <location filename="../HomeWindow.qml" line="115"/>
         <source>系统设置</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="139"/>
+        <location filename="../HomeWindow.qml" line="130"/>
         <source>智能家电</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="143"/>
+        <location filename="../HomeWindow.qml" line="134"/>
         <source>洗衣机</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="152"/>
+        <location filename="../HomeWindow.qml" line="143"/>
         <source>卫生医疗</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="156"/>
+        <location filename="../HomeWindow.qml" line="147"/>
         <source>心电仪</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="165"/>
+        <location filename="../HomeWindow.qml" line="156"/>
         <source>公共服务</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="169"/>
+        <location filename="../HomeWindow.qml" line="161"/>
         <source>取票机</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="130"/>
+        <location filename="../HomeWindow.qml" line="167"/>
+        <source>充电桩</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../HomeWindow.qml" line="173"/>
+        <source>挖机仪表盘</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../HomeWindow.qml" line="121"/>
         <source>文件管理器</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HomeWindow.qml" line="105"/>
+        <location filename="../HomeWindow.qml" line="96"/>
         <source>图片</source>
         <translation type="unfinished"></translation>
     </message>
@@ -266,7 +276,7 @@
     </message>
     <message>
         <location filename="../InfoWindow.qml" line="284"/>
-        <source>Buildroot</source>
+        <source>yocto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -348,7 +358,7 @@
     </message>
     <message>
         <location filename="../InfoWindow.qml" line="652"/>
-        <source>5.12.0</source>
+        <source>5.12</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -373,78 +383,78 @@
 <context>
     <name>MenuWindow</name>
     <message>
-        <location filename="../MenuWindow.qml" line="55"/>
+        <location filename="../MenuWindow.qml" line="34"/>
         <source>视频播放器</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="56"/>
+        <location filename="../MenuWindow.qml" line="35"/>
         <source>播放器</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="62"/>
+        <location filename="../MenuWindow.qml" line="41"/>
         <source>音乐播放器</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="63"/>
+        <location filename="../MenuWindow.qml" line="42"/>
         <source>音乐</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="69"/>
+        <location filename="../MenuWindow.qml" line="48"/>
         <source>拍照和预览</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="70"/>
+        <location filename="../MenuWindow.qml" line="49"/>
         <source>摄像头</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="76"/>
+        <location filename="../MenuWindow.qml" line="55"/>
         <source>图片浏览</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="77"/>
+        <location filename="../MenuWindow.qml" line="56"/>
         <source>图片</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="83"/>
+        <location filename="../MenuWindow.qml" line="62"/>
         <source>取票机演示</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="84"/>
+        <location filename="../MenuWindow.qml" line="63"/>
         <source>取票机</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="90"/>
+        <location filename="../MenuWindow.qml" line="69"/>
         <source>心电仪演示</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="91"/>
+        <location filename="../MenuWindow.qml" line="70"/>
         <source>心电仪</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="148"/>
+        <location filename="../MenuWindow.qml" line="121"/>
         <source>智能洗衣机演示</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="149"/>
+        <location filename="../MenuWindow.qml" line="122"/>
         <source>洗衣机</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="155"/>
-        <location filename="../MenuWindow.qml" line="156"/>
+        <location filename="../MenuWindow.qml" line="128"/>
+        <location filename="../MenuWindow.qml" line="129"/>
         <source>系统信息</source>
         <translation type="unfinished"></translation>
     </message>
@@ -454,33 +464,23 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="163"/>
+        <location filename="../MenuWindow.qml" line="136"/>
         <source>系统设置</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="170"/>
+        <location filename="../MenuWindow.qml" line="143"/>
         <source>文件管理</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="176"/>
-        <source>浏览器演示</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../MenuWindow.qml" line="177"/>
-        <source>浏览器</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../MenuWindow.qml" line="183"/>
-        <location filename="../MenuWindow.qml" line="184"/>
+        <location filename="../MenuWindow.qml" line="149"/>
+        <location filename="../MenuWindow.qml" line="150"/>
         <source>联系我们</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MenuWindow.qml" line="263"/>
+        <location filename="../MenuWindow.qml" line="206"/>
         <source>toMENU</source>
         <translation type="unfinished"></translation>
     </message>
@@ -525,7 +525,7 @@
 <context>
     <name>PlayerWindow</name>
     <message>
-        <location filename="../PlayerWindow.qml" line="71"/>
+        <location filename="../PlayerWindow.qml" line="74"/>
         <source>打开文件</source>
         <translation type="unfinished"></translation>
     </message>
@@ -785,7 +785,7 @@
 <context>
     <name>SystemWindow</name>
     <message>
-        <location filename="../SystemWindow.qml" line="21"/>
+        <location filename="../SystemWindow.qml" line="22"/>
         <source>BaseWindow</source>
         <translation type="unfinished"></translation>
     </message>
@@ -793,47 +793,47 @@
 <context>
     <name>TicketWindow</name>
     <message>
-        <location filename="../TicketWindow.qml" line="61"/>
+        <location filename="../TicketWindow.qml" line="71"/>
         <source>取票机</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TicketWindow.qml" line="139"/>
+        <location filename="../TicketWindow.qml" line="142"/>
         <source>取票码取票</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TicketWindow.qml" line="219"/>
+        <location filename="../TicketWindow.qml" line="222"/>
         <source>请输入取票码！</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TicketWindow.qml" line="258"/>
+        <location filename="../TicketWindow.qml" line="261"/>
         <source>清除输入</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TicketWindow.qml" line="259"/>
+        <location filename="../TicketWindow.qml" line="262"/>
         <source>确认取票</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TicketWindow.qml" line="502"/>
+        <location filename="../TicketWindow.qml" line="508"/>
         <source>扫码取票</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TicketWindow.qml" line="597"/>
+        <location filename="../TicketWindow.qml" line="603"/>
         <source>请将条码置于机器下方扫码处</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TicketWindow.qml" line="672"/>
+        <location filename="../TicketWindow.qml" line="678"/>
         <source>出票失败</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TicketWindow.qml" line="678"/>
+        <location filename="../TicketWindow.qml" line="684"/>
         <source>出票成功</source>
         <translation type="unfinished"></translation>
     </message>
@@ -841,12 +841,12 @@
 <context>
     <name>TitleBar</name>
     <message>
-        <location filename="../TitleBar.qml" line="55"/>
+        <location filename="../TitleBar.qml" line="53"/>
         <source>中文</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TitleBar.qml" line="55"/>
+        <location filename="../TitleBar.qml" line="53"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1113,10 +1113,629 @@
     </message>
 </context>
 <context>
+    <name>WinAppearance</name>
+    <message>
+        <location filename="../WinAppearance.qml" line="197"/>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="250"/>
+        <source>机械遥控</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="297"/>
+        <source>油耗分析</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="344"/>
+        <source>故障查询</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="427"/>
+        <source>大臂</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="549"/>
+        <source>小臂</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="671"/>
+        <source>铲斗</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="794"/>
+        <source>驾驶室</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="931"/>
+        <source>大臂角度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="988"/>
+        <source>小臂角度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1045"/>
+        <source>铲斗角度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1102"/>
+        <source>驾驶室角度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1159"/>
+        <source>挖机高度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1216"/>
+        <source>挖机宽度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1276"/>
+        <source>车头</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1289"/>
+        <source>车尾</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1302"/>
+        <source>左</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1315"/>
+        <source>右</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1420"/>
+        <source>总油耗:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1472"/>
+        <source>累计油耗</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1547"/>
+        <source>累计泵送油耗:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1574"/>
+        <location filename="../WinAppearance.qml" line="1649"/>
+        <location filename="../WinAppearance.qml" line="1723"/>
+        <location filename="../WinAppearance.qml" line="1859"/>
+        <location filename="../WinAppearance.qml" line="1934"/>
+        <location filename="../WinAppearance.qml" line="2008"/>
+        <source>0.0L</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1622"/>
+        <source>累计臂架油耗:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1696"/>
+        <source>累计怠速油耗:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1758"/>
+        <source>实时油耗</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1832"/>
+        <source>本次泵送油耗:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1907"/>
+        <source>本次臂架油耗:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="1981"/>
+        <source>本次怠速油耗:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2064"/>
+        <source>年</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2100"/>
+        <source>月</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2126"/>
+        <source>选择时间</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2259"/>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2278"/>
+        <source>5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2297"/>
+        <source>10</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2316"/>
+        <source>15</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2335"/>
+        <source>20</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2382"/>
+        <source>臂架故障次数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2489"/>
+        <source>底盘故障次数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinAppearance.qml" line="2596"/>
+        <source>泵送故障次数</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WinChargeMonitor</name>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="467"/>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="159"/>
+        <source>正在充电</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="163"/>
+        <source>连接断开</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="272"/>
+        <source>充电电流:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="273"/>
+        <source>充电电压:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="274"/>
+        <location filename="../WinChargeMonitor.qml" line="275"/>
+        <location filename="../WinChargeMonitor.qml" line="276"/>
+        <source>充电功率:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="305"/>
+        <source>当前电费单价:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="306"/>
+        <source>累计充电电费:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="307"/>
+        <source>累计充电金额:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="308"/>
+        <source>当前服务费单价:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="309"/>
+        <source>累计服务费金额:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="338"/>
+        <source>电流:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="339"/>
+        <source>电压:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="340"/>
+        <source>功率:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="341"/>
+        <source>功率因子:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="342"/>
+        <source>总电能:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="500"/>
+        <source>结束充电</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="677"/>
+        <source>充电状态:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="721"/>
+        <source>充电时间:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="764"/>
+        <source>充电电量:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeMonitor.qml" line="922"/>
+        <source>当前电池电量为:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WinChargeScheme</name>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="160"/>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="191"/>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="231"/>
+        <source>常规充电</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="249"/>
+        <location filename="../WinChargeScheme.qml" line="297"/>
+        <source>余额不足!!!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="279"/>
+        <source>快速充电</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="355"/>
+        <source>姓名:许梦燃</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="355"/>
+        <source>余额:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="381"/>
+        <source>充电方案</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="430"/>
+        <source>按金额充电</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="459"/>
+        <source>按时间充电</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="494"/>
+        <source>充满自停</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="535"/>
+        <source>¥60.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="579"/>
+        <source>¥50.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="622"/>
+        <source>¥40.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="666"/>
+        <source>¥30.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinChargeScheme.qml" line="710"/>
+        <source>¥20.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WinCloseAccount</name>
+    <message>
+        <location filename="../WinCloseAccount.qml" line="147"/>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../WinCloseAccount.qml" line="193"/>
+        <source>确   认</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinCloseAccount.qml" line="229"/>
+        <source>充电时长:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinCloseAccount.qml" line="275"/>
+        <source>充电电量:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinCloseAccount.qml" line="321"/>
+        <source>充电电费:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinCloseAccount.qml" line="367"/>
+        <source>充电服务费:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinCloseAccount.qml" line="414"/>
+        <source>消费总金额:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WinHomeScreen</name>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="93"/>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="30"/>
+        <location filename="../WinHomeScreen.qml" line="178"/>
+        <location filename="../WinHomeScreen.qml" line="205"/>
+        <location filename="../WinHomeScreen.qml" line="212"/>
+        <source>启动104服务端</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="251"/>
+        <source>请连接充电枪</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="371"/>
+        <source>扫码登录</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="62"/>
+        <location filename="../WinHomeScreen.qml" line="464"/>
+        <source>姓名:许梦燃</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="25"/>
+        <location filename="../WinHomeScreen.qml" line="200"/>
+        <source>关闭104服务端</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="63"/>
+        <source>余额:¥</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="306"/>
+        <source>确认连接</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="341"/>
+        <source>请先进行扫码登录</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="486"/>
+        <source>账户余额:¥100.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="511"/>
+        <source>退出登录</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinHomeScreen.qml" line="543"/>
+        <source>充值余额</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WinPayInterface</name>
+    <message>
+        <location filename="../WinPayInterface.qml" line="121"/>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="29"/>
+        <source>扫码支付:¥</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="154"/>
+        <source>取消充值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="205"/>
+        <source>姓名:许梦燃</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="205"/>
+        <source>余额:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="247"/>
+        <source>扫码支付:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="317"/>
+        <source>支付成功</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="341"/>
+        <source>微信/</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="364"/>
+        <source>支付宝</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinPayInterface.qml" line="377"/>
+        <source>APP扫码支付</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WinRechargeSelect</name>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="136"/>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="168"/>
+        <source>确认</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="209"/>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="260"/>
+        <source>姓名:许梦燃</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="260"/>
+        <source>余额:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="286"/>
+        <source>充值金额</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="327"/>
+        <source>¥100.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="364"/>
+        <source>¥80.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="401"/>
+        <source>¥60.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="439"/>
+        <source>¥40.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="477"/>
+        <source>¥20.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WinRechargeSelect.qml" line="515"/>
+        <source>¥10.00</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>main</name>
     <message>
-        <location filename="../main.qml" line="11"/>
-        <source>Hello World</source>
+        <location filename="../main.qml" line="14"/>
+        <source>MXAPP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

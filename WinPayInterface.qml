@@ -26,7 +26,7 @@ Rectangle {
             sign_init()
             connect_timer.start()
             cancel_mousearea.enabled=true
-            page_main_title_text.text="扫码支付:¥"+String(Number(recharge_select.recharge_num).toFixed(2))
+            page_main_title_text.text=qsTr("扫码支付:¥")+String(Number(recharge_select.recharge_num).toFixed(2))
             cancel_button.visible=true
         }
         else{
@@ -88,7 +88,7 @@ Rectangle {
         width: 150
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.rightMargin: 150
+        anchors.rightMargin: mainWnd.height > 500 ? 150 : 75
         radius: 10
         color: "#00000000"
 
@@ -151,7 +151,7 @@ Rectangle {
         Text{
             visible: true
             anchors.fill: parent
-            text: "取消充值"
+            text: qsTr("取消充值")
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.family: "Microsoft YaHei"
@@ -202,7 +202,7 @@ Rectangle {
             anchors.left: page_top_icon.right
             verticalAlignment: "AlignVCenter"
             horizontalAlignment: "AlignLeft"
-            text: "姓名:许梦燃\t余额:"+String((home_screen.amount).toFixed(2))
+            text: qsTr("姓名:许梦燃")+"\t"+qsTr("余额:")+String((home_screen.amount).toFixed(2))
             color: "white"
             font.family: "Microsoft YaHei"
             font.pixelSize: 20
@@ -233,8 +233,8 @@ Rectangle {
             anchors.left: parent.left
             anchors.top: parent.top
 
-            width: 0.7*parent.height
-            height: 50
+            width: (mainWnd.height > 500 ? 0.7 : 0.6)*parent.height
+            height: mainWnd.height > 500 ? 50 : 30
 
             anchors.leftMargin: (parent.width-width)/2
             anchors.topMargin: 10
@@ -250,7 +250,7 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
 
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 35
+                font.pixelSize: mainWnd.height > 500 ? 35 : 25
                 color: "white"
             }
         }
@@ -261,7 +261,7 @@ Rectangle {
             anchors.top: page_main_title.bottom
             anchors.left: parent.left
 
-            width: 0.7*parent.height
+            width: (mainWnd.height > 500 ? 0.7 : 0.6)*parent.height
             height: width
             anchors.topMargin: 5
             anchors.leftMargin: (parent.width-width)/2
@@ -317,7 +317,7 @@ Rectangle {
                 text: qsTr("支付成功")
                 color: "white"
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 45
+                font.pixelSize: mainWnd.height > 500 ? 45 : 30
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
@@ -325,7 +325,7 @@ Rectangle {
             Image {
                 id: wechat_pay
                 visible: true
-                height: 50
+                height: mainWnd.height > 500 ? 50 : 30
                 width: height
                 anchors.top: parent.top
                 anchors.left: parent.left
@@ -335,19 +335,19 @@ Rectangle {
             Label{
                 id:wechat_pay_text
                 visible: true
-                height: 50
+                height: mainWnd.height > 500 ? 50 : 30
                 anchors.top: parent.top
                 anchors.left: wechat_pay.right
-                text: "微信/"
+                text: qsTr("微信/")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 30
+                font.pixelSize: mainWnd.height > 500 ? 30 : 15
                 color: "white"
             }
 
             Image {
                 id: ali_pay
                 visible: true
-                height: 50
+                height: 30
                 width: height
                 anchors.top: parent.top
                 anchors.left: wechat_pay_text.right
@@ -357,26 +357,26 @@ Rectangle {
             Label{
                 id:ali_pay_text
                 visible: true
-                height: 50
+                height: mainWnd.height > 500 ? 50 : 30
                 anchors.top: parent.top
                 anchors.left: ali_pay.right
 
-                text: "支付宝"
+                text: qsTr("支付宝")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 30
+                font.pixelSize: mainWnd.height > 500 ? 30 : 15
                 color: "white"
             }
 
             Label{
                 id:app_text
                 visible: true
-                height: 50
+                height: mainWnd.height > 500 ? 50 : 30
                 anchors.top: parent.top
                 anchors.left: ali_pay_text.right
 
-                text: "APP扫码支付"
+                text: qsTr("APP扫码支付")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 30
+                font.pixelSize: mainWnd.height > 500 ? 30 : 15
                 color: "white"
             }
         }

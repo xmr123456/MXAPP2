@@ -11,6 +11,8 @@ Popup {
     modal: false
     padding: 0
     margins: 0
+    //800*480
+    //1280*720
     property int adaptive_width: Screen.desktopAvailableWidth
     property int adaptive_height: Screen.desktopAvailableHeight
     width: mainWnd.width
@@ -247,14 +249,14 @@ Popup {
                 }
 
                 Text {
-                    text: "机械遥控"
+                    text: qsTr("机械遥控")
                     visible: true
                     anchors.top: remote_control_option_img.bottom
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 25
+                    font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -294,14 +296,14 @@ Popup {
                 }
 
                 Text {
-                    text: "油耗分析"
+                    text: qsTr("油耗分析")
                     visible: true
                     anchors.top: oli_consumption_option_img.bottom
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 25
+                    font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -341,14 +343,14 @@ Popup {
                 }
 
                 Text {
-                    text: "故障查询"
+                    text: qsTr("故障查询")
                     visible: true
                     anchors.top: data_option_img.bottom
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 25
+                    font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -424,7 +426,7 @@ Popup {
                                 anchors.fill: parent
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
-                                text: "大臂"
+                                text: qsTr("大臂")
                                 font.family: "Microsoft YaHei"
                                 font.pixelSize: 25
                                 color: "white"
@@ -546,7 +548,7 @@ Popup {
                                 anchors.fill: parent
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
-                                text: "小臂"
+                                text: qsTr("小臂")
                                 font.family: "Microsoft YaHei"
                                 font.pixelSize: 25
                                 color: "white"
@@ -668,7 +670,7 @@ Popup {
                                 anchors.fill: parent
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
-                                text: "铲斗"
+                                text: qsTr("铲斗")
                                 font.family: "Microsoft YaHei"
                                 font.pixelSize: 25
                                 color: "white"
@@ -791,7 +793,7 @@ Popup {
                                 anchors.fill: parent
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter
-                                text: "驾驶室"
+                                text: qsTr("驾驶室")
                                 font.family: "Microsoft YaHei"
                                 font.pixelSize: 25
                                 color: "white"
@@ -1414,15 +1416,15 @@ Popup {
                     anchors.top: parent.top
                     anchors.leftMargin: 0.02*parent.width
                     width: 100
-                    height: 50
+                    height: appearance_Wd.height > 500 ? 50 : 30
                     color: "#00000000"
                     Text {
-                        text: "总油耗:"
+                        text: qsTr("总油耗:")
                         anchors.fill: parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         font.family: "Microsoft YaHei"
-                        font.pixelSize: 30
+                        font.pixelSize: appearance_Wd.height > 500 ? 30 : 20
                         color: "white"
                     }
                 }
@@ -1430,14 +1432,14 @@ Popup {
                 Rectangle{
                     anchors.top: parent.top
                     anchors.left: total_oli.right
-                    height: 50
+                    height: appearance_Wd.height > 500 ? 50 : 30
                     width: 100
                     anchors.leftMargin: 5
                     color: "#00000000"
                     Text {
                         id: total_oli_data
                         font.family: "Microsoft YaHei"
-                        font.pixelSize: 30
+                        font.pixelSize: appearance_Wd.height > 500 ? 30 : 20
                         color: "green"
                         horizontalAlignment: Text.AlignLeft
                         verticalAlignment: Text.AlignVCenter
@@ -1460,13 +1462,13 @@ Popup {
                         anchors.top:parent.top
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        height: 50
+                        height: appearance_Wd.height > 500 ? 50 : 40
                         color: "#00000000"
 
                         Text {
                             anchors.fill: parent
                             font.family: "Microsoft YaHei"
-                            font.pixelSize: 35
+                            font.pixelSize: appearance_Wd.height > 500 ? 35 : 30
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                             text: qsTr("累计油耗")
@@ -1479,7 +1481,7 @@ Popup {
                         anchors.top: analy_consumption_left_title.bottom
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        anchors.topMargin: 30
+                        anchors.topMargin: appearance_Wd.height > 500 ? 30 : 15
                         width: 0.6*parent.width
                         height: 0.6*parent.width
                         anchors.leftMargin: (parent.width-width)/2
@@ -1510,8 +1512,8 @@ Popup {
                         anchors.top:analy_consumption_left_pie.bottom
                         anchors.left: analy_consumption_left.left
                         anchors.right: analy_consumption_left.right
-                        anchors.leftMargin: 0.25*analy_consumption_left.width
-                        anchors.rightMargin: 0.25*analy_consumption_left.width
+                        anchors.leftMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_left.width
+                        anchors.rightMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_left.width
                         anchors.topMargin: 30
                         height: 30
                         color: "#00000000"
@@ -1546,7 +1548,7 @@ Popup {
                                 anchors.fill: parent
                                 text: qsTr("累计泵送油耗:")
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignLeft
                                 color: "white"
@@ -1569,7 +1571,7 @@ Popup {
                                 id: total_pumping_consumption_section_legend_data
                                 anchors.fill: parent
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 color: "green"
                                 text: qsTr("0.0L")
                                 horizontalAlignment: Text.AlignHCenter
@@ -1585,8 +1587,8 @@ Popup {
                         anchors.top:total_pumping_consumption_section_legend.bottom
                         anchors.left: analy_consumption_left.left
                         anchors.right: analy_consumption_left.right
-                        anchors.leftMargin: 0.25*analy_consumption_left.width
-                        anchors.rightMargin: 0.25*analy_consumption_left.width
+                        anchors.leftMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_left.width
+                        anchors.rightMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_left.width
                         anchors.topMargin: 5
                         color: "#00000000"
                         height: 30
@@ -1621,7 +1623,7 @@ Popup {
                                 anchors.fill: parent
                                 text: qsTr("累计臂架油耗:")
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignLeft
                                 color: "white"
@@ -1644,7 +1646,7 @@ Popup {
                                 id: total_boom_consumption_section_legend_data
                                 anchors.fill: parent
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 color: "green"
                                 text: qsTr("0.0L")
                                 horizontalAlignment: Text.AlignHCenter
@@ -1659,8 +1661,8 @@ Popup {
                         anchors.top:total_boom_consumption_section_legend.bottom
                         anchors.left: analy_consumption_left.left
                         anchors.right: analy_consumption_left.right
-                        anchors.leftMargin: 0.25*analy_consumption_left.width
-                        anchors.rightMargin: 0.25*analy_consumption_left.width
+                        anchors.leftMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_left.width
+                        anchors.rightMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_left.width
                         anchors.topMargin: 5
                         height: 30
                         color: "#00000000"
@@ -1695,7 +1697,7 @@ Popup {
                                 anchors.fill: parent
                                 text: qsTr("累计怠速油耗:")
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignLeft
                                 color: "white"
@@ -1718,7 +1720,7 @@ Popup {
                                 id: total_idle_consumption_section_legend_data
                                 anchors.fill: parent
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 color: "green"
                                 text: qsTr("0.0L")
                                 horizontalAlignment: Text.AlignHCenter
@@ -1746,13 +1748,13 @@ Popup {
                         anchors.top:parent.top
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        height: 50
+                        height: appearance_Wd.height > 500 ? 50 : 40
                         color: "#00000000"
 
                         Text {
                             anchors.fill: parent
                             font.family: "Microsoft YaHei"
-                            font.pixelSize: 35
+                            font.pixelSize: appearance_Wd.height > 500 ? 35 : 30
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                             text: qsTr("实时油耗")
@@ -1795,9 +1797,9 @@ Popup {
                         anchors.top:analy_consumption_right_pie.bottom
                         anchors.left: analy_consumption_right.left
                         anchors.right: analy_consumption_right.right
-                        anchors.leftMargin: 0.25*analy_consumption_right.width
-                        anchors.rightMargin: 0.25*analy_consumption_right.width
-                        anchors.topMargin: 30
+                        anchors.leftMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_right.width
+                        anchors.rightMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_right.width
+                        anchors.topMargin: appearance_Wd.height > 500 ? 30 : 10
                         height: 30
                         color: "#00000000"
 
@@ -1831,7 +1833,7 @@ Popup {
                                 anchors.fill: parent
                                 text: qsTr("本次泵送油耗:")
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignLeft
                                 color: "white"
@@ -1854,7 +1856,7 @@ Popup {
                                 id: pumping_consumption_section_legend_data
                                 anchors.fill: parent
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 color: "green"
                                 text: qsTr("0.0L")
                                 horizontalAlignment: Text.AlignHCenter
@@ -1870,8 +1872,8 @@ Popup {
                         anchors.top:pumping_consumption_section_legend.bottom
                         anchors.left: analy_consumption_right.left
                         anchors.right: analy_consumption_right.right
-                        anchors.leftMargin: 0.25*analy_consumption_right.width
-                        anchors.rightMargin: 0.25*analy_consumption_right.width
+                        anchors.leftMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_right.width
+                        anchors.rightMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_right.width
                         anchors.topMargin: 5
                         color: "#00000000"
                         height: 30
@@ -1906,7 +1908,7 @@ Popup {
                                 anchors.fill: parent
                                 text: qsTr("本次臂架油耗:")
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignLeft
                                 color: "white"
@@ -1929,7 +1931,7 @@ Popup {
                                 id: boom_consumption_section_legend_data
                                 anchors.fill: parent
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 color: "green"
                                 text: qsTr("0.0L")
                                 horizontalAlignment: Text.AlignHCenter
@@ -1944,8 +1946,8 @@ Popup {
                         anchors.top:boom_consumption_section_legend.bottom
                         anchors.left: analy_consumption_right.left
                         anchors.right: analy_consumption_right.right
-                        anchors.leftMargin: 0.25*analy_consumption_right.width
-                        anchors.rightMargin: 0.25*analy_consumption_right.width
+                        anchors.leftMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_right.width
+                        anchors.rightMargin: (appearance_Wd.height > 500 ? 0.25 : 0.2)*analy_consumption_right.width
                         anchors.topMargin: 5
                         height: 30
                         color: "#00000000"
@@ -1980,7 +1982,7 @@ Popup {
                                 anchors.fill: parent
                                 text: qsTr("本次怠速油耗:")
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignLeft
                                 color: "white"
@@ -2003,7 +2005,7 @@ Popup {
                                 id: idle_consumption_section_legend_data
                                 anchors.fill: parent
                                 font.family: "Microsoft YaHei"
-                                font.pixelSize: 25
+                                font.pixelSize: appearance_Wd.height > 500 ? 25 : 15
                                 color: "green"
                                 text: qsTr("0.0L")
                                 horizontalAlignment: Text.AlignHCenter
@@ -2044,7 +2046,7 @@ Popup {
                         currentIndex: 0
                         width: 150
                         font.family: "Microsoft YaHei"
-                        font.pointSize: 25
+                        font.pointSize: appearance_Wd.height > 500 ? 25 : 15
                         model: ListModel{
                             id: year_listModel
                         }
@@ -2080,7 +2082,7 @@ Popup {
                         currentIndex: 0
                         width: 150
                         font.family: "Microsoft YaHei"
-                        font.pointSize: 25
+                        font.pointSize: appearance_Wd.height > 500 ? 25 : 15
                         model: ListModel{
                             id:month_listModel
                         }
@@ -2379,7 +2381,7 @@ Popup {
                                 height: 30
                                 color: "#00000000"
                                 Text {
-                                    text: "臂架故障次数"
+                                    text: qsTr("臂架故障次数")
                                     anchors.fill: parent
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
@@ -2486,7 +2488,7 @@ Popup {
                                 height: 30
                                 color: "#00000000"
                                 Text {
-                                    text: "底盘故障次数"
+                                    text: qsTr("底盘故障次数")
                                     anchors.fill: parent
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter
@@ -2593,7 +2595,7 @@ Popup {
                                 height: 30
                                 color: "#00000000"
                                 Text {
-                                    text: "泵送故障次数"
+                                    text: qsTr("泵送故障次数")
                                     anchors.fill: parent
                                     horizontalAlignment: Text.AlignHCenter
                                     verticalAlignment: Text.AlignVCenter

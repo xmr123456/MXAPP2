@@ -675,7 +675,7 @@ SystemWindow {
                     }
                     Text{
                         id:thirdpart_copyright_value
-                        text: qsTr("MEasy HMI v2.2 ")
+                        text: qsTr("MEasy HMI v2.0 ")
                         font.pixelSize: 10;
                         font.family: "Microsoft YaHei"
                         color: "white"

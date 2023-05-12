@@ -9,22 +9,22 @@ SystemWindow {
     id: root
     property int adaptive_width: Screen.desktopAvailableWidth
     property int adaptive_height: Screen.desktopAvailableHeight
-    width: mainWnd.width
-    height: mainWnd.height
-//    width: def.win_width
-//    height: def.win_height
-////    color: "black"
-////    title: qsTr("相机")
-////    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
+    width: adaptive_width
+    height: adaptive_height
+    //    width: def.win_width
+    //    height: def.win_height
+    ////    color: "black"
+    ////    title: qsTr("相机")
+    ////    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
 
-//    property bool showFlag: false
+    //    property bool showFlag: false
 
-//    function show(){
-//        open()
-//    }
-//    function showNormal(){
-//        open()
-//    }
+    //    function show(){
+    //        open()
+    //    }
+    //    function showNormal(){
+    //        open()
+    //    }
     onVisibleChanged: {
         if(showFlag == false)
         {
@@ -46,7 +46,7 @@ SystemWindow {
     Camera {
         id: camera
         //相机模式
-//        captureMode: Camera.CaptureStillImage       //静态照片捕捉模式
+        //        captureMode: Camera.CaptureStillImage       //静态照片捕捉模式
         captureMode: Camera.CaptureStillImage
         //白平衡
         imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
@@ -61,7 +61,6 @@ SystemWindow {
 
         //拍照模式配置
         imageCapture {
-
             onImageSaved: console.log("save path:" + path);
             onImageCaptured: bar.img_src = preview
             onCaptureFailed: console.log("capture failed:" + message)
@@ -69,27 +68,27 @@ SystemWindow {
 
         //录像模式配置
         videoRecorder {
-//             resolution: "640x480"
-             frameRate: 30              //帧率
-//             audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
-//             audioBitRate: 128000       //视频比特率
-//             mediaContainer: "mp4"      //视频录制格式
-//             outputLocation: "D:\MYIR\Capture\video_test"        //保存地址
-             onRecorderStateChanged: console.log("state changed")
-             onRecorderStatusChanged: console.log("status changed")
+            //             resolution: "640x480"
+            frameRate: 30              //帧率
+            //             audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
+            //             audioBitRate: 128000       //视频比特率
+            //             mediaContainer: "mp4"      //视频录制格式
+            //             outputLocation: "D:\MYIR\Capture\video_test"        //保存地址
+            onRecorderStateChanged: console.log("state changed")
+            onRecorderStatusChanged: console.log("status changed")
         }
         //对焦模式
-//        focus {
-//            focusMode: Camera.FocusAuto
-//            focusPointMode: Camera.FocusPointCenter
-//        }
+        //        focus {
+        //            focusMode: Camera.FocusAuto
+        //            focusPointMode: Camera.FocusPointCenter
+        //        }
 
         onError: console.log("camera err: " + errorCode + errorString);
         Component.onCompleted: console.log('StackView.onStatusChanged camera.viewfinder.resolution:', camera.viewfinder.resolution)
     }
 
     MVideoOutput {
-    // VideoOutput {
+        // VideoOutput {
         anchors.fill: parent
         source: camera
     }

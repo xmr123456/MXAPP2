@@ -54,7 +54,6 @@ Rectangle {
                 family_font_size = 30
                 app_font_size = 20
             }
-
         }
     }
 
@@ -67,7 +66,6 @@ Rectangle {
         anchors.top: parent.top;
         anchors.topMargin: 20
         color: "transparent";
-
         ListModel{
             id:viewModel;
             ListElement{
@@ -525,8 +523,10 @@ Rectangle {
 
             anchors {
                 horizontalCenter: parent.horizontalCenter
-                bottom: parent.bottom
-                bottomMargin: height * 0.5
+                top: pathViewRect.bottom
+                topMargin: -5
+                //bottom: parent.bottom
+                //bottomMargin: 10
             }
 
             onClicked: {

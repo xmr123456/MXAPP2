@@ -16,7 +16,7 @@ float ChargeManage::start_quick_charging()
     return result;
 }
 
-//开始慢速充电sdsdas
+//开始慢速充电
 float ChargeManage::start_slow_charging()
 {
     float result=get_total_electricity();

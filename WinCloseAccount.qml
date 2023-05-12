@@ -114,7 +114,7 @@ Rectangle{
         width: 150
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.rightMargin: 150
+        anchors.rightMargin: mainWnd.height > 500 ? 150 : 75
         radius: 10
         color: "#00000000"
 
@@ -228,7 +228,7 @@ Rectangle{
                 anchors.fill: parent
                 text: qsTr("充电时长:")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
 
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
@@ -253,7 +253,7 @@ Rectangle{
                 verticalAlignment: Text.AlignVCenter
                 text: ""
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
                 font.underline: true
             }
         }
@@ -274,7 +274,7 @@ Rectangle{
                 anchors.fill: parent
                 text: qsTr("充电电量:")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
 
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
@@ -299,7 +299,7 @@ Rectangle{
                 verticalAlignment: Text.AlignVCenter
                 text: ""
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
                 font.underline: true
             }
         }
@@ -320,7 +320,7 @@ Rectangle{
                 anchors.fill: parent
                 text: qsTr("充电电费:")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
 
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
@@ -345,7 +345,7 @@ Rectangle{
                 verticalAlignment: Text.AlignVCenter
                 text: ""
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
                 font.underline: true
             }
         }
@@ -366,7 +366,7 @@ Rectangle{
                 anchors.fill: parent
                 text: qsTr("充电服务费:")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
 
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
@@ -391,7 +391,7 @@ Rectangle{
                 verticalAlignment: Text.AlignVCenter
                 text: ""
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
                 font.underline: true
             }
         }
@@ -413,7 +413,7 @@ Rectangle{
                 anchors.fill: parent
                 text: qsTr("消费总金额:")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
 
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
@@ -438,7 +438,7 @@ Rectangle{
                 verticalAlignment: Text.AlignVCenter
                 text: ""
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 25
+                font.pixelSize: mainWnd.height > 500 ? 25 : 15
                 font.underline: true
             }
         }

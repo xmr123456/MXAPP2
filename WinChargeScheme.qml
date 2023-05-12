@@ -65,11 +65,11 @@ Rectangle {
         charge_scheme.fee_flag=0
         charge_scheme.time_flag=1
         charge_scheme.choose_fee=0
-        charge_scheme_two_text.text="5小时"
-        charge_scheme_three_text.text="4小时"
-        charge_scheme_four_text.text="3小时"
-        charge_scheme_five_text.text="2小时"
-        charge_scheme_six_text.text="1小时"
+        charge_scheme_two_text.text="5h"
+        charge_scheme_three_text.text="4h"
+        charge_scheme_four_text.text="3h"
+        charge_scheme_five_text.text="2h"
+        charge_scheme_six_text.text="1h"
         update_win()
     }
 
@@ -127,7 +127,7 @@ Rectangle {
         width: 150
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.rightMargin: 150
+        anchors.rightMargin: mainWnd.height > 500 ? 150 : 75
         radius: 10
         color: "#00000000"
 
@@ -228,7 +228,7 @@ Rectangle {
             id:normal_btn
             visible: true
             anchors.fill: parent
-            text: "常规充电"
+            text: qsTr("常规充电")
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.family: "Microsoft YaHei"
@@ -246,7 +246,7 @@ Rectangle {
             onClicked: {
                 if(home_screen.amount===0 || (charge_scheme.fee_flag===1 && charge_scheme.choose_fee>home_screen.amount)){
                     tip_text.visible=true
-                    tip_text.text="余额不足!!!"
+                    tip_text.text=qsTr("余额不足!!!")
                 }
                 else{
                     tip_text.visible=false
@@ -276,7 +276,7 @@ Rectangle {
             id:quick_btn
             visible: true
             anchors.fill: parent
-            text: "快速充电"
+            text: qsTr("快速充电")
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.family: "Microsoft YaHei"
@@ -294,7 +294,7 @@ Rectangle {
             onClicked: {
                 if(home_screen.amount===0 || (charge_scheme.fee_flag===1 && charge_scheme.choose_fee>home_screen.amount)){
                     tip_text.visible=true
-                    tip_text.text="余额不足!!!"
+                    tip_text.text=qsTr("余额不足!!!")
                 }
                 else{
                     tip_text.visible=false
@@ -352,7 +352,7 @@ Rectangle {
             anchors.left: page_top_icon.right
             verticalAlignment: "AlignVCenter"
             horizontalAlignment: "AlignLeft"
-            text: "姓名:许梦燃\t余额:"+String((home_screen.amount).toFixed(2))
+            text: qsTr("姓名:许梦燃")+"\t"+qsTr("余额:")+String((home_screen.amount).toFixed(2))
             color: "white"
             font.family: "Microsoft YaHei"
             font.pixelSize: 20
@@ -378,7 +378,7 @@ Rectangle {
         Label{
             id:charge_title_label
             visible: true
-            text: "充电方案"
+            text: qsTr("充电方案")
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
@@ -388,22 +388,22 @@ Rectangle {
             verticalAlignment: "AlignVCenter"
             horizontalAlignment: "AlignHCenter"
             font.family: "Microsoft YaHei"
-            font.pixelSize: 35
+            font.pixelSize: mainWnd.height > 500 ? 35 : 25
         }
 
         Rectangle{
             id:mode_choose
             visible: true
             height: 0.08*parent.height
-            width: 0.4*parent.width
+            width: (mainWnd.height > 500 ? 0.4 : 0.3)*parent.width
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.topMargin: 10
-            anchors.leftMargin: 25
+            anchors.leftMargin: mainWnd.height > 500 ? 25 : 10
 
             color: "#00000000"
-			
-			/*
+
+            /*
             layer.enabled: true
             layer.effect: OpacityMask {
                 maskSource: Rectangle {
@@ -412,7 +412,7 @@ Rectangle {
                     radius: mode_choose.radius
                 }
             }
-			*/
+            */
 
             Rectangle{
                 id:mode_fee
@@ -427,9 +427,9 @@ Rectangle {
                     anchors.fill: parent
                     verticalAlignment: "AlignVCenter"
                     horizontalAlignment: "AlignHCenter"
-                    text: "按金额充电"
+                    text: qsTr("按金额充电")
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 25
+                    font.pixelSize: mainWnd.height > 500 ? 25 : 15
                     color: "white"
                 }
 
@@ -456,9 +456,9 @@ Rectangle {
                     anchors.fill: parent
                     verticalAlignment: "AlignVCenter"
                     horizontalAlignment: "AlignHCenter"
-                    text: "按时间充电"
+                    text: qsTr("按时间充电")
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 25
+                    font.pixelSize: mainWnd.height > 500 ? 25 : 15
                     color: "white"
                 }
 
@@ -495,7 +495,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -536,7 +536,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -580,7 +580,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -623,7 +623,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -667,7 +667,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 
@@ -711,7 +711,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 40
+                font.pixelSize: mainWnd.height > 500 ? 40 : 35
                 color: "white"
             }
 

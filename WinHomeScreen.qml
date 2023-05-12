@@ -22,12 +22,12 @@ Rectangle {
             if(charge_Wd.server_open_flag===1){
                 server_104.color="#FA9D40"
                 charge_Wd.server_open_flag=1
-                server_104_text.text="关闭104服务端"
+                server_104_text.text=qsTr("关闭104服务端")
             }
             else{
                 server_104.color="#2453A1"
                 charge_Wd.server_open_flag=0
-                server_104_text.text="启动104服务端"
+                server_104_text.text=qsTr("启动104服务端")
             }
 
             sign_init()
@@ -59,8 +59,8 @@ Rectangle {
         sign_in_section_title.visible=false
         sign_in_section_image.visible=false
         sign_in_account_image.visible=true
-        label_1_text.text="姓名:许梦燃"
-        label_2_text.text="余额:¥"+String((home_screen.amount).toFixed(2))
+        label_1_text.text=qsTr("姓名:许梦燃")
+        label_2_text.text=qsTr("余额:¥")+String((home_screen.amount).toFixed(2))
         label_1.visible=true
         label_2.visible=true
         btn_log_out.visible=true
@@ -112,7 +112,7 @@ Rectangle {
         width: 150
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.rightMargin: 150
+        anchors.rightMargin: mainWnd.height > 500 ? 150 : 75
         radius: 10
         color: "#00000000"
 
@@ -166,7 +166,7 @@ Rectangle {
     Rectangle{
         id:server_104
         visible: true
-        width: 180
+        width: mainWnd.height > 500 ? 180 : 150
         height: 40
         anchors.left: parent.left
         anchors.bottom: parent.bottom
@@ -181,7 +181,7 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             font.family: "Microsoft YaHei"
-            font.pixelSize: 20
+            font.pixelSize: mainWnd.height > 500 ? 20 : 18
             color: "white"
         }
 
@@ -197,19 +197,19 @@ Rectangle {
                     if(result1===1){
                         server_104.color="#FA9D40"
                         charge_Wd.server_open_flag=1
-                        server_104_text.text="关闭104服务端"
+                        server_104_text.text=qsTr("关闭104服务端")
                     }
                     else{
                         server_104.color="#2453A1"
                         charge_Wd.server_open_flag=0
-                        server_104_text.text="启动104服务端"
+                        server_104_text.text=qsTr("启动104服务端")
                     }
                 }
                 else{
                     var result2=charge104_c.close_server
                     server_104.color="#28529C"
                     charge_Wd.server_open_flag=0
-                    server_104_text.text="启动104服务端"
+                    server_104_text.text=qsTr("启动104服务端")
                 }
             }
         }
@@ -253,7 +253,7 @@ Rectangle {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 30
+                    font.pixelSize: mainWnd.height > 500 ? 30 : 25
                 }
             }
 
@@ -268,7 +268,7 @@ Rectangle {
                 anchors.leftMargin: (parent.width-width)/2
                 radius: 30
                 color: "#00000000"
-				/*
+                /*
                 layer.enabled: true
                 layer.effect: OpacityMask {
                     maskSource: Rectangle {
@@ -277,7 +277,7 @@ Rectangle {
                         radius: connect_gun_section_image.radius
                     }
                 }
-				*/
+                */
 
                 Image {
                     id:pile_imgae
@@ -291,7 +291,7 @@ Rectangle {
                 id:connect_gun_section_btn
                 visible: true
                 width: 0.4*connect_gun_section_image.width
-                height: 0.2*connect_gun_section_image.height
+                height: (mainWnd.height > 500 ? 0.25 : 0.2)*connect_gun_section_image.height
                 anchors.top: connect_gun_section_image.bottom
                 anchors.left: parent.left
                 anchors.topMargin: 15
@@ -303,11 +303,11 @@ Rectangle {
                 Text{
                     visible: true
                     anchors.fill: parent
-                    text: "确认连接"
+                    text: qsTr("确认连接")
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 25
+                    font.pixelSize: mainWnd.height > 500 ? 25 : 18
                     color: "white"
                 }
 
@@ -330,7 +330,7 @@ Rectangle {
             Label{
                 id:tip_text
                 visible: false
-                height: 50
+                height: mainWnd.height > 500 ? 50 : 30
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: connect_gun_section_btn.bottom
@@ -338,9 +338,9 @@ Rectangle {
                 verticalAlignment: "AlignVCenter"
                 horizontalAlignment: "AlignHCenter"
 
-                text: "请先进行扫码登录"
+                text: qsTr("请先进行扫码登录")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 20
+                font.pixelSize: mainWnd.height > 500 ? 20 : 12
                 color: "red"
             }
         }
@@ -373,7 +373,7 @@ Rectangle {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 30
+                    font.pixelSize: mainWnd.height > 500 ? 30 : 25
                 }
             }
 
@@ -388,7 +388,7 @@ Rectangle {
                 anchors.leftMargin: (parent.width-width)/2
                 radius: 30
                 color: "#00000000"
-				/*
+                /*
                 layer.enabled: true
                 layer.effect: OpacityMask {
                     maskSource: Rectangle {
@@ -397,7 +397,7 @@ Rectangle {
                         radius: sign_in_section_icon.radius
                     }
                 }
-				*/
+                */
                 Image {
                     id:sign_in_section_image
                     visible: true
@@ -432,7 +432,7 @@ Rectangle {
                 anchors.leftMargin: (parent.width-width)/2
                 radius: 30
                 color: "#00000000"
-				/*
+                /*
                 layer.enabled: true
                 layer.effect: OpacityMask {
                     maskSource: Rectangle {
@@ -441,7 +441,7 @@ Rectangle {
                         radius: sign_in_account_icon.radius
                     }
                 }
-				*/
+                */
 
                 Image {
                     id: sign_in_account_image
@@ -455,17 +455,17 @@ Rectangle {
                     visible: false
                     anchors.bottom: sign_in_account_icon.bottom
                     anchors.left: sign_in_account_icon.left
-                    anchors.bottomMargin: 25
+                    anchors.bottomMargin: 5
                     anchors.leftMargin: 0.2*parent.width
                     horizontalAlignment: "AlignHCenter"
                     verticalAlignment: "AlignVCenter"
                     Text {
                         id: label_1_text
-                        text: "姓名:许梦燃"
+                        text: qsTr("姓名:许梦燃")
                         anchors.fill: parent
                         color: "black"
                         font.family: "Microsoft YaHei"
-                        font.pixelSize: 20
+                        font.pixelSize: mainWnd.height > 500 ? 20 : 12
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
@@ -477,16 +477,16 @@ Rectangle {
                     visible: false
                     anchors.bottom: sign_in_account_icon.bottom
                     anchors.right: sign_in_account_icon.right
-                    anchors.bottomMargin: 25
+                    anchors.bottomMargin: mainWnd.height > 500 ? 25 : 5
                     anchors.rightMargin: 0.2*parent.width
                     horizontalAlignment: "AlignHCenter"
                     verticalAlignment: "AlignVCenter"
                     Text {
                         id: label_2_text
-                        text: "账户余额:¥100.00"
+                        text: qsTr("账户余额:¥100.00")
                         color: "black"
                         font.family: "Microsoft YaHei"
-                        font.pixelSize: 20
+                        font.pixelSize: mainWnd.height > 500 ? 20 : 12
                         anchors.fill:parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
@@ -508,11 +508,11 @@ Rectangle {
                 Text{
                     visible: true
                     anchors.fill: parent
-                    text: "退出登录"
+                    text: qsTr("退出登录")
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 25
+                    font.pixelSize: mainWnd.height > 500 ? 25 : 18
                     color: "white"
                 }
 
@@ -540,11 +540,11 @@ Rectangle {
                 Text{
                     visible: true
                     anchors.fill: parent
-                    text: "充值余额"
+                    text: qsTr("充值余额")
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: 25
+                    font.pixelSize: mainWnd.height > 500 ? 25 : 18
                     color: "white"
                 }
 
