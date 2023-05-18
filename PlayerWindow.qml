@@ -1,10 +1,9 @@
 import QtQuick 2.0
-import QtMultimedia 5.9
+import QtMultimedia 5.12
 import QtQuick.Dialogs 1.3
 import Qt.labs.folderlistmodel 2.2
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
-
 import mvideooutput 1.0
 
 SystemWindow {

@@ -455,7 +455,7 @@ Rectangle {
                     visible: false
                     anchors.bottom: sign_in_account_icon.bottom
                     anchors.left: sign_in_account_icon.left
-                    anchors.bottomMargin: 5
+                    anchors.bottomMargin: mainWnd.height > 500 ? 25 : 5
                     anchors.leftMargin: 0.2*parent.width
                     horizontalAlignment: "AlignHCenter"
                     verticalAlignment: "AlignVCenter"
