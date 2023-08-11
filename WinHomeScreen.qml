@@ -141,7 +141,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Microsoft YaHei"
-                font.pixelSize: 15
+                font.pointSize: 10
                 text: qsTr("")
             }
         }
@@ -181,7 +181,7 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             font.family: "Microsoft YaHei"
-            font.pixelSize: mainWnd.height > 500 ? 20 : 18
+            font.pointSize: mainWnd.height > 500 ? 20 : 12
             color: "white"
         }
 
@@ -253,7 +253,7 @@ Rectangle {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: mainWnd.height > 500 ? 30 : 25
+                    font.pointSize: mainWnd.height > 500 ? 30 : 12
                 }
             }
 
@@ -307,7 +307,7 @@ Rectangle {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: mainWnd.height > 500 ? 25 : 18
+                    font.pointSize: mainWnd.height > 500 ? 25 : 10
                     color: "white"
                 }
 
@@ -340,7 +340,7 @@ Rectangle {
 
                 text: qsTr("请先进行扫码登录")
                 font.family: "Microsoft YaHei"
-                font.pixelSize: mainWnd.height > 500 ? 20 : 12
+                font.pointSize: mainWnd.height > 500 ? 20 : 8
                 color: "red"
             }
         }
@@ -373,7 +373,7 @@ Rectangle {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: mainWnd.height > 500 ? 30 : 25
+                    font.pointSize: mainWnd.height > 500 ? 30 : 12
                 }
             }
 
@@ -465,7 +465,7 @@ Rectangle {
                         anchors.fill: parent
                         color: "black"
                         font.family: "Microsoft YaHei"
-                        font.pixelSize: mainWnd.height > 500 ? 20 : 12
+                        font.pointSize: mainWnd.height > 500 ? 16 : 6
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
@@ -486,7 +486,7 @@ Rectangle {
                         text: qsTr("账户余额:¥100.00")
                         color: "black"
                         font.family: "Microsoft YaHei"
-                        font.pixelSize: mainWnd.height > 500 ? 20 : 12
+                        font.pointSize: mainWnd.height > 500 ? 16 : 6
                         anchors.fill:parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
@@ -512,7 +512,7 @@ Rectangle {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: mainWnd.height > 500 ? 25 : 18
+                    font.pointSize: mainWnd.height > 500 ? 25 : 10
                     color: "white"
                 }
 
@@ -544,7 +544,7 @@ Rectangle {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pixelSize: mainWnd.height > 500 ? 25 : 18
+                    font.pointSize: mainWnd.height > 500 ? 25 : 10
                     color: "white"
                 }
 

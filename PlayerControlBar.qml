@@ -2,7 +2,6 @@
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Styles 1.4
-import QtMultimedia 5.0
 
 Rectangle {
     id: root

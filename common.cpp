@@ -117,7 +117,6 @@ void GetSystemInfo::wifi_close()
     command = "ifconfig wlan0 down";
     msic_process->start(command);
     msic_process->waitForFinished();
-
 }
 void GetSystemInfo::connect_wifi(QString essid_passwd)
 {

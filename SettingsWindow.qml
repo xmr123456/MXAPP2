@@ -6,7 +6,7 @@ import QtQuick.VirtualKeyboard 2.2
 import QtQuick.VirtualKeyboard.Settings 2.2
 import QtQuick.VirtualKeyboard.Styles 2.2
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0 as Controls
+import QtQuick.Controls 2.3 as Controls
 import QtQuick.Window 2.2
 SystemWindow {
     id: settingsWindow

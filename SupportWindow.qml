@@ -11,8 +11,8 @@ Popup {
     closePolicy: Popup.NoAutoClose
     property int adaptive_width: Screen.desktopAvailableWidth
     property int adaptive_height: Screen.desktopAvailableHeight
-    width: mainWnd.width
-    height: mainWnd.height
+    width: Screen.desktopAvailableWidth
+    height: Screen.desktopAvailableHeight
 
 //    FontLoader { id: bahnschriftFont; source: "qrc:/fonts/Bahnschrift.ttf" }
 

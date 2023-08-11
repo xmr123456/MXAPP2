@@ -1,30 +1,29 @@
 import QtQuick 2.5
+import mvideooutput 1.0
 import QtMultimedia 5.6
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.2
-import mvideooutput 1.0
-
 SystemWindow {
     id: root
     property int adaptive_width: Screen.desktopAvailableWidth
     property int adaptive_height: Screen.desktopAvailableHeight
     width: adaptive_width
     height: adaptive_height
-    //    width: def.win_width
-    //    height: def.win_height
-    ////    color: "black"
-    ////    title: qsTr("相机")
-    ////    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
+//    width: def.win_width
+//    height: def.win_height
+////    color: "black"
+////    title: qsTr("相机")
+////    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
 
-    //    property bool showFlag: false
+//    property bool showFlag: false
 
-    //    function show(){
-    //        open()
-    //    }
-    //    function showNormal(){
-    //        open()
-    //    }
+//    function show(){
+//        open()
+//    }
+//    function showNormal(){
+//        open()
+//    }
     onVisibleChanged: {
         if(showFlag == false)
         {
@@ -45,13 +44,18 @@ SystemWindow {
 
     Camera {
         id: camera
+        //deviceId: Qtmultimedia.defaultCamera.deviceId
+        deviceId: "/dev/video0" 
+        cameraState: Camera.LoadedState
+
         //相机模式
-        //        captureMode: Camera.CaptureStillImage       //静态照片捕捉模式
-        captureMode: Camera.CaptureStillImage
+//        captureMode: Camera.CaptureStillImage       //静态照片捕捉模式
+//        captureMode: Camera.CaptureStillImage
         //白平衡
         imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
         //分辨率
-        viewfinder.resolution: "320x240"
+        //viewfinder.resolution: "320x240"
+        viewfinder.resolution: "640x480"
         flash.mode: Camera.FlashRedEyeReduction
         //曝光
         exposure {
@@ -61,6 +65,7 @@ SystemWindow {
 
         //拍照模式配置
         imageCapture {
+
             onImageSaved: console.log("save path:" + path);
             onImageCaptured: bar.img_src = preview
             onCaptureFailed: console.log("capture failed:" + message)
@@ -68,27 +73,26 @@ SystemWindow {
 
         //录像模式配置
         videoRecorder {
-            //             resolution: "640x480"
-            frameRate: 30              //帧率
-            //             audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
-            //             audioBitRate: 128000       //视频比特率
-            //             mediaContainer: "mp4"      //视频录制格式
-            //             outputLocation: "D:\MYIR\Capture\video_test"        //保存地址
-            onRecorderStateChanged: console.log("state changed")
-            onRecorderStatusChanged: console.log("status changed")
+//             resolution: "640x480"
+             frameRate: 30              //帧率
+//             audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
+//             audioBitRate: 128000       //视频比特率
+//             mediaContainer: "mp4"      //视频录制格式
+//             outputLocation: "D:\MYIR\Capture\video_test"        //保存地址
+             onRecorderStateChanged: console.log("state changed")
+             onRecorderStatusChanged: console.log("status changed")
         }
         //对焦模式
-        //        focus {
-        //            focusMode: Camera.FocusAuto
-        //            focusPointMode: Camera.FocusPointCenter
-        //        }
+//        focus {
+//            focusMode: Camera.FocusAuto
+//            focusPointMode: Camera.FocusPointCenter
+//        }
 
         onError: console.log("camera err: " + errorCode + errorString);
         Component.onCompleted: console.log('StackView.onStatusChanged camera.viewfinder.resolution:', camera.viewfinder.resolution)
     }
 
     MVideoOutput {
-        // VideoOutput {
         anchors.fill: parent
         source: camera
     }
