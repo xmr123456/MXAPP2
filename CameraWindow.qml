@@ -1,3 +1,22 @@
+/***********************************************************************
+ *  This file is part of MXAPP2
+
+    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+***********************************************************************/
+
 import QtQuick 2.5
 import mvideooutput 1.0
 import QtMultimedia 5.6
@@ -10,20 +29,7 @@ SystemWindow {
     property int adaptive_height: Screen.desktopAvailableHeight
     width: adaptive_width
     height: adaptive_height
-//    width: def.win_width
-//    height: def.win_height
-////    color: "black"
-////    title: qsTr("相机")
-////    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
-
-//    property bool showFlag: false
-
-//    function show(){
-//        open()
-//    }
-//    function showNormal(){
-//        open()
-//    }
+	
     onVisibleChanged: {
         if(showFlag == false)
         {
@@ -34,28 +40,27 @@ SystemWindow {
     }
     onAboutToHide: {
         showFlag = false
-        camera.stop()
     }
 
-    Component.onCompleted: camera.stop()
+    //Component.onCompleted: camera.stop()
 
     Define {id: def}
     Album {id: w_album}
 
     Camera {
         id: camera
-        //deviceId: Qtmultimedia.defaultCamera.deviceId
-        deviceId: "/dev/video0" 
+        deviceId: Qtmultimedia.defaultCamera.deviceId
+        //deviceId: "/dev/video0" 
         cameraState: Camera.LoadedState
 
         //相机模式
-//        captureMode: Camera.CaptureStillImage       //静态照片捕捉模式
-//        captureMode: Camera.CaptureStillImage
+        captureMode: Camera.CaptureStillImage       //静态照片捕捉模式
         //白平衡
         imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
         //分辨率
-        //viewfinder.resolution: "320x240"
-        viewfinder.resolution: "640x480"
+        viewfinder.resolution: "1920x1080"
+        viewfinder.maximumFrameRate: 10
+        viewfinder.minimumFrameRate: 10
         flash.mode: Camera.FlashRedEyeReduction
         //曝光
         exposure {
@@ -65,7 +70,6 @@ SystemWindow {
 
         //拍照模式配置
         imageCapture {
-
             onImageSaved: console.log("save path:" + path);
             onImageCaptured: bar.img_src = preview
             onCaptureFailed: console.log("capture failed:" + message)
@@ -92,7 +96,7 @@ SystemWindow {
         Component.onCompleted: console.log('StackView.onStatusChanged camera.viewfinder.resolution:', camera.viewfinder.resolution)
     }
 
-    MVideoOutput {
+    VideoOutput {
         anchors.fill: parent
         source: camera
     }
@@ -109,7 +113,6 @@ SystemWindow {
         anchors.top: parent.top
         anchors.margins: 10
         onClicked: {
-            camera.stop()
             root.close()
         }
     }

@@ -1,9 +1,29 @@
+/***********************************************************************
+ *  This file is part of MXAPP2
+
+    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+***********************************************************************/
+
 #include <QApplication>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QFontDatabase>
 #include <QFont>
 #include <QTimer>
+#include <QDBusConnection>
 #include <QDateTime>
 #include "qmlplot.h"
 #include "common.h"
@@ -14,6 +34,7 @@
 #include "ChargeManage.h"
 #include "Charge104.h"
 #include "ClearCache.h"
+#include <QTime>
 
 using namespace std;
 using namespace MQP;
@@ -32,10 +53,12 @@ void iconFontInit()
 
 int main(int argc, char *argv[])
 {
-
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
+
     QApplication app(argc, argv);
 
+    QDBusConnection bus = QDBusConnection::sessionBus();
+    bus.registerService("myir.cn.mxapp");
 
     app.setOrganizationName("MYiR_Electronics");
     app.setApplicationName("MEasy_HMI");
@@ -64,6 +87,5 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
-
     return app.exec();
 }

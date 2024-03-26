@@ -1,10 +1,29 @@
+/***********************************************************************
+ *  This file is part of MXAPP2
+
+    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+***********************************************************************/
+
 import QtQuick 2.7
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 //import QtGraphicalEffects 1.0
 //import QtQml.Models 2.1
-import Qt.labs.settings 1.1
+import Qt.labs.settings 1.0
 
 //#02b9db home界面小图片背景色
 
@@ -89,12 +108,14 @@ Rectangle {
                         aqml: "CameraWindow.qml"
                         acolor: "#02b9db"
                     },
+					/*
                     ListElement {
                         aimage:"qrc:/images/wvga/home/media_icon_video_nor.png"
                         application: qsTr("播放器")
                         aqml:"PlayerWindow.qml"
                         acolor:"#02b9db"
                     },
+					*/
                     ListElement {
                         aimage:"qrc:/images/wvga/home/icon_music.png"
                         application: qsTr("音乐")
@@ -449,13 +470,16 @@ Rectangle {
                                     //                                        }
 
                                     // 第二种方式加载
+									/*
                                     if(model.aqml === "PlayerWindow.qml"){
                                         //                                            playerWnd.forceActiveFocus()
                                         //                                            playerWnd.z=4;
                                         mainloader.source = "PlayerWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
-                                    }else if(model.aqml === "CameraWindow.qml"){
+                                    }else 
+									*/
+									if(model.aqml === "CameraWindow.qml"){
                                         //                                            cameraWnd.forceActiveFocus()
                                         //                                            cameraWnd.z=4;
                                         mainloader.source = "CameraWindow.qml"

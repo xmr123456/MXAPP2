@@ -1,3 +1,22 @@
+/***********************************************************************
+ *  This file is part of MXAPP2
+
+    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+***********************************************************************/
+
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
@@ -311,7 +330,7 @@ Popup {
                      anchors.horizontalCenter: parent.horizontalCenter
                      anchors.margins: adaptive_height/48
                      anchors.top: img3.bottom
-                     text: qsTr("www.myir-tech.com")
+                     text: qsTr("www.myir.cn")
                      horizontalAlignment: Text.AlignHCenter
                      color: "#dcdde4";
                      font.family: "Microsoft YaHei";//bahnschriftFont.name;//
@@ -353,7 +372,7 @@ Popup {
                      anchors.left: img4.right
                      anchors.margins: adaptive_height/48
                      anchors.top: txt41.bottom
-                     text: qsTr("sales.cn@myirtech.com")
+                     text: qsTr("sales.cn@myir.cn")
                      horizontalAlignment: Text.AlignHCenter
                      color: "#dcdde4";
                      font.family: "Microsoft YaHei";//bahnschriftFont.name;//
@@ -366,7 +385,7 @@ Popup {
                      anchors.left: img4.right
                      anchors.margins: adaptive_height/48
                      anchors.top: txt42.bottom
-                     text: qsTr("project@myirtech.com")
+                     text: qsTr("project@myir.cn")
                      horizontalAlignment: Text.AlignHCenter
                      color: "#dcdde4";
                      font.family: "Microsoft YaHei";//bahnschriftFont.name;//
@@ -409,7 +428,7 @@ Popup {
                      anchors.left: img5.right
                      anchors.margins: adaptive_height/48
                      anchors.top: txt51.bottom
-                     text: qsTr("support.cn@myirtech.com")
+                     text: qsTr("support.cn@myir.cn")
                      horizontalAlignment: Text.AlignHCenter
                      color: "#dcdde4";
                      font.family: "Microsoft YaHei";//bahnschriftFont.name;//
@@ -444,7 +463,7 @@ Popup {
                      anchors.left: parent.left
                      anchors.leftMargin: 10
                      anchors.verticalCenter: parent.verticalCenter
-                     source: "qrc:/images/wvga/home/myir_sales_mail.png"
+                     source: "qrc:/images/wvga/home/myir_address.png"
                  }
                  Text {
                      id:txt61

@@ -1,3 +1,22 @@
+/***********************************************************************
+ *  This file is part of MXAPP2
+
+    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+***********************************************************************/
+
 import QtQuick 2.6
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Styles 1.4
@@ -346,7 +365,6 @@ SystemWindow {
                                         combox_sec.combox_control.currentText + " " + combox_year.combox_control.currentText + " " +
                                         combox_mon.combox_control.currentText + " " +combox_day.combox_control.currentText
                                 getSyetemInfo.set_date(date_string)
-
                             }
                             onExited:{
                                save_button_rec.opacity = 1.0
@@ -382,11 +400,8 @@ SystemWindow {
                         font.bold: true
                         color: "white"
                         anchors{
-
                             left: parent.left
                             leftMargin: 30
-
-
                         }
                     }
 
@@ -909,7 +924,7 @@ SystemWindow {
                                        {
                                            if(wifi_list_model.get(m).signal > wifi_list_model.get(n).signal)
                                                wifi_list_model.move(m,n,1)
-//                                           break
+//                                           	break
                                        }
                                    }
 
@@ -933,7 +948,7 @@ SystemWindow {
                                 else
                                     wifi_list_model.setProperty(k, "wifi_connect_status", qsTr("未启用"))
                             }
-//                            console.log("Received ++: " +wifi_essid_info)
+//                          console.log("Received ++: " +wifi_essid_info)
                         }
                     }
                     Component {
@@ -1003,12 +1018,9 @@ SystemWindow {
                                     }
                                 }
                                 anchors{
-
                                     left:parent.left
                                     leftMargin: 100
-
                                 }
-
                             }
                             Image {
                                 id: key_icon
@@ -1066,7 +1078,6 @@ SystemWindow {
 
                                         centerIn:parent
                                     }
-
                                 }
 
                                 MouseArea{

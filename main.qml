@@ -1,8 +1,27 @@
+/***********************************************************************
+ *  This file is part of MXAPP2
+
+    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+***********************************************************************/
+
 import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
-import Qt.labs.settings 1.1
+import Qt.labs.settings 1.0
 import ChargeManage 1.0
 import Charge104 1.0
 import GetSystemInfoAPI 1.0
@@ -10,10 +29,12 @@ ApplicationWindow {
     id: mainWnd
     visible: true
     visibility: Window.FullScreen
-//    width: Screen.desktopAvailableWidth
-//    height: Screen.desktopAvailableHeight
+    //width: Screen.desktopAvailableWidth
+    //height: Screen.desktopAvailableHeight
     title: qsTr("Hello World")
-
+    property int pressX: -1
+    property int pressY: -1
+   // property bool positionflag: false
     background: Image{
             source: "images/wvga/home/background-dark.png"
         }
@@ -101,8 +122,54 @@ ApplicationWindow {
     Loader{
         id:mainloader;
         anchors.centerIn: parent;
-
+        anchors.fill: parent
     }
+/*
+Rectangle{
+        id:btn_return
+        width: 100
+        height: 100
+        radius: 50
+        color: Qt.rgba(128/255,128/255,128/255,1);
+        x:width/2
+        y:height/2
+
+        MouseArea{
+            id:btn_return_mousearea
+            anchors.fill: parent
+            hoverEnabled: true
+            acceptedButtons: Qt.LeftButton
+            onReleased: {
+                if(!positionflag)
+                    mainWnd.close()
+                else
+                    positionflag = false
+            }
+            onPressed: {
+                pressX = mouse.x
+                pressY = mouse.y
+
+                console.log(pressX)
+                console.log(pressY)
+            }
+
+            onPositionChanged: {
+                if(!positionflag)
+                    positionflag = true
+                if(btn_return_mousearea.pressed){
+                    console.log("x:"+mouse.x)
+                    console.log("y:"+mouse.y)
+                    if(mouse.x > 0 || mouse.y > 0){
+                        //btn_return.mapToGlobal(btn_return.x + (mouse.x - pressX),btn_return.y + (mouse.y - pressY))
+                        btn_return.x = btn_return.x + (mouse.x - pressX)
+                        btn_return.y = btn_return.y + (mouse.y - pressY)
+                    }
+                }
+            }
+        }
+    }
+*/
+
 //    Loader{
 //        id:settingsWnd;
 //        anchors.centerIn: parent;

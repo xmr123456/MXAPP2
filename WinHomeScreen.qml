@@ -1,3 +1,22 @@
+/***********************************************************************
+ *  This file is part of MXAPP2
+
+    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+***********************************************************************/
+
 import QtGraphicalEffects 1.0
 import QtQuick 2.7
 import QtQuick.Window 2.2
@@ -181,7 +200,7 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             font.family: "Microsoft YaHei"
-            font.pointSize: mainWnd.height > 500 ? 20 : 12
+            font.pointSize: mainWnd.height > 500 ? 18 : 8
             color: "white"
         }
 
@@ -253,7 +272,7 @@ Rectangle {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     font.family: "Microsoft YaHei"
-                    font.pointSize: mainWnd.height > 500 ? 30 : 12
+                    font.pointSize: mainWnd.height > 500 ? 25 : 12
                 }
             }
 
@@ -307,7 +326,7 @@ Rectangle {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pointSize: mainWnd.height > 500 ? 25 : 10
+                    font.pointSize: mainWnd.height > 500 ? 18 : 8
                     color: "white"
                 }
 
@@ -340,7 +359,7 @@ Rectangle {
 
                 text: qsTr("请先进行扫码登录")
                 font.family: "Microsoft YaHei"
-                font.pointSize: mainWnd.height > 500 ? 20 : 8
+                font.pointSize: mainWnd.height > 500 ? 18 : 8
                 color: "red"
             }
         }
@@ -373,7 +392,7 @@ Rectangle {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     font.family: "Microsoft YaHei"
-                    font.pointSize: mainWnd.height > 500 ? 30 : 12
+                    font.pointSize: mainWnd.height > 500 ? 25 : 12
                 }
             }
 
@@ -465,7 +484,7 @@ Rectangle {
                         anchors.fill: parent
                         color: "black"
                         font.family: "Microsoft YaHei"
-                        font.pointSize: mainWnd.height > 500 ? 16 : 6
+                        font.pointSize: mainWnd.height > 500 ? 12 : 6
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
@@ -486,7 +505,7 @@ Rectangle {
                         text: qsTr("账户余额:¥100.00")
                         color: "black"
                         font.family: "Microsoft YaHei"
-                        font.pointSize: mainWnd.height > 500 ? 16 : 6
+                        font.pointSize: mainWnd.height > 500 ? 12 : 6
                         anchors.fill:parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
@@ -512,7 +531,7 @@ Rectangle {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pointSize: mainWnd.height > 500 ? 25 : 10
+                    font.pointSize: mainWnd.height > 500 ? 18 : 8
                     color: "white"
                 }
 
@@ -544,7 +563,7 @@ Rectangle {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.family: "Microsoft YaHei"
-                    font.pointSize: mainWnd.height > 500 ? 25 : 10
+                    font.pointSize: mainWnd.height > 500 ? 18 : 8
                     color: "white"
                 }
 
