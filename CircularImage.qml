@@ -21,7 +21,7 @@
 ***********************************************************************/
 
 import QtQuick 2.6
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 //圆角图片
 Rectangle {

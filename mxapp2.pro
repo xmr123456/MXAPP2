@@ -1,5 +1,4 @@
 QT += qml quick core gui printsupport testlib quickcontrols2 multimedia multimediawidgets
-QT += dbus
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 CONFIG += qcamera-v4l2

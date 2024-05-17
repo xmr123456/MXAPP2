@@ -134,7 +134,9 @@ void GetSystemInfo::wifi_open()
 		msic_process->start(command);
 		msic_process->waitForFinished();
 	}
-	command = "wpa_cli -i mlan0 scan_result";
+    command = "wpa_supplicant -Dnl80211 -iwlan0 -c/etc/wpa_supplicant.conf -B";
+    wifi_process->start(command);
+    command = "wpa_cli -i mlan0 scan_result";
     wifi_process->start(command);
 }
 void GetSystemInfo::wifi_close()

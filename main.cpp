@@ -23,7 +23,6 @@
 #include <QFontDatabase>
 #include <QFont>
 #include <QTimer>
-#include <QDBusConnection>
 #include <QDateTime>
 #include "qmlplot.h"
 #include "common.h"
@@ -56,9 +55,6 @@ int main(int argc, char *argv[])
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
     QApplication app(argc, argv);
-
-    QDBusConnection bus = QDBusConnection::sessionBus();
-    bus.registerService("myir.cn.mxapp");
 
     app.setOrganizationName("MYiR_Electronics");
     app.setApplicationName("MEasy_HMI");
