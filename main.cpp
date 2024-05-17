@@ -1,7 +1,7 @@
 /***********************************************************************
  *  This file is part of MXAPP2
 
-    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+    Copyright (C) 2020-2024
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

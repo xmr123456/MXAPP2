@@ -1,7 +1,7 @@
 /***********************************************************************
  *  This file is part of MXAPP2
 
-    Copyright (C) 2020-2024 XuMR <2801739946@qq.com>
+    Copyright (C) 2020-2024
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -13,8 +13,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    Additional permission under GNU Lesser General Public License version 3.0
+    See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.
 ***********************************************************************/
 
 import QtQuick 2.0
@@ -64,7 +64,7 @@ Popup {
             color: "white"
             font.pixelSize: 16
             font.bold: true
-            text: qsTr("Copyright (C) 2020-2024 XuMR <2801739946@qq.com>\n
+            text: qsTr("Copyright (C) 2020-2024\n
 This program is free software: you can redistribute it and/or modify\n
 it under the terms of the GNU General Public License as published by\n
 the Free Software Foundation, either version 3 of the License, or\n
@@ -76,7 +76,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n
 GNU General Public License for more details.\n\n
 
 You should have received a copy of the GNU General Public License\n
-along with this program.  If not, see <https://www.gnu.org/licenses/>.")
+along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n
+
+Additional permission under GNU Lesser General Public License version 3.0\n
+See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.")
         }
     }
 
