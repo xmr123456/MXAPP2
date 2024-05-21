@@ -52,7 +52,7 @@ SystemWindow {
     FileBrowser {
         id: imageFileBrowser
         folder:"file:///"
-	anchors.top:leftBar.buttom
+	anchors.top:leftBar.bottom
 	anchors.bottom:parent.bottom
 	anchors.left:parent.left
 	anchors.right:parent.right
