@@ -62,7 +62,7 @@ void Translator::loadLanguage(QString lang)
             QApplication::installTranslator(m_translator);
             m_current_language = "English" ;
             emit languageChanged("English");
-            //m_engine->retranslate();
+            m_engine->retranslate();
         }
         else
         {
@@ -76,7 +76,7 @@ void Translator::loadLanguage(QString lang)
             QApplication::installTranslator(m_translator);
             m_current_language = "Chinese" ;
             emit languageChanged("Chinese");
-            //m_engine->retranslate();
+            m_engine->retranslate();
         }
         else
         {
