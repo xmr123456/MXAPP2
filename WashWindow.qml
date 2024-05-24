@@ -17,14 +17,12 @@
     See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.
 ***********************************************************************/
 
-import QtQuick 2.6
+import QtQuick 2.5
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.2
 SystemWindow {
     id: washWindow
-//    title: "Wash"
-//    flags:Qt.FramelessWindowHint
 
     property int mode: -1; // 当前洗涤模式
 
@@ -136,15 +134,6 @@ SystemWindow {
         washing.step = washing.progress
         console.log("Currenttime:"+ currenttime+" elaspedtime:"+elapsedtime+" Totaltime:"+totaltime +" Progress:"+washing.progress)
 
-//        console.log("time0 is "+ time0)
-//        console.log("time1 is "+ time1)
-//        console.log("time2 is "+ time2)
-//        console.log("time3 is "+ time3)
-//        console.log("time4 is "+ time4)
-//        console.log("time5 is "+ time5)
-//        console.log("time6 is "+ time6)
-
-
         if((0<elapsedtime)&&(elapsedtime<time0))
         {
             washing.txt=qsTr("正在加水")
@@ -228,9 +217,9 @@ SystemWindow {
     }
 
     function disable_modes(){
-         for(var i=0; i< modes.count;++i){
-             modes.itemAt(i).state="OFF"
-         }
+        for(var i=0; i< modes.count;++i){
+            modes.itemAt(i).state="OFF"
+        }
     }
 
     function enable_mode(index){
@@ -241,7 +230,7 @@ SystemWindow {
         }
     }
 
-// 预计总时间
+    // 预计总时间
     function get_total_time(){
         totaltime = (totalwatertime+totaltemeraturetime+totalwashtime+totalrinsetime+totaldehydrationtime+totaldrytime+totalarragetime)
         return totaltime;
@@ -250,14 +239,14 @@ SystemWindow {
     property int adaptive_height: Screen.desktopAvailableHeight
     width: adaptive_width
     height: adaptive_height
-//  background:
-        Image {
+    //  background:
+    Image {
         id: washbg
         anchors.fill: parent
         source: "qrc:/images/wvga/smart/wash_bg.png"
     }
 
-//    FontLoader { id: localFont; source: "fonts/DIGITAL/DS-DIGIB.TTF" }
+    //    FontLoader { id: localFont; source: "fonts/DIGITAL/DS-DIGIB.TTF" }
 
     Rectangle {
         id:tBar
@@ -278,53 +267,49 @@ SystemWindow {
         }
 
         Image{
-                id: close
-                source: "qrc:/images/wvga/smart/smart_btn_quit_nor.png"
-//                width: adaptive_width/12
-//                height: adaptive_height/19.2
-                width: 66
-                height:25
-                anchors{
-                    right:tt.left
-                    rightMargin: 15
-                    verticalCenter: parent.verticalCenter
-                }
-                Image {
-                    id: pwroff
-//                    width: adaptive_width/66.66
-//                    height: adaptive_height/40
-                    width: 12
-                    height: 12
-                    anchors.left: parent.left
-                    anchors.leftMargin: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/images/wvga/smart/smart_icon_quit_nor.png"
+            id: close
+            source: "qrc:/images/wvga/smart/smart_btn_quit_nor.png"
+            width: 66
+            height:25
+            anchors{
+                right:tt.left
+                rightMargin: 15
+                verticalCenter: parent.verticalCenter
+            }
+            Image {
+                id: pwroff
+                width: 12
+                height: 12
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+                anchors.verticalCenter: parent.verticalCenter
+                source: "qrc:/images/wvga/smart/smart_icon_quit_nor.png"
+            }
+
+            Text {
+                id: txtexit
+                anchors.left: pwroff.right
+                anchors.leftMargin: 10
+                anchors.verticalCenter: parent.verticalCenter
+                font.family: "Microsoft YaHei"
+                text: qsTr("退出")
+                font.pointSize: 11
+                color: "white"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    washWindow.close();
                 }
 
-                Text {
-                    id: txtexit
-                    anchors.left: pwroff.right
-                    anchors.leftMargin: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.family: "Microsoft YaHei"
-                    text: qsTr("退出")
-                    font.pointSize: 11
-                    color: "white"
+                onPressed: {
+                    close.source="qrc:/images/wvga/smart/smart_btn_quit_hover.png"
                 }
-
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        washWindow.close();
-                    }
-
-                    onPressed: {
-                        close.source="qrc:/images/wvga/smart/smart_btn_quit_hover.png"
-                    }
-                    onReleased: {
-                        close.source="qrc:/images/wvga/smart/smart_btn_quit_nor.png"
-                    }
+                onReleased: {
+                    close.source="qrc:/images/wvga/smart/smart_btn_quit_nor.png"
                 }
+            }
         }
 
         Rectangle{
@@ -336,37 +321,33 @@ SystemWindow {
             anchors.right: parent.right
             anchors.rightMargin: 5
             anchors.verticalCenter: parent.verticalCenter
-    //        anchors.rightMargin: 20
-    //        anchors.topMargin: 5
 
 
-        Text {
-            id: time
-            anchors.leftMargin: 15
-            anchors.horizontalCenter: parent.horizontalCenter
-            font{
-                family:"DS-Digital"
-                pixelSize:14
+            Text {
+                id: time
+                anchors.leftMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                font{
+                    family:"DS-Digital"
+                    pixelSize:14
+                }
+                text: "00:00:00";color: "white";// style: Text.Outline;
             }
-            text: "00:00:00";color: "white";// style: Text.Outline;
-        }
 
-        Text {
-            id: date
-            anchors.top:time.bottom
-            anchors.leftMargin: 15
-            anchors.horizontalCenter: parent.horizontalCenter
-    //        font.pointSize:8; text: qsTr("2020年2月25日");style: Text.Outline;styleColor: "white"
-            font{
-                family: "DS-Digital"
-                pixelSize: 10
+            Text {
+                id: date
+                anchors.top:time.bottom
+                anchors.leftMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                //        font.pointSize:8; text: qsTr("2020年2月25日");style: Text.Outline;styleColor: "white"
+                font{
+                    family: "DS-Digital"
+                    pixelSize: 10
+                }
+                color: "white"
+
             }
-    //        style: Text.Outline;
-    //        text: qsTr("2020年2月25日")
-            color: "white"
-
         }
-    }
 
         Timer{
             id:timer
@@ -387,8 +368,6 @@ SystemWindow {
         id: bottombar
         width:adaptive_width
         height:adaptive_height/6.85
-//        width: 800
-//        height: 70
         anchors.bottom: parent.bottom
         color: Qt.rgba(0,0,0,0)
 
@@ -399,13 +378,8 @@ SystemWindow {
             Rectangle{
                 id:currentrect
                 color: Qt.rgba(0,0,0,0)
-//                Layout.fillWidth: true
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-//                Layout.minimumWidth: 80
-//                Layout.preferredWidth: 99
-//                Layout.maximumWidth: 300
-//                Layout.minimumHeight: 150
                 Image {
                     id: currentmode
                     anchors{
@@ -451,19 +425,11 @@ SystemWindow {
                 }
 
             }
-// 水位
+            // 水位
             Rectangle{
                 color: "transparent"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-//                Rectangle{
-//                    color: "#02b9db"
-//                    opacity: 1.0
-//                    width: 1
-//                    height: parent.height*3/4
-//                    anchors.left: parent.left
-//                    anchors.verticalCenter: parent.verticalCenter
-//                }
                 Image {
                     id: paraimage0
                     width: 26
@@ -496,15 +462,6 @@ SystemWindow {
                             anchors.top: parent.top
                             anchors.topMargin: 5
                             anchors.horizontalCenter: parent.horizontalCenter
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    pathView.decrementCurrentIndex()
-//                                }
-//                            }
                         }
                         Image{
                             anchors.bottom: parent.bottom
@@ -513,15 +470,6 @@ SystemWindow {
                             source: "qrc:/images/wvga/smart/smart_icon_dn_nor.png"
                             width: 10
                             height: 5
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    control.positionViewAtIndex(0)
-//                                }
-//                            }
                         }
 
                         Tumbler {
@@ -546,7 +494,7 @@ SystemWindow {
                                     }
                                 }
 
-                    //            font: control.font
+                                //            font: control.font
                                 font.family: "Microsoft YaHei"
                                 font.bold: true
                                 font.pixelSize: 12
@@ -582,7 +530,7 @@ SystemWindow {
                     }
                     Text {
                         anchors.top: paratxt0.bottom
-//                        anchors.topMargin: 6
+                        //                        anchors.topMargin: 6
                         anchors.horizontalCenter: paratxt0.horizontalCenter
                         horizontalAlignment: Text.AlignHCenter
                         font.family: "Microsoft YaHei"
@@ -592,7 +540,7 @@ SystemWindow {
                     }
                 }
             }
-// 温度
+            // 温度
             Rectangle{
                 color: "transparent"
                 Layout.fillWidth: true
@@ -637,15 +585,6 @@ SystemWindow {
                             anchors.top: parent.top
                             anchors.topMargin: 5
                             anchors.horizontalCenter: parent.horizontalCenter
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    pathView.decrementCurrentIndex()
-//                                }
-//                            }
                         }
                         Image{
                             anchors.bottom: parent.bottom
@@ -654,15 +593,6 @@ SystemWindow {
                             source: "qrc:/images/wvga/smart/smart_icon_dn_nor.png"
                             width: 10
                             height: 5
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    control.positionViewAtIndex(0)
-//                                }
-//                            }
                         }
 
                         Tumbler {
@@ -683,7 +613,7 @@ SystemWindow {
                                         qsTr("常温")
                                     }
                                 }
-                    //            font: control.font
+                                //            font: control.font
                                 font.family: "Microsoft YaHei"
                                 font.bold: true
                                 font.pixelSize: 12
@@ -719,7 +649,7 @@ SystemWindow {
                     }
                     Text {
                         anchors.top: paratxt1.bottom
-//                        anchors.topMargin: 6
+                        //                        anchors.topMargin: 6
                         anchors.horizontalCenter: paratxt1.horizontalCenter
                         horizontalAlignment: Text.AlignHCenter
                         font.family: "Microsoft YaHei"
@@ -729,7 +659,7 @@ SystemWindow {
                     }
                 }
             }
-// 洗涤
+            // 洗涤
             Rectangle{
                 color: "transparent"
                 Layout.fillWidth: true
@@ -774,15 +704,6 @@ SystemWindow {
                             anchors.top: parent.top
                             anchors.topMargin: 5
                             anchors.horizontalCenter: parent.horizontalCenter
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    pathView.decrementCurrentIndex()
-//                                }
-//                            }
                         }
                         Image{
                             anchors.bottom: parent.bottom
@@ -791,15 +712,6 @@ SystemWindow {
                             source: "qrc:/images/wvga/smart/smart_icon_dn_nor.png"
                             width: 10
                             height: 5
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    control.positionViewAtIndex(0)
-//                                }
-//                            }
                         }
 
                         Tumbler {
@@ -812,7 +724,7 @@ SystemWindow {
 
                             delegate: Text {
                                 text: qsTr("%1 分").arg(modelData+10)
-                    //            font: control.font
+                                //            font: control.font
                                 font.family: "Microsoft YaHei"
                                 font.bold: true
                                 font.pixelSize: 12
@@ -848,7 +760,7 @@ SystemWindow {
                     }
                     Text {
                         anchors.top: paratxt2.bottom
-//                        anchors.topMargin: 6
+                        //                        anchors.topMargin: 6
                         anchors.horizontalCenter: paratxt2.horizontalCenter
                         horizontalAlignment: Text.AlignHCenter
                         font.family: "Microsoft YaHei"
@@ -858,7 +770,7 @@ SystemWindow {
                     }
                 }
             }
-// 漂洗
+            // 漂洗
             Rectangle{
                 color: "transparent"
                 Layout.fillWidth: true
@@ -903,15 +815,6 @@ SystemWindow {
                             anchors.top: parent.top
                             anchors.topMargin: 5
                             anchors.horizontalCenter: parent.horizontalCenter
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    pathView.decrementCurrentIndex()
-//                                }
-//                            }
                         }
                         Image{
                             anchors.bottom: parent.bottom
@@ -920,15 +823,6 @@ SystemWindow {
                             source: "qrc:/images/wvga/smart/smart_icon_dn_nor.png"
                             width: 10
                             height: 5
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    control.positionViewAtIndex(0)
-//                                }
-//                            }
                         }
 
                         Tumbler {
@@ -941,7 +835,7 @@ SystemWindow {
 
                             delegate: Text {
                                 text: qsTr("%1 次").arg(modelData)
-                    //            font: control.font
+                                //            font: control.font
                                 font.family: "Microsoft YaHei"
                                 font.bold: true
                                 font.pixelSize: 12
@@ -977,7 +871,7 @@ SystemWindow {
                     }
                     Text {
                         anchors.top: paratxt3.bottom
-//                        anchors.topMargin: 6
+                        //                        anchors.topMargin: 6
                         anchors.horizontalCenter: paratxt3.horizontalCenter
                         horizontalAlignment: Text.AlignHCenter
                         font.family: "Microsoft YaHei"
@@ -987,7 +881,7 @@ SystemWindow {
                     }
                 }
             }
-// 脱水
+            // 脱水
             Rectangle{
                 color: "transparent"
                 Layout.fillWidth: true
@@ -1032,15 +926,6 @@ SystemWindow {
                             anchors.top: parent.top
                             anchors.topMargin: 5
                             anchors.horizontalCenter: parent.horizontalCenter
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    pathView.decrementCurrentIndex()
-//                                }
-//                            }
                         }
                         Image{
                             anchors.bottom: parent.bottom
@@ -1049,15 +934,6 @@ SystemWindow {
                             source: "qrc:/images/wvga/smart/smart_icon_dn_nor.png"
                             width: 10
                             height: 5
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    control.positionViewAtIndex(0)
-//                                }
-//                            }
                         }
 
                         Tumbler {
@@ -1070,7 +946,7 @@ SystemWindow {
 
                             delegate: Text {
                                 text: qsTr("%1 分").arg(modelData)
-                    //            font: control.font
+                                //            font: control.font
                                 font.family: "Microsoft YaHei"
                                 font.bold: true
                                 font.pixelSize: 12
@@ -1106,7 +982,7 @@ SystemWindow {
                     }
                     Text {
                         anchors.top: paratxt4.bottom
-//                        anchors.topMargin: 6
+                        //                        anchors.topMargin: 6
                         anchors.horizontalCenter: paratxt4.horizontalCenter
                         horizontalAlignment: Text.AlignHCenter
                         font.family: "Microsoft YaHei"
@@ -1116,7 +992,7 @@ SystemWindow {
                     }
                 }
             }
-// 烘干
+            // 烘干
             Rectangle{
                 color: "transparent"
                 Layout.fillWidth: true
@@ -1161,15 +1037,6 @@ SystemWindow {
                             anchors.top: parent.top
                             anchors.topMargin: 5
                             anchors.horizontalCenter: parent.horizontalCenter
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    pathView.decrementCurrentIndex()
-//                                }
-//                            }
                         }
                         Image{
                             anchors.bottom: parent.bottom
@@ -1178,15 +1045,6 @@ SystemWindow {
                             source: "qrc:/images/wvga/smart/smart_icon_dn_nor.png"
                             width: 10
                             height: 5
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    control.positionViewAtIndex(0)
-//                                }
-//                            }
                         }
 
                         Tumbler {
@@ -1199,7 +1057,7 @@ SystemWindow {
 
                             delegate: Text {
                                 text: qsTr("%1 分").arg(modelData)
-                    //            font: control.font
+                                //            font: control.font
                                 font.family: "Microsoft YaHei"
                                 font.bold: true
                                 font.pixelSize: 12
@@ -1235,7 +1093,7 @@ SystemWindow {
                     }
                     Text {
                         anchors.top: paratxt5.bottom
-//                        anchors.topMargin: 6
+                        //                        anchors.topMargin: 6
                         anchors.horizontalCenter: paratxt5.horizontalCenter
                         horizontalAlignment: Text.AlignHCenter
                         font.family: "Microsoft YaHei"
@@ -1246,7 +1104,7 @@ SystemWindow {
                 }
             }
 
-// 整理
+            // 整理
             Rectangle{
                 color: "transparent"
                 Layout.fillWidth: true
@@ -1291,15 +1149,6 @@ SystemWindow {
                             anchors.top: parent.top
                             anchors.topMargin: 5
                             anchors.horizontalCenter: parent.horizontalCenter
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    pathView.decrementCurrentIndex()
-//                                }
-//                            }
                         }
                         Image{
                             anchors.bottom: parent.bottom
@@ -1308,15 +1157,6 @@ SystemWindow {
                             source: "qrc:/images/wvga/smart/smart_icon_dn_nor.png"
                             width: 10
                             height: 5
-//                            MouseArea{
-//                                anchors.fill: parent;
-//                                hoverEnabled: true;
-//                                cursorShape: Qt.PointingHandCursor;
-
-//                                onClicked: {
-//                                    control.positionViewAtIndex(0)
-//                                }
-//                            }
                         }
 
                         Tumbler {
@@ -1329,7 +1169,7 @@ SystemWindow {
 
                             delegate: Text {
                                 text: qsTr("%1 次").arg(modelData)
-                    //            font: control.font
+                                //            font: control.font
                                 font.family: "Microsoft YaHei"
                                 font.bold: true
                                 font.pixelSize: 12
@@ -1365,7 +1205,7 @@ SystemWindow {
                     }
                     Text {
                         anchors.top: paratxt6.bottom
-//                        anchors.topMargin: 6
+                        //                        anchors.topMargin: 6
                         anchors.horizontalCenter: paratxt6.horizontalCenter
                         horizontalAlignment: Text.AlignHCenter
                         font.family: "Microsoft YaHei"
@@ -1375,7 +1215,7 @@ SystemWindow {
                     }
                 }
             }
-// start
+            // start
             Rectangle {
                 color: 'transparent'
                 Layout.fillHeight: true
@@ -1427,8 +1267,8 @@ SystemWindow {
         anchors.topMargin: adaptive_height/15
         width:adaptive_width
         height:adaptive_height/1.26
-//        width: 800
-//        height:378
+        //        width: 800
+        //        height:378
         color: "transparent"
 
         onVisibleChanged: {
@@ -1452,8 +1292,8 @@ SystemWindow {
             id: modes
             model: [
                 {
-                     "_icon":"qrc:/images/wvga/smart/smart_icon_mixdwash_nor.png",
-                     "_text":qsTr("混合洗"),
+                    "_icon":"qrc:/images/wvga/smart/smart_icon_mixdwash_nor.png",
+                    "_text":qsTr("混合洗"),
                     "_parm":[1,0,30,1,16,16,1]
                 }, //0
                 {
@@ -1531,7 +1371,7 @@ SystemWindow {
                     "_text":qsTr("棉麻"),
                     "_parm":[2,0,15,2,20,0,1]
                 }, //15
-                ]
+            ]
 
             Rectangle{
                 id:modex
@@ -1539,7 +1379,7 @@ SystemWindow {
                 height: modesel.iconrad*2
                 radius: modesel.iconrad
                 color: "#55555555"
-//                opacity: 0.5
+                //                opacity: 0.5
                 x: modesel.width/2+modesel.moderad*Math.sin(modesel.iconang*index)-modesel.iconrad
                 y: modesel.height/2-modesel.moderad*Math.cos(modesel.iconang*index)-modesel.iconrad
 
@@ -1550,8 +1390,6 @@ SystemWindow {
                     radius: modesel.iconrad
                     color: "#02b9db"
                     opacity: 0.5
-//                    x: modesel.width/2+modesel.moderad*Math.sin(modesel.iconang*index)-modesel.iconrad
-//                    y: modesel.height/2-modesel.moderad*Math.cos(modesel.iconang*index)-modesel.iconrad
                 }
 
                 Image {
@@ -1569,7 +1407,7 @@ SystemWindow {
                     id: text0
                     anchors{
                         top: icon0.bottom
-//                        margins:5
+                        //                        margins:5
                         horizontalCenter: icon0.horizontalCenter
                     }
                     text: modelData._text
@@ -1583,17 +1421,9 @@ SystemWindow {
                 states:[
                     State {
                         name: "OFF"
-    //                    PropertyChanges {
-    //                        target: object
-
-    //                    }
                     },
                     State {
                         name: "ON"
-    //                    PropertyChanges {
-    //                        target: object
-
-    //                    }
                     }
                 ]
 
@@ -1660,94 +1490,84 @@ SystemWindow {
             }
         }
         Item {
-                id: container;
-                width: 256;
-                height: width;
-                anchors.centerIn: parent;
+            id: container;
+            width: 256;
+            height: width;
+            anchors.centerIn: parent;
 
-                property real centerX : (width / 2);
-                property real centerY : (height / 2);
+            property real centerX : (width / 2);
+            property real centerY : (height / 2);
 
-                Image{
-                    anchors.fill: parent;
-                    source: "qrc:/images/wvga/smart/smart_icon_knob_nor.png"
-                }
-
-                Rectangle{
-                    transformOrigin: Item.Center;
-                    id: rect;
-                    color: "transparent";
-                    radius: (width / 2);
-                    antialiasing: true;
-                    anchors.fill: parent;
-
-                    Rectangle {
-                        id: handle;
-                        color: "#02b9db";
-                        width: 6;
-                        height: 15;
-                        radius: (width/2);
-                        antialiasing: true;
-                        anchors {
-                            top: parent.top;
-                            margins: height;
-                            horizontalCenter: parent.horizontalCenter;
-                        }
-                    }
-                    MouseArea{
-                        anchors.fill: parent;
-                        onPositionChanged:  {
-                            var rdeg = 0;
-                            var point =  mapToItem (container, mouse.x, mouse.y);
-                            var diffX = (point.x - container.centerX);
-                            var diffY = -1 * (point.y - container.centerY);
-                            if(diffX===0){
-                                if(diffY<0){
-                                    rdeg = 180
-                                }
-                                else{
-                                    rdeg = 0
-                                }
-                            }
-                            else
-                            {
-                                var rad = Math.atan (diffY / diffX);
-                                var deg = (rad * 180 / Math.PI);
-                                if (diffX > 0 && diffY >= 0) {
-                                    rdeg  = 90 - Math.abs (deg);
-                                }
-                                else if (diffX > 0 && diffY < 0) {
-                                    rdeg  = 90 + Math.abs (deg);
-                                }
-                                else if (diffX < 0 && diffY >= 0) {
-                                    rdeg  = 270 + Math.abs (deg);
-                                }
-                                else if (diffX < 0 && diffY < 0) {
-                                    rdeg  = 270 - Math.abs (deg);
-                                }
-                            }
-
-                            var tmp = Math.round (Math.abs(rdeg-11)/ 22.5)
-                            if((tmp>=modes.count)||(tmp<0)){
-                                tmp = 0
-                            }
-
-                            mode = tmp
-                            rect.rotation = mode*22.5
-
-//                            console.log("rect.rotation="+rect.rotation)
-                        }
-                    }
-                }
-//                Text {
-//                    text: "%1 secs".arg (Math.round (Math.abs(rect.rotation-11)/ 22.5));
-//                    font {
-//                        pixelSize: 20;
-//                        bold: true;
-//                    }
-//                    anchors.centerIn: parent;
-//                }
+            Image{
+                anchors.fill: parent;
+                source: "qrc:/images/wvga/smart/smart_icon_knob_nor.png"
             }
+
+            Rectangle{
+                transformOrigin: Item.Center;
+                id: rect;
+                color: "transparent";
+                radius: (width / 2);
+                antialiasing: true;
+                anchors.fill: parent;
+
+                Rectangle {
+                    id: handle;
+                    color: "#02b9db";
+                    width: 6;
+                    height: 15;
+                    radius: (width/2);
+                    antialiasing: true;
+                    anchors {
+                        top: parent.top;
+                        margins: height;
+                        horizontalCenter: parent.horizontalCenter;
+                    }
+                }
+                MouseArea{
+                    anchors.fill: parent;
+                    onPositionChanged:  {
+                        var rdeg = 0;
+                        var point =  mapToItem (container, mouse.x, mouse.y);
+                        var diffX = (point.x - container.centerX);
+                        var diffY = -1 * (point.y - container.centerY);
+                        if(diffX===0){
+                            if(diffY<0){
+                                rdeg = 180
+                            }
+                            else{
+                                rdeg = 0
+                            }
+                        }
+                        else
+                        {
+                            var rad = Math.atan (diffY / diffX);
+                            var deg = (rad * 180 / Math.PI);
+                            if (diffX > 0 && diffY >= 0) {
+                                rdeg  = 90 - Math.abs (deg);
+                            }
+                            else if (diffX > 0 && diffY < 0) {
+                                rdeg  = 90 + Math.abs (deg);
+                            }
+                            else if (diffX < 0 && diffY >= 0) {
+                                rdeg  = 270 + Math.abs (deg);
+                            }
+                            else if (diffX < 0 && diffY < 0) {
+                                rdeg  = 270 - Math.abs (deg);
+                            }
+                        }
+
+                        var tmp = Math.round (Math.abs(rdeg-11)/ 22.5)
+                        if((tmp>=modes.count)||(tmp<0)){
+                            tmp = 0
+                        }
+
+                        mode = tmp
+                        rect.rotation = mode*22.5
+                    }
+                }
+            }
+        }
     }
 
     // Washing
@@ -1757,8 +1577,6 @@ SystemWindow {
         anchors.topMargin: adaptive_height/15
         width:adaptive_width
         height:adaptive_height/1.26
-//        width: 800
-//        height:378
         color: "transparent"
         opacity: 0
         visible: false
@@ -1768,9 +1586,6 @@ SystemWindow {
         property alias step: progressnumber.text
         property alias txt: progresstxt.text
 
-//        onProgressChanged: {
-//            console.log("current progress: "+ progress)
-//        }
 
         onVisibleChanged: {
             console.log("washing is visible? "+washing.visible);
@@ -1810,7 +1625,7 @@ SystemWindow {
                 width: washing.progress*4+1
 
                 property color col: "#02b9db"
-//                color:"#02b9db"
+                //                color:"#02b9db"
                 gradient: Gradient{
                     GradientStop{position: 0.0; color: Qt.tint(currentwashprogress.col, "#4002b9db")}
                     GradientStop{position: 1.0; color: "#02b9db"}
@@ -1960,14 +1775,6 @@ SystemWindow {
                 NumberAnimation on time { loops: Animation.Infinite; from: 0; to: Math.PI * 2; duration: 600 }
                 //! [fragment]
                 fragmentShader: "qrc:/shader/wobble.frag"
-                //! [fragment]
-//                Slider {
-//                    id: wobbleSlider
-//                    anchors.left: parent.left
-//                    anchors.right: parent.right
-//                    anchors.bottom: parent.bottom
-//                    height: 20
-//                }
             }
         }
         Rectangle{

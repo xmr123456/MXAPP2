@@ -17,9 +17,9 @@
     See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.
 ***********************************************************************/
 
-import QtQuick 2.9
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
+import QtQuick 2.5
+import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
 
 Rectangle {
@@ -28,9 +28,6 @@ Rectangle {
     width: def.win_width
     height: def.win_height/5
     color: "transparent"
-
-    //    border.color: "white"
-    //    border.width: 2
 
     //单位ms
     //作为输入
@@ -148,34 +145,7 @@ Rectangle {
             onClicked: root.clicked_forward()
         }
     }
-/*
-    Keys.onSpacePressed:
-    {
-        root.playing = !root.playing;
-        if(root.playing)
-        {
-            root.clicked_play()
-        }
-        else
-        {
-            root.clicked_pause()
-        }
-    }
-    Keys.onLeftPressed: root.clicked_step_backward();
-    Keys.onRightPressed: root.clicked_step_forward();
-    Keys.onUpPressed: {
-        volume_showFlag = true;
-        if(media_volume <= 0.9)
-            media_volume += 0.1;
-        volumeSlider.value = media_volume
-    }
-    Keys.onDownPressed: {
-        volume_showFlag = true;
-        if(media_volume >= 0.1)
-            media_volume -= 0.1;
-        volumeSlider.value = media_volume
-    }
-*/
+
     Slider {
         id: volumeSlider
         orientation: Qt.Vertical
@@ -189,26 +159,5 @@ Rectangle {
         to: 1
         value: 0.2
         onValueChanged: media_volume = value;
-/*        onPositionChanged: hoverTimer.stop()
-
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            enabled: true
-            propagateComposedEvents: true
-            onExited: {
-                hoverTimer.start()
-            }
-            Timer {
-                id: hoverTimer
-                interval: 1000
-                onTriggered: {
-                    root.volume_showFlag = false;
-                    console.log("slider hide")
-                }
-            }
-        }*/
-        //        onActiveFocusChanged: console.log("slider active:" + activeFocus)
-        //        onFocusChanged: console.log("focus: " + focus)
     }
 }

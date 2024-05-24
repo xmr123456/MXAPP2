@@ -24,6 +24,8 @@
 #include <QFont>
 #include <QTimer>
 #include <QDateTime>
+#include <QFile>
+#include <QDir>
 #include "qmlplot.h"
 #include "common.h"
 #include "myfunction.h"
@@ -33,6 +35,7 @@
 #include "ChargeManage.h"
 #include "Charge104.h"
 #include "ClearCache.h"
+#include "cameraimageprovider.h"
 #include <QTime>
 
 using namespace std;
@@ -40,7 +43,7 @@ using namespace MQP;
 
 void iconFontInit()
 {
-//
+    //
     int fontId_digital = QFontDatabase::addApplicationFont(":/fonts/DIGITAL/DS-DIGIB.TTF");
     int fontId_fws = QFontDatabase::addApplicationFont(":/fonts/fontawesome-webfont.ttf");
     QString fontName_fws = QFontDatabase::applicationFontFamilies(fontId_fws).at(0);
@@ -60,6 +63,12 @@ int main(int argc, char *argv[])
     app.setApplicationName("MEasy_HMI");
     app.setApplicationVersion("V2.0");
 
+    QDir dir;
+    if(!dir.exists("/usr/share/myir"))
+        dir.mkpath("/usr/share/myir");
+    QFile file(":/ecg/ecg.dat");
+    file.copy(":/ecg/ecg.dat","/usr/share/myir/ecg.dat");
+
     QQmlApplicationEngine engine;
 
     qmlRegisterType<QmlProcess>("mprocess", 1, 0, "QmlProcess");
@@ -74,6 +83,10 @@ int main(int argc, char *argv[])
     translator->set_QQmlEngine(&engine);
     engine.rootContext()->setContextProperty("translator",
                                              translator);
+
+    showImage *show_image = new showImage;
+    engine.rootContext()->setContextProperty("show_image",show_image);
+    engine.addImageProvider(QLatin1String("cameraImageProvider"), show_image->cameraImageProvider);
 
     ClearCache *clear_cache = new ClearCache;
 

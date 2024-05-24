@@ -37,7 +37,7 @@ SystemWindow {
         titleIconHeight: 30
         onLeftBarClicked: {
             fileWindow.close()
-//            info_timer.stop()
+            //            info_timer.stop()
         }
 
     }
@@ -52,23 +52,10 @@ SystemWindow {
     FileBrowser {
         id: imageFileBrowser
         folder:"file:///"
-	anchors.top:leftBar.bottom
-	anchors.bottom:parent.bottom
-	anchors.left:parent.left
-	anchors.right:parent.right
-
-//        anchors.fill: parent
-//        width: adaptive_width
-//        height: adaptive_height/*/1.16*/
-//        anchors{
-//            top: parent.top
-//            topMargin: 50
-//        }
-//        Component.onCompleted: fileSelected.connect(content.openImage)
+        anchors.top:leftBar.bottom
+        anchors.bottom:parent.bottom
+        anchors.left:parent.left
+        anchors.right:parent.right
     }
-//    MouseArea {
-//        anchors.fill: parent
-//        onClicked: imageFileBrowser.show()
-//    }
     Component.onCompleted:imageFileBrowser.show()
 }

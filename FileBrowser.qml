@@ -48,9 +48,9 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.1
+import QtQuick 2.5
 import Qt.labs.folderlistmodel 2.1
-import QtQuick.Window 2.2
+import QtQuick.Window 2.0
 Rectangle {
     id: fileBrowser
     color: "transparent"
@@ -285,17 +285,6 @@ Rectangle {
                 ]
                 Keys.onPressed: root.keyPressed(event.key)
             }
-
-//            Button {
-//                id: cancelButton
-//                width: itemWidth
-//                height: itemHeight
-//                color: "#353535"
-//                anchors { bottom: parent.bottom; right: parent.right; margins: 5 * scaledMargin }
-//                text: "Cancel"
-//                horizontalAlign: Text.AlignHCenter
-//                onClicked: fileBrowser.selectFile("")
-//            }
 
             Keys.onPressed: {
                 root.keyPressed(event.key);

@@ -119,30 +119,30 @@ void GetSystemInfo::get_memory_info()
 void GetSystemInfo::get_wifi_info()
 {
     if (msic_process->state() == QProcess::NotRunning) {
-        msic_process->start("wpa_cli -i mlan0 status");
+        msic_process->start("wpa_cli -i wlan0 status");
     }
 }
 void GetSystemInfo::wifi_open()
 {
     QString command;
 	
-	command = "ifconfig | grep mlan0 | wc -l";
+    command = "ifconfig | grep wlan0 | wc -l";
 	msic_process->start(command);
 	msic_process->waitForFinished();
 	if(msic_process->readAll().toInt() == 0){
-		command = "ifconfig mlan0 up";
+        command = "ifconfig wlan0 up";
 		msic_process->start(command);
 		msic_process->waitForFinished();
 	}
     command = "wpa_supplicant -Dnl80211 -iwlan0 -c/etc/wpa_supplicant.conf -B";
     wifi_process->start(command);
-    command = "wpa_cli -i mlan0 scan_result";
+    command = "wpa_cli -i wlan0 scan_result";
     wifi_process->start(command);
 }
 void GetSystemInfo::wifi_close()
 {
     QString command;
-    command = "ifconfig mlan0 down";
+    command = "ifconfig wlan0 down";
     msic_process->start(command);
     msic_process->waitForFinished();
 }
@@ -154,7 +154,7 @@ void GetSystemInfo::connect_wifi(QString essid_passwd)
 	qDebug()<<tmp[0]<<tmp[1]<<tmp[2];
 	
 	if(tmp[0] != wifi_status){
-		command = "wpa_cli -i mlan0 disconnect";
+        command = "wpa_cli -i wlan0 disconnect";
 		msic_process->start(command);
 		msic_process->waitForFinished();
 		
@@ -165,19 +165,19 @@ void GetSystemInfo::connect_wifi(QString essid_passwd)
 		if(tmp[2] == "qrc:/images/wvga/system/key.png")
 		{
 			out << "#!/bin/sh\n";
-			out << "wpa_cli -i mlan0 remove_network 0\n";
-			out << "wpa_cli -i mlan0 add_network\n";
-			out << "wpa_cli -i mlan0 set_network " + wifi_id + " ssid " + "\'\""+tmp[0]+"\"\'"+"\n";
-			out << "wpa_cli -i mlan0 set_network "+ wifi_id + " psk "+ "\'\""+tmp[1]+"\"\'"+"\n";
-			out << "wpa_cli -i mlan0 select_network "+wifi_id+"\n";
+            out << "wpa_cli -i wlan0 remove_network 0\n";
+            out << "wpa_cli -i wlan0 add_network\n";
+            out << "wpa_cli -i wlan0 set_network " + wifi_id + " ssid " + "\'\""+tmp[0]+"\"\'"+"\n";
+            out << "wpa_cli -i wlan0 set_network "+ wifi_id + " psk "+ "\'\""+tmp[1]+"\"\'"+"\n";
+            out << "wpa_cli -i wlan0 select_network "+wifi_id+"\n";
 		}
 		else {
 			out << "#!/bin/sh\n";
-			out << "wpa_cli -i mlan0 remove_network 0\n";
-			out << "wpa_cli -i mlan0 add_network\n";
-			out << "wpa_cli -i mlan0 set_network " + wifi_id + " ssid " + "\'\"" + tmp[0] + "\"\'" + "\n";
-			out << "wpa_cli -i mlan0 set_network " + wifi_id + " key_mgmt NONE" + "\n";
-			out << "wpa_cli -i mlan0 select_network " + wifi_id + "\n";
+            out << "wpa_cli -i wlan0 remove_network 0\n";
+            out << "wpa_cli -i wlan0 add_network\n";
+            out << "wpa_cli -i wlan0 set_network " + wifi_id + " ssid " + "\'\"" + tmp[0] + "\"\'" + "\n";
+            out << "wpa_cli -i wlan0 set_network " + wifi_id + " key_mgmt NONE" + "\n";
+            out << "wpa_cli -i wlan0 select_network " + wifi_id + "\n";
 		}
 		file.close();
 		msic_process->execute("chmod a+x /usr/share/connect_wifi.sh");
@@ -187,7 +187,7 @@ void GetSystemInfo::connect_wifi(QString essid_passwd)
 void GetSystemInfo::disconnect_wifi()
 {
     QString command;
-    command = "wpa_cli -i mlan0 disconnect";
+    command = "wpa_cli -i wlan0 disconnect";
     msic_process->start(command);
     msic_process->waitForFinished();
 }
@@ -210,7 +210,7 @@ void GetSystemInfo::msic_ReadData()
 			if(tmp[1] == "COMPLETED"){
 				if(wifi_status != wifi_connect_status){
                     emit wifiConnected(wifi_connect_status);
-                    command = "udhcpc -i mlan0 -t 3 -n -q -b";
+                    command = "udhcpc -i wlan0 -t 3 -n -q -b";
                     msic_process->start(command);
                 }
 			}
@@ -225,13 +225,13 @@ void GetSystemInfo::msic_ReadData()
 }
 QString GetSystemInfo::get_wifi_list()
 {
-    QString wifi_interface = "mlan0";
+    QString wifi_interface = "wlan0";
     QString wirelessInterfaceStatus = getWirelessInterfaceStatus(wifi_interface);
 
     if(wirelessInterfaceStatus == "down"){
         msic_process->start("ifconfig",QStringList() << wifi_interface << "up");
     }
-	wifi_process->start("wpa_cli -i mlan0 scan_result");
+    wifi_process->start("wpa_cli -i wlan0 scan_result");
     if(!wifi_process->waitForStarted()){
         qDebug() << "error starting wpa_cli scan process";
     }

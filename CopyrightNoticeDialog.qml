@@ -22,8 +22,8 @@ import QtQuick.Window 2.0
 //版权说明对话框
 import QtQuick 2.0
 import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.3
-import QtQuick.Window 2.2
+import QtQuick.Layouts 1.1
+import QtQuick.Window 2.0
 Popup {
     id:root
     padding: 0
@@ -69,15 +69,12 @@ This program is free software: you can redistribute it and/or modify\n
 it under the terms of the GNU General Public License as published by\n
 the Free Software Foundation, either version 3 of the License, or\n
 (at your option) any later version.\n\n
-
 This program is distributed in the hope that it will be useful,\n
 but WITHOUT ANY WARRANTY; without even the implied warranty of\n
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n
 GNU General Public License for more details.\n\n
-
 You should have received a copy of the GNU General Public License\n
 along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n
-
 Additional permission under GNU Lesser General Public License version 3.0\n
 See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.")
         }

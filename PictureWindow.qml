@@ -21,25 +21,17 @@
 ***********************************************************************/
 
 import QtQuick 2.5
-import QtMultimedia 5.6
+import QtMultimedia 5.5
 import QtQuick.Dialogs 1.0
-import Qt.labs.folderlistmodel 2.2
+import Qt.labs.folderlistmodel 2.1
 import MyFunction.module 1.0
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.1
 SystemWindow {
     id: root
     width: def.win_width
     height: def.win_height
-////    title: qsTr("图库")
-////    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
 
-//    property bool showFlag: false
-//    function show(){
-//        open()
-//    }
-
-//    onAboutToHide: showFlag = false
     onVisibleChanged: {
         if(showFlag == false)
         {

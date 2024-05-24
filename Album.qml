@@ -21,25 +21,16 @@
 ***********************************************************************/
 
 import QtQuick 2.5
-import QtMultimedia 5.6
+import QtMultimedia 5.5
 import QtQuick.Dialogs 1.0
-import Qt.labs.folderlistmodel 2.2
+import Qt.labs.folderlistmodel 2.1
 import MyFunction.module 1.0
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.1
 SystemWindow {
     id: root
     width: def.win_width
     height: def.win_height
-////    title: qsTr("图库")
-////    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
-
-//    property bool showFlag: false
-//    function show(){
-//        open()
-//    }
-
-//    onAboutToHide: showFlag = false
     onVisibleChanged: {
         if(showFlag == false)
         {
@@ -53,17 +44,6 @@ SystemWindow {
         source_url: w_preview.imageUrl
     }
     MyFunction {id: myFunction}
-
-//    //最底层背景图片
-//    Image {
-//        id: img_background
-//        anchors.fill: parent
-//        width: parent.width
-//        height: parent.height
-//        source: def.url_music_background
-//        fillMode: Image.PreserveAspectFit
-//        clip: true
-//    }
 
     //左上角返回按钮
     MyIconButton {
@@ -165,15 +145,7 @@ SystemWindow {
             }
         }
     }
-/*
-    FileDialog {
-        id: fileDialog
-        title: "请选择一个图片文件夹"
-        selectFolder: true  //只能选择文件夹
-        onRejected: console.log("没有选择任何文件夹")
-        onAccepted: setImageFolder(fileUrl + "/");
-    }
-*/
+
     //自定义文件浏览器
     FileList {
         id: fileBrowser

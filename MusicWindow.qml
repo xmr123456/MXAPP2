@@ -21,26 +21,17 @@
 ***********************************************************************/
 
 import QtQuick 2.0
-import QtQuick.Window 2.2
-import QtMultimedia 5.9
-import QtQuick.Dialogs 1.3
-import Qt.labs.folderlistmodel 2.2
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.3
+import QtQuick.Window 2.0
+import QtMultimedia 5.5
+import QtQuick.Dialogs 1.2
+import Qt.labs.folderlistmodel 2.1
+import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.1
 SystemWindow {
     id: root
     width: def.win_width
     height: def.win_height
-////    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
-////    title: qsTr("音乐")
 
-//    //打开音乐窗口时，设置音乐文件夹为默认文件夹
-//    property bool showFlag: false
-//    function show()
-//    {
-//        open()
-//    }
-//    onAboutToHide: showFlag = false
     onVisibleChanged: {
         if(showFlag == false)
         {
@@ -54,17 +45,6 @@ SystemWindow {
         id: def
         source_url: music.source
     }
-
-//    //最底层背景图片
-//    Image {
-//        id: img_background
-//        anchors.fill: parent
-//        width: parent.width
-//        height: parent.height
-//        source: def.url_music_background
-//        fillMode: Image.PreserveAspectFit
-//        clip: true
-//    }
 
     //上层音乐波形图片
     Image {
@@ -175,8 +155,6 @@ SystemWindow {
         {
             if(music.hasAudio)
                 musicPause()    //先暂停播放
-//            fileDialog.open()
-//            fileBrowser.
             fileBrowser.nameFilter = def.audioNameFilters
             fileBrowser.defaultLocation = def.audioDefaultLocation
 
@@ -324,23 +302,6 @@ SystemWindow {
             }
         }
     }
-
-    //文件夹选择，调用系统默认文件选择对话框
-    /*
-    FileDialog {
-        id: fileDialog
-        title: "请选择一个音乐文件夹"
-        selectFolder: true  //只能选择文件夹
-        onRejected: {
-            if(music.hasAudio)
-                musicPlay()
-        }
-        //设置folderModel的文件夹为当前选定的文件夹
-        onAccepted: {
-            musicIndex = 0;
-            setMusicPath(fileUrl + "/");
-        }
-    }*/
 
     //自定义文件浏览器
     FileList {

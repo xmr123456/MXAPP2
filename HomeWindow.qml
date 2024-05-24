@@ -30,10 +30,6 @@ import Qt.labs.settings 1.0
 Rectangle {
     id:root
     color: "#00000000"
-
-    //    FontLoader { id: fixedFont; name: "Courier" }
-    //    FontLoader { id: localFont; source: "fonts/DIGITAL/DS-DIGIB.TTF" }
-    //    FontLoader { id: webFont; source: "http://www.princexml.com/fonts/steffmann/Starburst.ttf" }
     function fitWidth(text){
         return  fontMetrics.advanceWidth(text);
     }
@@ -108,14 +104,12 @@ Rectangle {
                         aqml: "CameraWindow.qml"
                         acolor: "#02b9db"
                     },
-					/*
                     ListElement {
                         aimage:"qrc:/images/wvga/home/media_icon_video_nor.png"
                         application: qsTr("播放器")
                         aqml:"PlayerWindow.qml"
                         acolor:"#02b9db"
                     },
-					*/
                     ListElement {
                         aimage:"qrc:/images/wvga/home/icon_music.png"
                         application: qsTr("音乐")
@@ -375,17 +369,7 @@ Rectangle {
                 width: Screen.desktopAvailableWidth
                 height: Screen.desktopAvailableHeight/8.7
                 property bool isClickable: true
-
-                //                    anchors{
-                //                        fill:parent
-                //                        top: pointer.bottom
-                //                        horizontalCenter: subMenu.horizontalCenter
-                //                    }
-
                 Repeater{
-                    //                        anchors{
-                    //                            horizontalCenter: subMenu.horizontalCenter
-                    //                        }
                     model:{
                         var index = findIndex("multimedia")
                         console.log("index="+index)
@@ -457,82 +441,43 @@ Rectangle {
                                 onClicked: {
                                     console.log("clicked:"+model.aqml + " " + subMenuRow.isClickable)
 
-                                    // 第一种方式加载
-                                    //                                        timer.start()
-                                    //                                        if(subMenuRow.isClickable === true){
-                                    //                                            var componet = Qt.createComponent(model.aqml);
-                                    //                                            if(componet.status === Component.Ready) {
-                                    //                                                var obj = componet.createObject(mainWnd)
-                                    //                                            }
-                                    //                                            obj.show()
-
-                                    //                                            isClickable.isSubShow = false;
-                                    //                                        }
-
-                                    // 第二种方式加载
-									/*
                                     if(model.aqml === "PlayerWindow.qml"){
-                                        //                                            playerWnd.forceActiveFocus()
-                                        //                                            playerWnd.z=4;
                                         mainloader.source = "PlayerWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
-                                    }else 
-									*/
-									if(model.aqml === "CameraWindow.qml"){
-                                        //                                            cameraWnd.forceActiveFocus()
-                                        //                                            cameraWnd.z=4;
+                                    }else if(model.aqml === "CameraWindow.qml"){
                                         mainloader.source = "CameraWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
                                     }else if(model.aqml === "PictureWindow.qml"){
-                                        //                                            pictureWnd.forceActiveFocus()
-                                        //                                            pictureWnd.z=4;
                                         mainloader.source = "PictureWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
                                     }else if(model.aqml === "TicketWindow.qml"){
-                                        //                                            ticketWnd.forceActiveFocus()
-                                        //                                            ticketWnd.z=4;
                                         mainloader.source = "TicketWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
                                     }else if(model.aqml === "ScopeWindow.qml"){
-                                        //                                            scopeWnd.forceActiveFocus()
-                                        //                                            scopeWnd.z=4;
                                         mainloader.source = "ScopeWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
                                     }else if(model.aqml === "FileWindow.qml"){
-                                        //                                            fileWnd.forceActiveFocus()
-                                        //                                            fileWnd.z=4;
                                         mainloader.source = "FileWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
                                     }else if(model.aqml === "WashWindow.qml"){
-                                        //                                            washWnd.forceActiveFocus()
-                                        //                                            washWnd.z=4;
                                         mainloader.source = "WashWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
                                     }else if(model.aqml === "InfoWindow.qml"){
-                                        //                                            infoWnd.forceActiveFocus()
-                                        //                                            infoWnd.z=4;
                                         mainloader.source = "InfoWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
                                     }else if(model.aqml === "SettingsWindow.qml"){
-                                        //                                            settingsWnd.forceActiveFocus()
-                                        //                                            settingsWnd.z=4;
                                         mainloader.source = "SettingsWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
-                                        ////                                            settingsWnd.source="SettingsWindow.qml"
-                                        //                                            settingsWnd.item.show()
-                                        //                                            settingsWnd.item.requestActivate()
                                     }else if(model.aqml === "MusicWindow.qml"){
-                                        //                                            settingsWnd.forceActiveFocus()
-                                        //                                            settingsWnd.z=4;
                                         mainloader.source = "MusicWindow.qml"
                                         mainloader.item.show()
                                         mainloader.item.requestActivate()
@@ -540,18 +485,12 @@ Rectangle {
                                         mainloader.source = "ChargeWindow.qml"
                                         mainloader.item.open()
                                         mainloader.item.forceActiveFocus()
-                                        //mainloader.item.requestActivate()
                                     }
                                     else if(model.aqml === "WinAppearance.qml"){
                                         mainloader.source="WinAppearance.qml"
                                         mainloader.item.open()
                                         mainloader.item.forceActiveFocus()
-                                    }/*else if(model.aqml === "BrowserWindow.qml"){
-//                                              browserWnd.forceActiveFocus()
-//                                              browserWnd.z=4;
-                                              browserWnd.item.show()
-                                              browserWnd.item.requestActivate()
-                                        }*/
+                                    }
                                 }
 
                                 Timer{
@@ -595,26 +534,9 @@ Rectangle {
             }
 
             onCurrentIndexChanged: {
-                //                    timer.running=false;
-                //                    timer.running=true;
                 console.log("currentIndexChanged:"+ currentIndex)
             }
         }
-
-        //            //Timer
-        //            Timer{
-        //                id:timer;
-        //                interval: 7500;
-        //                repeat: true;
-        //                running: false;
-        //                onTriggered: {
-        //                    pageIndicator.currentIndex=(pageIndicator.currentIndex+1)%(pathView.count);
-        //                }
-        //            }
-
-        //            Component.onCompleted: {
-        //                timer.running=true;
-        //            }
     }
 
 

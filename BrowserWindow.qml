@@ -49,7 +49,7 @@ SystemWindow {
         titleIconHeight: 30
         onLeftBarClicked: {
             browserWindow.close()
-//            info_timer.stop()
+            //            info_timer.stop()
         }
 
     }
@@ -110,7 +110,7 @@ SystemWindow {
                 property: "animating"
                 value: inputPanelTransition.running
             }
-                AutoScroller {}
+            AutoScroller {}
         }
         Rectangle{
             id:dddd
@@ -128,16 +128,16 @@ SystemWindow {
                 width:35
                 height:25
 
-                  anchors{
-                      left: parent.left
-                      leftMargin: 5
-                      top: parent.top
-                      topMargin: 5
-                  }
-                  font.pixelSize: 12
-                  text: qsTr("地址:")
-                  font.family: "Microsoft YaHei"
-//                  font.bold: true
+                anchors{
+                    left: parent.left
+                    leftMargin: 5
+                    top: parent.top
+                    topMargin: 5
+                }
+                font.pixelSize: 12
+                text: qsTr("地址:")
+                font.family: "Microsoft YaHei"
+                //                  font.bold: true
             }
             TextField {
                 id: addressInput
@@ -179,8 +179,8 @@ SystemWindow {
                     text: qsTr("开始")
                     font.pixelSize: 12;
                     font.family: "Microsoft YaHei"
-//                    font.bold: true
-//                    color: "white"
+                    //                    font.bold: true
+                    //                    color: "white"
                     anchors{
                         centerIn: parent
                     }
@@ -192,14 +192,14 @@ SystemWindow {
                         addressInput.focus= false
                         goButton.opacity = 0.5
                         webView.url = getSyetemInfo.fromUserInput(addressInput.text)
-//                        webView.load;
+                        //                        webView.load;
                     }
                     onExited:{
-                       goButton.opacity = 1.0
+                        goButton.opacity = 1.0
                     }
                     onPressed: {
 
-                       goButton.opacity = 0.5
+                        goButton.opacity = 0.5
                     }
                 }
             }
@@ -220,8 +220,8 @@ SystemWindow {
                     text: qsTr("刷新")
                     font.pixelSize: 12;
                     font.family: "Microsoft YaHei"
-//                    font.bold: true
-//                    color: "white"
+                    //                    font.bold: true
+                    //                    color: "white"
                     anchors{
                         centerIn: parent
                     }
@@ -235,11 +235,11 @@ SystemWindow {
                         webView && webView.loading ? webView.stop() : webView.reload()
                     }
                     onExited:{
-                       refreshButton.opacity = 1.0
+                        refreshButton.opacity = 1.0
                     }
                     onPressed: {
 
-                       refreshButton.opacity = 0.5
+                        refreshButton.opacity = 0.5
                     }
                 }
             }
@@ -266,17 +266,10 @@ SystemWindow {
                     } else {
                         request.action = WebView.IgnoreRequest;
 
-//                         delegate request.url here
+                        //                         delegate request.url here
                     }
                 }
-
-
             }
-
         }
-
-
-
-
     }
 }

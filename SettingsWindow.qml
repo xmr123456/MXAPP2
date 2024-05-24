@@ -20,7 +20,7 @@
     See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.
 ***********************************************************************/
 
-import QtQuick 2.6
+import QtQuick 2.5
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Styles 1.4
 import GetSystemInfoAPI 1.0
@@ -28,7 +28,7 @@ import QtQuick.VirtualKeyboard 2.2
 import QtQuick.VirtualKeyboard.Settings 2.2
 import QtQuick.VirtualKeyboard.Styles 2.2
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.3 as Controls
+import QtQuick.Controls 2.1 as Controls
 import QtQuick.Window 2.2
 SystemWindow {
     id: settingsWindow
@@ -47,17 +47,11 @@ SystemWindow {
         titleIconWidth:120
         titleIconHeight: 30
         onLeftBarClicked: {
-
             settingsWindow.close()
-//
-//            settingsWindow.message("settingsWindow close!")
-//            info_timer.stop()
         }
-
     }
     GetSystemInfo{
         id:getSyetemInfo
-
     }
 
     TitleRightBar{
@@ -74,7 +68,7 @@ SystemWindow {
         {
             getSyetemInfo.wifi_open()
             wifi_statu = true
-//            getSyetemInfo.get_wifi_list()
+            //            getSyetemInfo.get_wifi_list()
         }
         else
         {
@@ -137,17 +131,11 @@ SystemWindow {
 
                         CustomCombox{
                             id:combox_hour
-                             property date currentTime: new Date()
-//                            property alias combox_control:control
-//                            combox_control:ddd
-//                            ComboBox.id:control
-//                            control: "hour_control"
+                            property date currentTime: new Date()
                             modeldata: ["0","1", "2", "3","4", "5", "6","7", "8", "9","10", "11", "12",
                                 "13", "14", "15","16", "17", "18","19", "20", "21","22", "23", "24"]
                             Component.onCompleted: {
-
                                 combox_hour.combox_control.currentIndex =Number(Qt.formatTime(currentTime,"hh"))
-
                             }
                         }
 
@@ -162,13 +150,13 @@ SystemWindow {
                         }
                         CustomCombox{
                             id:combox_min
-                             property date currentTime: new Date()
+                            property date currentTime: new Date()
                             modeldata: ["0","1", "2", "3","4", "5", "6","7", "8", "9","10",
-                                        "11", "12", "13","14", "15", "16","17", "18", "19","20",
-                                        "21", "22", "23","24", "25", "26","27", "28", "29","30",
-                                        "31", "32", "33","34", "35", "36","37", "38", "39","40",
-                                        "41", "42", "43","44", "45", "46","47", "48", "49","50",
-                                        "51", "52", "53","54", "55", "56","57", "58", "59"]
+                                "11", "12", "13","14", "15", "16","17", "18", "19","20",
+                                "21", "22", "23","24", "25", "26","27", "28", "29","30",
+                                "31", "32", "33","34", "35", "36","37", "38", "39","40",
+                                "41", "42", "43","44", "45", "46","47", "48", "49","50",
+                                "51", "52", "53","54", "55", "56","57", "58", "59"]
 
                             Component.onCompleted: {
 
@@ -186,56 +174,19 @@ SystemWindow {
                         }
                         CustomCombox{
                             id:combox_sec
-                             property date currentTime: new Date()
+                            property date currentTime: new Date()
                             modeldata: ["0","1", "2", "3","4", "5", "6","7", "8", "9","10",
-                                        "11", "12", "13","14", "15", "16","17", "18", "19","20",
-                                        "21", "22", "23","24", "25", "26","27", "28", "29","30",
-                                        "31", "32", "33","34", "35", "36","37", "38", "39","40",
-                                        "41", "42", "43","44", "45", "46","47", "48", "49","50",
-                                        "51", "52", "53","54", "55", "56","57", "58", "59"]
+                                "11", "12", "13","14", "15", "16","17", "18", "19","20",
+                                "21", "22", "23","24", "25", "26","27", "28", "29","30",
+                                "31", "32", "33","34", "35", "36","37", "38", "39","40",
+                                "41", "42", "43","44", "45", "46","47", "48", "49","50",
+                                "51", "52", "53","54", "55", "56","57", "58", "59"]
 
                             Component.onCompleted: {
 
                                 combox_sec.combox_control.currentIndex =Number(Qt.formatTime(currentTime,"ss"))
                             }
                         }
-//                        Rectangle{
-//                            id: comboBox
-//                            width:47
-//                            height:28
-//                            color:"transparent"
-//                            Image {
-//                                anchors.fill: parent
-//                                source: "images/wvga/system/day-rec.png"
-//                            }
-//                            Image {
-//                                id:sec_dw
-//                                source: "images/wvga/system/drop-down.png"
-//                                anchors{
-//                                    right:    parent.right
-//                                    verticalCenter:parent.verticalCenter
-//                                    rightMargin: 5
-//                                }
-//                            }
-//                            Text{
-//                                property date currentTime: new Date()
-//                                text: {
-
-//                                    Qt.formatTime(currentTime,"ss")
-//                                }
-//                                font.pointSize: 15;
-//                                font.family:localFont.name
-
-//                                color: "white"
-//                                anchors{
-//                                    verticalCenter:parent.verticalCenter
-//                                    right:sec_dw.left
-//                                    rightMargin: 5
-//                                }
-//                            }
-//                        }
-
-
                     }
                     property var date
                     Text{
@@ -293,7 +244,7 @@ SystemWindow {
                             property date currentTime: new Date()
 
                             modeldata: ["1"+qsTr("月"), "2"+qsTr("月"), "3"+qsTr("月"),"4"+qsTr("月"), "5"+qsTr("月"), "6"+qsTr("月"),
-                                        "7"+qsTr("月"), "8"+qsTr("月"), "9"+qsTr("月"),"10"+qsTr("月"),"11"+qsTr("月"), "12"+qsTr("月")]
+                                "7"+qsTr("月"), "8"+qsTr("月"), "9"+qsTr("月"),"10"+qsTr("月"),"11"+qsTr("月"), "12"+qsTr("月")]
                             Component.onCompleted: {
 
                                 combox_mon.combox_control.currentIndex = currentTime.getMonth()
@@ -306,9 +257,9 @@ SystemWindow {
                             delegate_width:65
                             property date currentTime: new Date()
                             modeldata: ["1"+qsTr("日"), "2"+qsTr("日"), "3"+qsTr("日"),"4"+qsTr("日"), "5"+qsTr("日"), "6"+qsTr("日"),"7"+qsTr("日"), "8"+qsTr("日"),"9"+qsTr("日"),"10"+qsTr("日"),
-                                        "11"+qsTr("日"), "12"+qsTr("日"), "13"+qsTr("日"),"14"+qsTr("日"), "15"+qsTr("日"), "16"+qsTr("日"),"17"+qsTr("日"), "18"+qsTr("日"),"19"+qsTr("日"),"20"+qsTr("日"),
-                                        "21"+qsTr("日"), "22"+qsTr("日"), "23"+qsTr("日"),"24"+qsTr("日"), "25"+qsTr("日"), "26"+qsTr("日"),"27"+qsTr("日"), "28"+qsTr("日"),"29"+qsTr("日"),"30"+qsTr("日"),
-                                         "31"+qsTr("日")]
+                                "11"+qsTr("日"), "12"+qsTr("日"), "13"+qsTr("日"),"14"+qsTr("日"), "15"+qsTr("日"), "16"+qsTr("日"),"17"+qsTr("日"), "18"+qsTr("日"),"19"+qsTr("日"),"20"+qsTr("日"),
+                                "21"+qsTr("日"), "22"+qsTr("日"), "23"+qsTr("日"),"24"+qsTr("日"), "25"+qsTr("日"), "26"+qsTr("日"),"27"+qsTr("日"), "28"+qsTr("日"),"29"+qsTr("日"),"30"+qsTr("日"),
+                                "31"+qsTr("日")]
                             Component.onCompleted: {
                                 combox_day.combox_control.currentIndex =currentTime.getDate()-1
 
@@ -370,11 +321,11 @@ SystemWindow {
                                 getSyetemInfo.set_date(date_string)
                             }
                             onExited:{
-                               save_button_rec.opacity = 1.0
+                                save_button_rec.opacity = 1.0
                             }
                             onPressed: {
 
-                               save_button_rec.opacity = 0.5
+                                save_button_rec.opacity = 0.5
                             }
                         }
                     }
@@ -419,11 +370,6 @@ SystemWindow {
 
                         states: State {
                             name: "visible"
-                            /*  The visibility of the InputPanel can be bound to the Qt.inputMethod.visible property,
-                                but then the handwriting input panel and the keyboard input panel can be visible
-                                at the same time. Here the visibility is bound to InputPanel.active property instead,
-                                which allows the handwriting panel to control the visibility when necessary.
-                            */
                             when: inputPanel.active
                             PropertyChanges {
                                 target: inputPanel
@@ -449,7 +395,7 @@ SystemWindow {
                             property: "animating"
                             value: inputPanelTransition.running
                         }
-                            AutoScroller {}
+                        AutoScroller {}
                     }
 
                     Text{
@@ -507,16 +453,6 @@ SystemWindow {
                             leftMargin: 250
                         }
                     }
-//                        Text{
-
-//                            text: "xx"
-//                            font.pointSize: 10;
-
-//                            color: "white"
-
-//                            Layout.row: 1
-//                            Layout.column: 1
-//                        }
                     Text{
                         id:t3
                         text: qsTr("IP地址")
@@ -535,8 +471,8 @@ SystemWindow {
                     TextField {
 
                         id: ip_input
-//                        width: 141
-//                        height: 16
+                        //                        width: 141
+                        //                        height: 16
                         placeholderText: "192.168.xx.xx" /* 输入为空时显示的提示文字 */
                         inputMethodHints: Qt.ImhFormattedNumbersOnly
                         onAccepted: digitsField.focus = true
@@ -578,8 +514,8 @@ SystemWindow {
                     TextField{
 
                         id: netmask_input
-//                        width: 141
-//                        height: 16
+                        //                        width: 141
+                        //                        height: 16
                         placeholderText: "255.255.xx.xx" /* 输入为空时显示的提示文字 */
                         inputMethodHints: Qt.ImhFormattedNumbersOnly
                         onAccepted: digitsField.focus = true
@@ -620,8 +556,8 @@ SystemWindow {
                     }
                     TextField{
                         id: gw_input
-//                        width: 141
-//                        height: 16
+                        //                        width: 141
+                        //                        height: 16
                         placeholderText: "192.168.xx.xx" /* 输入为空时显示的提示文字 */
                         inputMethodHints: Qt.ImhFormattedNumbersOnly
                         onAccepted: digitsField.focus = true
@@ -663,8 +599,8 @@ SystemWindow {
                     }
                     TextField{
                         id: dns_input
-//                        width: 141
-//                        height: 16
+                        //                        width: 141
+                        //                        height: 16
                         placeholderText: "114.114.114.114" /* 输入为空时显示的提示文字 */
                         inputMethodHints: Qt.ImhFormattedNumbersOnly
                         onAccepted: digitsField.focus = true
@@ -723,22 +659,17 @@ SystemWindow {
                             anchors.fill: parent;
                             onClicked: {
                                 net_save_button_rec.opacity = 0.5
-//                                console.log(combox_dhcp.combox_control.currentText)
-//                                console.log(ip_input.text)
-//                                console.log(netmask_input.text)
-//                                console.log(gw_input.text)
-//                                console.log(dns_input.text)
                                 var net_info_string = combox_dhcp.combox_control.currentText + " " +ip_input.text + " " +
                                         netmask_input.text + " " + gw_input.text + " " +dns_input.text
                                 console.log(net_info_string)
                                 getSyetemInfo.set_net_info(net_info_string)
                             }
                             onExited:{
-                               net_save_button_rec.opacity = 1.0
+                                net_save_button_rec.opacity = 1.0
                             }
                             onPressed: {
 
-                               net_save_button_rec.opacity = 0.5
+                                net_save_button_rec.opacity = 0.5
                             }
                         }
                     }
@@ -762,11 +693,6 @@ SystemWindow {
                         anchors.right: parent.right
                         states: State {
                             name: "visible"
-                            /*  The visibility of the InputPanel can be bound to the Qt.inputMethod.visible property,
-                                but then the handwriting input panel and the keyboard input panel can be visible
-                                at the same time. Here the visibility is bound to InputPanel.active property instead,
-                                which allows the handwriting panel to control the visibility when necessary.
-                            */
                             when: inputPanel_passwd.active
                             PropertyChanges {
                                 target: inputPanel_passwd
@@ -792,7 +718,7 @@ SystemWindow {
                             property: "animating"
                             value: inputPanelTransition_passwd.running
                         }
-                            AutoScroller {}
+                        AutoScroller {}
                     }
 
 
@@ -814,9 +740,9 @@ SystemWindow {
                     CustomSwitch {
                         id:wifi_switch
                         anchors{
-//                           left:wifi_set_title.right
-                           bottom: wifi_set_title.bottom
-                           right: parent.right
+                            //                           left:wifi_set_title.right
+                            bottom: wifi_set_title.bottom
+                            right: parent.right
                         }
                         property bool backend: false
 
@@ -856,27 +782,22 @@ SystemWindow {
                             }
 
                         }
-                        Component.onCompleted:{
-//                            getSyetemInfo.get_wifi_list()
-//                            getSyetemInfo.wifi_close()
-//                            getSyetemInfo.wifi_open()
-//                            getSyetemInfo.connect_wifi("long+6032509792+qrc:/images/wvga/system/key.png")
-                        }
+
 
                         MouseArea{
                             anchors.fill: parent;
                             onClicked: {
-                               serch_rec.opacity = 0.5
-                               if(wifi_statu)
+                                serch_rec.opacity = 0.5
+                                if(wifi_statu)
                                     getSyetemInfo.get_wifi_list()
 
                             }
                             onExited:{
-                               serch_rec.opacity = 1.0
+                                serch_rec.opacity = 1.0
                             }
                             onPressed: {
 
-                               serch_rec.opacity = 0.5
+                                serch_rec.opacity = 0.5
                             }
                         }
                         anchors{
@@ -888,56 +809,47 @@ SystemWindow {
                     }
                     ListModel {
                         id: wifi_list_model
-
-//                        ListElement {
-//                            wifi_essid: "myir1"
-//                            wifi_connect_status: qsTr("已连接")
-//                            key_image: "images/wvga/system/key.png"
-//                            signal_iamge:"images/wvga/system/wifi-signal.png"
-
-//                        }
                     }
                     Connections {
                         target: getSyetemInfo
                         onWifiReady: {
-                             var image
-                             wifi_list_model.clear()
-                             console.log(wifi_data.length/3)
-                             for(var j=0;j<wifi_data.length/3;j++)
-                             {
-                                 if (wifi_data[j*3+1] === "on")
-                                      image= "images/wvga/system/key.png"
-                                 else
-                                      image=""
-//                                 console.log("Received ++: " +wifi_data[j*3+2])
-                                 wifi_list_model.append({
-                                     "wifi_essid": wifi_data[j*3+2],
-                                     "wifi_connect_status": qsTr("未启用"),
-                                     "key_image":image,
-                                     "signal_iamge":"images/wvga/system/wifi-signal.png",
-                                     "signal":wifi_data[j*3+0]
-                                 })
+                            var image
+                            wifi_list_model.clear()
+                            console.log(wifi_data.length/3)
+                            for(var j=0;j<wifi_data.length/3;j++)
+                            {
+                                if (wifi_data[j*3+1] === "on")
+                                    image= "images/wvga/system/key.png"
+                                else
+                                    image=""
+                                //                                 console.log("Received ++: " +wifi_data[j*3+2])
+                                wifi_list_model.append({
+                                                           "wifi_essid": wifi_data[j*3+2],
+                                                           "wifi_connect_status": qsTr("未启用"),
+                                                           "key_image":image,
+                                                           "signal_iamge":"images/wvga/system/wifi-signal.png",
+                                                           "signal":wifi_data[j*3+0]
+                                                       })
+                            }
 
-                             }
 
+                            for(var m=0; m<wifi_list_model.count; m++)
+                            {
+                                for(var n=0; n<m; n++)
+                                {
+                                    if(wifi_list_model.get(m).signal > wifi_list_model.get(n).signal)
+                                        wifi_list_model.move(m,n,1)
+                                    //                                           	break
+                                }
+                            }
 
-                                   for(var m=0; m<wifi_list_model.count; m++)
-                                   {
-                                       for(var n=0; n<m; n++)
-                                       {
-                                           if(wifi_list_model.get(m).signal > wifi_list_model.get(n).signal)
-                                               wifi_list_model.move(m,n,1)
-//                                           	break
-                                       }
-                                   }
-
-                             for(var i=0 ; i<wifi_data.length/3;i++ )
-                             {
-                                 console.log("Received ++: " +wifi_list_model.get(i).wifi_essid)
-//                                 console.log("Received ++: " +wifi_list_model.get(i).wifi_connect_status)
-//                                 console.log("Received ++: " +wifi_list_model.get(i).key_image)
-//                                 console.log("Received ++: " +wifi_list_model.get(i).signal_iamge)
-                             }
+                            for(var i=0 ; i<wifi_data.length/3;i++ )
+                            {
+                                console.log("Received ++: " +wifi_list_model.get(i).wifi_essid)
+                                //                                 console.log("Received ++: " +wifi_list_model.get(i).wifi_connect_status)
+                                //                                 console.log("Received ++: " +wifi_list_model.get(i).key_image)
+                                //                                 console.log("Received ++: " +wifi_list_model.get(i).signal_iamge)
+                            }
                         }
                         onWifiConnected:{
                             for(var k=0; k < wifi_list_model.count; k++)
@@ -945,13 +857,13 @@ SystemWindow {
                                 if(wifi_list_model.get(k).wifi_essid===wifi_essid_info)
                                 {
                                     wifi_list_model.setProperty(k, "wifi_connect_status", qsTr("已连接"))
-//                                   wifi_list_model.set(k).wifi_connect_status = "ddd"
-//                                   console.log("Received ++: " +wifi_list_model.get(k).wifi_connect_status)
+                                    //                                   wifi_list_model.set(k).wifi_connect_status = "ddd"
+                                    //                                   console.log("Received ++: " +wifi_list_model.get(k).wifi_connect_status)
                                 }
                                 else
                                     wifi_list_model.setProperty(k, "wifi_connect_status", qsTr("未启用"))
                             }
-//                          console.log("Received ++: " +wifi_essid_info)
+                            //                          console.log("Received ++: " +wifi_essid_info)
                         }
                     }
                     Component {
@@ -963,15 +875,6 @@ SystemWindow {
                             width: adaptive_width/1.45
                             height: 32
                             clip: true
-
-//                            color: "transparent"
-
-//                            anchors{
-//                                left: parent.left
-//                                leftMargin: 30
-//                                top: serch_rec.bottom
-//                                topMargin: 10
-//                            }
                             Text{
                                 id:wifi_essid_text
                                 text: wifi_essid
@@ -1027,31 +930,31 @@ SystemWindow {
                             }
                             Image {
                                 id: key_icon
-    //                            anchors.centerIn: parent
+                                //                            anchors.centerIn: parent
                                 anchors{
-    //                                center: content_rec.Center
+                                    //                                center: content_rec.Center
 
                                     verticalCenter: content_rec.verticalCenter
                                     right: content_rec.left
                                     rightMargin: 150
 
                                 }
-    //                            source: "images/wvga/system/key.png"
+                                //                            source: "images/wvga/system/key.png"
                                 source: key_image
                             }
                             Image {
                                 id: wifi_signal
-    //                            anchors.centerIn: parent
+                                //                            anchors.centerIn: parent
                                 anchors{
-    //                                horizontalCenter:content_rec
-    //                                center: content_rec.Center
-                                      verticalCenter: content_rec.verticalCenter
-    //                                topMargin: 2
+                                    //                                horizontalCenter:content_rec
+                                    //                                center: content_rec.Center
+                                    verticalCenter: content_rec.verticalCenter
+                                    //                                topMargin: 2
                                     right: content_rec.left
                                     rightMargin: 100
 
                                 }
-    //                            source: "images/wvga/system/wifi-signal.png"
+                                //                            source: "images/wvga/system/wifi-signal.png"
                                 source:signal_iamge
                             }
                             Item{
@@ -1059,7 +962,7 @@ SystemWindow {
                                 width: 105
                                 height: 31
 
-//                                color: "transparent"
+                                //                                color: "transparent"
                                 anchors{
                                     right: parent.right
                                     rightMargin: 5
@@ -1075,7 +978,7 @@ SystemWindow {
                                     text: qsTr("连接")
                                     font.pointSize: 12;
                                     font.family: "Microsoft YaHei"
-    //                                font.bold: true
+                                    //                                font.bold: true
                                     color: "white"
                                     anchors{
 
@@ -1093,14 +996,14 @@ SystemWindow {
                                         getSyetemInfo.disconnect_wifi()
                                         var essid_passwd = wifi_essid_text.text+"+"+passwd_input.text+"+"+key_icon.source
                                         getSyetemInfo.connect_wifi(essid_passwd)
-    //                                    myPopup.open()
+                                        //                                    myPopup.open()
                                     }
                                     onExited:{
-                                       content_rec.opacity = 1.0
+                                        content_rec.opacity = 1.0
                                     }
                                     onPressed: {
 
-                                      content_rec.opacity = 0.5
+                                        content_rec.opacity = 0.5
                                     }
                                 }
 
@@ -1140,7 +1043,7 @@ SystemWindow {
                 leftMargin: 20
             }
             Image{
-//                anchors.fill: parent
+                //                anchors.fill: parent
                 width:adaptive_width/7.00
                 height:adaptive_height/1.2
                 source: "images/wvga/system/navigation.png"
@@ -1156,7 +1059,7 @@ SystemWindow {
                     color:"transparent"
                     Image{
                         id: time_icon_bg
-//                        anchors.fill: parent
+                        //                        anchors.fill: parent
                         width:adaptive_width/6.7
                         height:adaptive_height/7.5
                         source: 'images/wvga/system/button-bg.png'
@@ -1202,9 +1105,9 @@ SystemWindow {
                     color:"transparent"
                     Image{
                         id: ethernet_icon_bg
-		        width:adaptive_width/6.7
+                        width:adaptive_width/6.7
                         height:adaptive_height/7.5
-//                        anchors.fill: parent
+                        //                        anchors.fill: parent
                         source: ''
                     }
                     Image{
@@ -1248,7 +1151,7 @@ SystemWindow {
                         id: wifi_icon_bg
                         width:adaptive_width/6.7
                         height:adaptive_height/7.5
-//                        anchors.fill: parent
+                        //                        anchors.fill: parent
                         source: ''
                     }
                     Image{

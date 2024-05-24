@@ -21,88 +21,52 @@
 ***********************************************************************/
 
 import QtQuick 2.5
+import QtMultimedia 5.5
 import mvideooutput 1.0
-import QtMultimedia 5.6
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.3
-import QtQuick.Window 2.2
+import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.1
+import QtQuick.Window 2.0
 SystemWindow {
     id: root
     property int adaptive_width: Screen.desktopAvailableWidth
     property int adaptive_height: Screen.desktopAvailableHeight
     width: adaptive_width
     height: adaptive_height
-	
+
     onVisibleChanged: {
         if(showFlag == false)
         {
-            showFlag = true;
-            camera.start()
+            showFlag = true
             console.log("相机窗口被激活")
         }
     }
     onAboutToHide: {
-        showFlag = false
+       showFlag = false
     }
-
-    //Component.onCompleted: camera.stop()
 
     Define {id: def}
     Album {id: w_album}
-
-    Camera {
-        id: camera
-        deviceId: Qtmultimedia.defaultCamera.deviceId
-        //deviceId: "/dev/video0" 
-        cameraState: Camera.LoadedState
-
-        //相机模式
-        captureMode: Camera.CaptureStillImage       //静态照片捕捉模式
-        //白平衡
-        imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
-        //分辨率
-        viewfinder.resolution: "1920x1080"
-        viewfinder.maximumFrameRate: 10
-        viewfinder.minimumFrameRate: 10
-        flash.mode: Camera.FlashRedEyeReduction
-        //曝光
-        exposure {
-            exposureCompensation: +1.0
-            exposureMode: Camera.ExposurePortrait
-        }
-
-        //拍照模式配置
-        imageCapture {
-            onImageSaved: console.log("save path:" + path);
-            onImageCaptured: bar.img_src = preview
-            onCaptureFailed: console.log("capture failed:" + message)
-        }
-
-        //录像模式配置
-        videoRecorder {
-//             resolution: "640x480"
-             frameRate: 30              //帧率
-//             audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
-//             audioBitRate: 128000       //视频比特率
-//             mediaContainer: "mp4"      //视频录制格式
-//             outputLocation: "D:\MYIR\Capture\video_test"        //保存地址
-             onRecorderStateChanged: console.log("state changed")
-             onRecorderStatusChanged: console.log("status changed")
-        }
-        //对焦模式
-//        focus {
-//            focusMode: Camera.FocusAuto
-//            focusPointMode: Camera.FocusPointCenter
-//        }
-
-        onError: console.log("camera err: " + errorCode + errorString);
-        Component.onCompleted: console.log('StackView.onStatusChanged camera.viewfinder.resolution:', camera.viewfinder.resolution)
+    property bool counter: false
+    function reload() {
+        counter = !counter
+        image.source = "image://cameraImageProvider?id=" + counter
     }
-
-    VideoOutput {
+    Image {
+        id: image
         anchors.fill: parent
-        source: camera
     }
+
+    Connections {
+        target: show_image
+        onCallQmlRefreshImage:{
+            reload()
+        }
+        onCallQmlSavePath:{
+            bar.img_src = "file://" + path
+        }
+    }
+
+    //Camera {id: mediaDevices}
 
     ListModel {id: imagePaths}
 
@@ -110,14 +74,12 @@ SystemWindow {
     MyIconButton {
         id: backButton
         icon_code: def.iconCode_back
-        button_text: camera.displayName
+        button_text: QtMultimedia.defaultCamera.displayName
         button_color: "white"
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.margins: 10
-        onClicked: {
-            root.close()
-        }
+        onClicked: root.close()
     }
 
     //右上角跳转到图库按钮
@@ -140,29 +102,19 @@ SystemWindow {
         id: bar
         anchors.bottom: parent.bottom
         anchors.right: parent.right
+        //img_src: QtMultimedia.
         onCaptureImage: {
             //保存照片到指定位置
             var savePath = def.captureSavePath + def.captureSaveHead + def.getCurrentTime();
-            camera.imageCapture.captureToLocation(savePath);
+            show_image.captureImg(savePath)
         }
 
         //以下为小视频录制功能
         onCaptureVideoStart: {
             console.log("capture video start")
-            /*
-            camera.captureMode = Camera.CaptureVideo
-            var savePath = def.captureSavePath + "video_" + def.getCurrentTime();
-            camera.videoRecorder.setOutputLocation(savePath)
-            camera.videoRecorder.record()
-            */
         }
         onCaptureVideoStop: {
             console.log("capture video stop")
-            /*
-            camera.videoRecorder.stop()
-            camera.captureMode = Camera.CaptureStillImage
-            camera.start()
-            */
         }
     }
 }

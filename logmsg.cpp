@@ -115,15 +115,15 @@ string TLogMsg::pullMsg()
         time_t hora = mLstTime.front();
         mLstTime.pop_front();
         if (hora != hora_ant)
-          {
-          struct tm * timeinfo;
-          timeinfo = localtime ( &hora );
-          // strftime ( buffer,200,"%d/%m %H:%M:%S ",timeinfo );
-          strftime ( buffer,200,"%H:%M:%S ",timeinfo );
-          s = buffer + s;
-          }
+        {
+            struct tm * timeinfo;
+            timeinfo = localtime ( &hora );
+            // strftime ( buffer,200,"%d/%m %H:%M:%S ",timeinfo );
+            strftime ( buffer,200,"%H:%M:%S ",timeinfo );
+            s = buffer + s;
+        }
         else
-          s = "         " + s;
+            s = "         " + s;
         hora_ant = hora;
     }
 

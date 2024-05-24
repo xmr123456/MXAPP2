@@ -18,25 +18,18 @@
 ***********************************************************************/
 
 import QtQuick 2.5
-//import QtMultimedia 5.6
+import QtMultimedia 5.5
 import QtQuick.Dialogs 1.2
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.1
 SystemWindow {
     id: root
     width: def.win_width
     height: def.win_height
-//    title: qsTr("相册")
 
     property string imageName: qsTr("返回")
     property alias imageUrl: backgroundImage.source
 
-//    function show(){
-//        open()
-//    }
-//    function showNormal(){
-//        open()
-//    }
     signal clicked_previous
     signal clicked_next
     signal clicked_delete
@@ -92,18 +85,7 @@ SystemWindow {
         color: "black"
         opacity: 0.4        //透明度
     }
-    /*
-    //图片方式实现删除时黑色透明效果
-    Image {
-        id: blackTransparent
-        visible: false
-        anchors.fill: parent
-        width: parent.width
-        height: parent.height
-        source: def.url_img_black_transparent
-        fillMode: Image.PreserveAspectFit
-        clip: true
-    }*/
+
     MyIconButton {
         id: backButton
         icon_code: def.iconCode_back

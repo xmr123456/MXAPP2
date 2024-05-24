@@ -19,7 +19,7 @@
 
 import QtQuick 2.0
 import MyFunction.module 1.0
-import QtQuick.Window 2.2
+import QtQuick.Window 2.0
 Item {
     id: def
 

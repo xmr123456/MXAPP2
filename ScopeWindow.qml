@@ -23,22 +23,14 @@ import QtQuick.Layouts 1.0
 import QtQuick.Window 2.2
 SystemWindow {
     id:scopeWindow
-//    title: qsTr("")
+    //    title: qsTr("")
     property int adaptive_width: Screen.desktopAvailableWidth
     property int adaptive_height: Screen.desktopAvailableHeight
     width: adaptive_width
     height: adaptive_height
-//    FontLoader { id: localFont; source: "fonts/DIGITAL/DS-DIGIB.TTF" }
-
-//    Item {
-//        id: mainView
-//        anchors.fill: parent
-//        PlotView {
-//        }
-//    }
     Image {
         id: rocket
-//        fillMode: Image.TileHorizontally
+        //        fillMode: Image.TileHorizontally
         smooth: true
         width: adaptive_width
         height: adaptive_height
@@ -73,7 +65,7 @@ SystemWindow {
                 verticalCenter: parent.verticalCenter
                 topMargin: 10
                 leftMargin: adaptive_width/8
-                }
+            }
         }
         Text {
             id :t2
@@ -86,7 +78,7 @@ SystemWindow {
                 verticalCenter: parent.verticalCenter
                 topMargin: 10
                 leftMargin: adaptive_width/13.3
-                }
+            }
         }
         Text {
             id: t3
@@ -99,56 +91,56 @@ SystemWindow {
                 verticalCenter: parent.verticalCenter
                 topMargin: 10
                 leftMargin: adaptive_width/13.3
-                }
+            }
         }
         Image{
-                id: close
-                source: "qrc:/images/wvga/smart/smart_btn_quit_nor.png"
-//                width: adaptive_width/12
-//                height: adaptive_height/19.2
-                width: 66
-                height:25
-                anchors{
-                    right:tt.left
-                    rightMargin: 15
-                    verticalCenter: parent.verticalCenter
-                }
-                Image {
-                    id: pwroff
-//                    width: adaptive_width/66.66
-//                    height: adaptive_height/40
-                    width: 12
-                    height: 12
-                    anchors.left: parent.left
-                    anchors.leftMargin: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/images/wvga/smart/smart_icon_quit_nor.png"
+            id: close
+            source: "qrc:/images/wvga/smart/smart_btn_quit_nor.png"
+            //                width: adaptive_width/12
+            //                height: adaptive_height/19.2
+            width: 66
+            height:25
+            anchors{
+                right:tt.left
+                rightMargin: 15
+                verticalCenter: parent.verticalCenter
+            }
+            Image {
+                id: pwroff
+                //                    width: adaptive_width/66.66
+                //                    height: adaptive_height/40
+                width: 12
+                height: 12
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+                anchors.verticalCenter: parent.verticalCenter
+                source: "qrc:/images/wvga/smart/smart_icon_quit_nor.png"
+            }
+
+            Text {
+                id: txtexit
+                anchors.left: pwroff.right
+                anchors.leftMargin: 10
+                anchors.verticalCenter: parent.verticalCenter
+                font.family: "Microsoft YaHei"
+                text: qsTr("退出")
+                font.pointSize: 11
+                color: "white"
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    scopeWindow.close();
                 }
 
-                Text {
-                    id: txtexit
-                    anchors.left: pwroff.right
-                    anchors.leftMargin: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.family: "Microsoft YaHei"
-                    text: qsTr("退出")
-                    font.pointSize: 11
-                    color: "white"
+                onPressed: {
+                    close.source="qrc:/images/wvga/smart/smart_btn_quit_hover.png"
                 }
-
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        scopeWindow.close();
-                    }
-
-                    onPressed: {
-                        close.source="qrc:/images/wvga/smart/smart_btn_quit_hover.png"
-                    }
-                    onReleased: {
-                        close.source="qrc:/images/wvga/smart/smart_btn_quit_nor.png"
-                    }
+                onReleased: {
+                    close.source="qrc:/images/wvga/smart/smart_btn_quit_nor.png"
                 }
+            }
         }
 
         Rectangle{
@@ -159,37 +151,32 @@ SystemWindow {
             anchors.right: parent.right
             anchors.rightMargin: 5
             anchors.verticalCenter: parent.verticalCenter
-    //        anchors.rightMargin: 20
-    //        anchors.topMargin: 5
 
-
-        Text {
-            id: time
-            anchors.leftMargin: 15
-            anchors.horizontalCenter: parent.horizontalCenter
-            font{
-                family:"DS-Digital"
-                pixelSize:14
+            Text {
+                id: time
+                anchors.leftMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                font{
+                    family:"DS-Digital"
+                    pixelSize:14
+                }
+                text: "00:00:00";color: "white";// style: Text.Outline;
             }
-            text: "00:00:00";color: "white";// style: Text.Outline;
-        }
 
-        Text {
-            id: date
-            anchors.top:time.bottom
-            anchors.leftMargin: 15
-            anchors.horizontalCenter: parent.horizontalCenter
-    //        font.pointSize:8; text: qsTr("2020年2月25日");style: Text.Outline;styleColor: "white"
-            font{
-                family: "DS-Digital"
-                pixelSize:10
+            Text {
+                id: date
+                anchors.top:time.bottom
+                anchors.leftMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
+                //        font.pointSize:8; text: qsTr("2020年2月25日");style: Text.Outline;styleColor: "white"
+                font{
+                    family: "DS-Digital"
+                    pixelSize:10
+                }
+                color: "white"
+
             }
-    //        style: Text.Outline;
-    //        text: qsTr("2020年2月25日")
-            color: "white"
-
         }
-    }
 
 
         Timer{
@@ -237,7 +224,7 @@ SystemWindow {
             width: adaptive_width/1.395
             height: adaptive_height/1.06
         }
-     }
+    }
     Column {
         x:adaptive_width/1.39
         y:adaptive_height/14.54
@@ -247,8 +234,8 @@ SystemWindow {
             color: "transparent"
             width: adaptive_width/3.52
             height: adaptive_height/7.5
-//            width: 227
-//            height: 64
+            //            width: 227
+            //            height: 64
 
 
             Text {
@@ -278,8 +265,8 @@ SystemWindow {
                 id: name
                 source: "images/wvga/ecg/heart.png"
                 anchors{
-//                    top: parent.top
-//                    topMargin: 5
+                    //                    top: parent.top
+                    //                    topMargin: 5
                     left: parent.left
                     leftMargin: adaptive_width/5
                     verticalCenter:pace_text.verticalCenter
@@ -297,7 +284,7 @@ SystemWindow {
                     leftMargin: adaptive_width/80
                 }
                 font{
-//                    capitalization: Font.Capitalize
+                    //                    capitalization: Font.Capitalize
                     pixelSize:30
                 }
 
@@ -310,8 +297,8 @@ SystemWindow {
             color: "transparent"
             width: adaptive_width/3.52
             height: adaptive_height/6.48
-//            width: 227
-//            height: 74
+            //            width: 227
+            //            height: 74
 
             Text {
                 font.family: "Microsoft YaHei"
@@ -387,8 +374,8 @@ SystemWindow {
             color: "transparent"
             width: adaptive_width/3.52
             height: adaptive_height/6.48
-//            width: 227
-//            height: 74
+            //            width: 227
+            //            height: 74
 
             Text {
                 font.family: "Microsoft YaHei"
@@ -451,8 +438,8 @@ SystemWindow {
             color: "transparent"
             width: adaptive_width/3.52
             height: adaptive_height/6.48
-//            width: 227
-//            height: 74
+            //            width: 227
+            //            height: 74
 
             Text {
                 text: "RESP";
@@ -488,8 +475,8 @@ SystemWindow {
             color: "transparent"
             width: adaptive_width/3.52
             height: adaptive_height/6.48
-//            width: 227
-//            height: 74
+            //            width: 227
+            //            height: 74
 
             Text {
                 font.family: "Microsoft YaHei"
@@ -594,234 +581,222 @@ SystemWindow {
             color: "transparent"
             width: adaptive_width/3.52
             height: adaptive_height/8.64
-//            width: 227
-//            height: 85
+            //            width: 227
+            //            height: 85
 
-                Button{
-                    id: bt1
-                    icon.source:"images/wvga/ecg/health_stop.png"
-                    icon.color:"transparent"
+            Button{
+                id: bt1
+                icon.source:"images/wvga/ecg/health_stop.png"
+                icon.color:"transparent"
 
-                    background: Rectangle {
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: 29
-                        height: 29
-                        border.color: "transparent"
-                        color:"transparent"
-                        Image {
+                background: Rectangle {
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 29
+                    height: 29
+                    border.color: "transparent"
+                    color:"transparent"
+                    Image {
 
-                            anchors.fill: parent
-                            source: "images/wvga/ecg/btn_bg.png"
-                        }
-
-                    }
-                    anchors{
-                        top:parent.top
-                        topMargin: adaptive_height/12.97
-                        left: btrec.left
-//                        verticalCenter: parent.verticalCenter
-                        leftMargin: adaptive_width/80
-                    }
-
-                    MouseArea{
                         anchors.fill: parent
-                        onExited:{
-                          bt1.opacity = 1.0
-                        }
-                        onPressed: {
-
-                          bt1.opacity = 0.5
-                        }
-
-                        onReleased: {
-
-                          bt1.opacity = 1.0
-                        }
+                        source: "images/wvga/ecg/btn_bg.png"
                     }
 
                 }
-                Button{
-                    id: bt2
-                    icon.source:"images/wvga/ecg/save.png"
-                    icon.color:"transparent"
-                    background: Rectangle {
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: 29
-                        height: 29
-                        border.color: "transparent"
-                        color:"transparent"
-                        Image {
+                anchors{
+                    top:parent.top
+                    topMargin: adaptive_height/12.97
+                    left: btrec.left
+                    //                        verticalCenter: parent.verticalCenter
+                    leftMargin: adaptive_width/80
+                }
 
-                            anchors.fill: parent
-                            source: "images/wvga/ecg/btn_bg.png"
-                        }
-
+                MouseArea{
+                    anchors.fill: parent
+                    onExited:{
+                        bt1.opacity = 1.0
                     }
-                    anchors{
-                        top:parent.top
-                        topMargin: adaptive_height/12.97
-                       left: bt1.left
-//                       verticalCenter: parent.verticalCenter
-                       leftMargin: adaptive_width/20
+                    onPressed: {
+
+                        bt1.opacity = 0.5
                     }
 
-                    MouseArea{
+                    onReleased: {
+
+                        bt1.opacity = 1.0
+                    }
+                }
+
+            }
+            Button{
+                id: bt2
+                icon.source:"images/wvga/ecg/save.png"
+                icon.color:"transparent"
+                background: Rectangle {
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 29
+                    height: 29
+                    border.color: "transparent"
+                    color:"transparent"
+                    Image {
+
                         anchors.fill: parent
-                        onExited:{
-                           bt2.opacity = 1.0
-                        }
-                        onPressed: {
-
-                          bt2.opacity = 0.5
-                        }
-
-                        onReleased: {
-
-                          bt2.opacity = 1.0
-                        }
+                        source: "images/wvga/ecg/btn_bg.png"
                     }
 
                 }
-                Button{
-                    id: bt3
-                    icon.source:"images/wvga/ecg/health_prin.png"
-                    icon.color:"transparent"
-                    background: Rectangle {
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: 29
-                        height: 29
-                        border.color: "transparent"
-                        color:"transparent"
-                        Image {
+                anchors{
+                    top:parent.top
+                    topMargin: adaptive_height/12.97
+                    left: bt1.left
+                    //                       verticalCenter: parent.verticalCenter
+                    leftMargin: adaptive_width/20
+                }
 
-                            anchors.fill: parent
-                            source: "images/wvga/ecg/btn_bg.png"
-                        }
-
+                MouseArea{
+                    anchors.fill: parent
+                    onExited:{
+                        bt2.opacity = 1.0
                     }
-                    anchors{
-                        top:parent.top
-                        topMargin: adaptive_height/12.97
-                        left: bt2.left
-//                        verticalCenter: parent.verticalCenter
-                        leftMargin: adaptive_width/20
+                    onPressed: {
+
+                        bt2.opacity = 0.5
                     }
 
-                    MouseArea{
+                    onReleased: {
+
+                        bt2.opacity = 1.0
+                    }
+                }
+
+            }
+            Button{
+                id: bt3
+                icon.source:"images/wvga/ecg/health_prin.png"
+                icon.color:"transparent"
+                background: Rectangle {
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 29
+                    height: 29
+                    border.color: "transparent"
+                    color:"transparent"
+                    Image {
+
                         anchors.fill: parent
-                        onExited:{
-                           bt3.opacity = 1.0
-                        }
-                        onPressed: {
-
-                          bt3.opacity = 0.5
-                        }
-
-                        onReleased: {
-
-                          bt3.opacity = 1.0
-                        }
+                        source: "images/wvga/ecg/btn_bg.png"
                     }
 
                 }
-                Button{
-                    id: bt4
-                    icon.source:"images/wvga/ecg/health_set.png"
-                    icon.color:"transparent"
-                    background: Rectangle {
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: 29
-                        height: 29
-                        border.color: "transparent"
-                        color:"transparent"
-                        Image {
+                anchors{
+                    top:parent.top
+                    topMargin: adaptive_height/12.97
+                    left: bt2.left
+                    //                        verticalCenter: parent.verticalCenter
+                    leftMargin: adaptive_width/20
+                }
 
-                            anchors.fill: parent
-                            source: "images/wvga/ecg/btn_bg.png"
-                        }
-
+                MouseArea{
+                    anchors.fill: parent
+                    onExited:{
+                        bt3.opacity = 1.0
                     }
-                    anchors{
-                        top:parent.top
-                        topMargin: adaptive_height/12.97
-                        left: bt3.left
-//                        verticalCenter: parent.verticalCenter
-                        leftMargin: adaptive_width/20
+                    onPressed: {
+
+                        bt3.opacity = 0.5
                     }
 
+                    onReleased: {
 
-                    MouseArea{
+                        bt3.opacity = 1.0
+                    }
+                }
+
+            }
+            Button{
+                id: bt4
+                icon.source:"images/wvga/ecg/health_set.png"
+                icon.color:"transparent"
+                background: Rectangle {
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 29
+                    height: 29
+                    border.color: "transparent"
+                    color:"transparent"
+                    Image {
+
                         anchors.fill: parent
-
-                        onExited:{
-                           bt4.opacity = 1.0
-                        }
-                        onPressed: {
-
-                          bt4.opacity = 0.5
-                        }
-
-                        onReleased: {
-
-                          bt4.opacity = 1.0
-                        }
-
+                        source: "images/wvga/ecg/btn_bg.png"
                     }
 
                 }
-                Button{
-                    id: bt5
-//                    icon.source:"images/wvga/ecg/spinner.png"
-//                    icon.color:"transparent"
+                anchors{
+                    top:parent.top
+                    topMargin: adaptive_height/12.97
+                    left: bt3.left
+                    //                        verticalCenter: parent.verticalCenter
+                    leftMargin: adaptive_width/20
+                }
 
-                    background: Rectangle {
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: 40
-                        height: 41
-                        border.color: "transparent"
-                        color:"transparent"
-                        Image {
 
-                            anchors.fill: parent
-                            source: "images/wvga/ecg/spinner.png"
-                        }
+                MouseArea{
+                    anchors.fill: parent
 
+                    onExited:{
+                        bt4.opacity = 1.0
                     }
-                    anchors{
-//                        top:parent.top
-//                        topMargin: adaptive_height/12.97
-                        left: bt4.left
-                        verticalCenter: bt4.verticalCenter
-                        leftMargin: adaptive_width/20
+                    onPressed: {
+
+                        bt4.opacity = 0.5
                     }
 
-                    MouseArea{
-                        anchors.fill: parent
-                        onExited:{
-                           bt5.opacity = 1.0
-                        }
-                        onPressed: {
+                    onReleased: {
 
-                          bt5.opacity = 0.5
-                        }
-
-                        onReleased: {
-
-                          bt5.opacity = 1.0
-                        }
+                        bt4.opacity = 1.0
                     }
 
                 }
 
+            }
+            Button{
+                id: bt5
+                //                    icon.source:"images/wvga/ecg/spinner.png"
+                //                    icon.color:"transparent"
 
+                background: Rectangle {
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 40
+                    height: 41
+                    border.color: "transparent"
+                    color:"transparent"
+                    Image {
+
+                        anchors.fill: parent
+                        source: "images/wvga/ecg/spinner.png"
+                    }
+
+                }
+                anchors{
+                    //                        top:parent.top
+                    //                        topMargin: adaptive_height/12.97
+                    left: bt4.left
+                    verticalCenter: bt4.verticalCenter
+                    leftMargin: adaptive_width/20
+                }
+
+                MouseArea{
+                    anchors.fill: parent
+                    onExited:{
+                        bt5.opacity = 1.0
+                    }
+                    onPressed: {
+                        bt5.opacity = 0.5
+                    }
+
+                    onReleased: {
+
+                        bt5.opacity = 1.0
+                    }
+                }
+            }
         }
-
-
-
     }
-
-
-
-
-
 }

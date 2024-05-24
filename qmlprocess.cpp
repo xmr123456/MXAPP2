@@ -77,16 +77,6 @@ void QmlProcess::start()
 
     d->write(d->command.toUtf8().constData());
     d->closeWriteChannel();
-
-    //d->waitForStarted();
-    //d->waitForFinished();
-
-    /*
-    sh.waitForFinished();
-    QByteArray output = sh.readAll();
-    sh.close();
-    d->start(d->program, d->arguments);
-    */
 }
 
 void QmlProcess::terminate()

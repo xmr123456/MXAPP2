@@ -21,19 +21,17 @@
 ***********************************************************************/
 
 import QtQuick 2.5
-import QtMultimedia 5.6
-import QtQuick.Window 2.2
+import QtMultimedia 5.5
+import QtQuick.Window 2.0
 import QtQuick.Dialogs 1.0
-import Qt.labs.folderlistmodel 2.2
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
+import Qt.labs.folderlistmodel 2.1
+import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.1
 
 SystemWindow {
     id: root
     width: def.win_width
     height: def.win_height
-//    title: qsTr("视频")
-//    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
 
     //输入
     property var nameFilter: def.audioNameFilters
@@ -58,17 +56,6 @@ SystemWindow {
     Define {
         id: def
     }
-//    //最底层背景图片
-//    Image {
-//        id: img_background
-//        anchors.fill: parent
-//        width: parent.width
-//        height: parent.height
-//        source: def.url_music_background
-//        fillMode: Image.PreserveAspectFit
-//        clip: true
-//    }
-
     //左上角返回按钮
     MyIconButton {
         id: backButton

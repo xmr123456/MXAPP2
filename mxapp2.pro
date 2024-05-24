@@ -19,7 +19,7 @@ SOURCES += \
     ClearCache.cpp \
     iec104_class.cpp \
     logmsg.cpp \
-        main.cpp \
+    main.cpp \
     qcustomplot.cpp \
     qiec104.cpp \
     qmlplot.cpp \
@@ -28,7 +28,9 @@ SOURCES += \
     qmlprocess.cpp \
     translator.cpp \
     mvideooutput.cpp \
-    videowidgetsurface.cpp
+    videowidgetsurface.cpp \
+    yuyv_qthread.cpp \
+    cameraimageprovider.cpp
 
 RESOURCES += qml.qrc
 CONFIG += disable-desktop
@@ -63,9 +65,8 @@ HEADERS += \
     qmlprocess.h \
     translator.h \
     mvideooutput.h \
-    videowidgetsurface.h
-DISTFILES +=
+    videowidgetsurface.h \
+    yuyv_qthread.h \
+    cameraimageprovider.h
 TRANSLATIONS = languages/language_zh.ts \
                languages/language_en.ts
-
-

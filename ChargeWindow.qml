@@ -17,8 +17,8 @@
     See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.
 ***********************************************************************/
 
-import QtQuick 2.7
-import QtQuick.Window 2.2
+import QtQuick 2.5
+import QtQuick.Window 2.0
 import ChargeManage 1.0
 import Charge104 1.0
 import QtQuick.Controls 2.0

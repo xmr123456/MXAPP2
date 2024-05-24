@@ -20,8 +20,7 @@
     See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.
 ***********************************************************************/
 
-import QtQuick 2.6
-//import QtGraphicalEffects 1.0
+import QtQuick 2.5
 
 //圆角图片
 Rectangle {
@@ -37,25 +36,6 @@ Rectangle {
         source: img_src
         sourceSize: Qt.size(parent.size, parent.size)
         antialiasing: true
-//        fillMode: Image.Stretch //默认
         fillMode: Image.PreserveAspectCrop
-//        fillMode: Image.PreserveAspectFit
     }
-//    Rectangle {
-//        id: _mask
-//        color: "black"
-//        anchors.fill: parent
-//        radius: parent.radius
-//        visible: false
-//        antialiasing: true
-//        smooth: true
-//    }
-//    OpacityMask {
-//        id: mask_image
-//        anchors.fill: _image
-//        source: _image
-//        maskSource: _mask
-//        visible: true
-//        antialiasing: true
-//    }
 }
