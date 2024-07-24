@@ -21,7 +21,7 @@
 ***********************************************************************/
 
 import QtQuick 2.5
-import QtMultimedia 5.5
+import QtMultimedia 5.9
 import QtQuick.Dialogs 1.0
 import Qt.labs.folderlistmodel 2.1
 import MyFunction.module 1.0

@@ -22,7 +22,7 @@
 
 import QtQuick 2.0
 import QtQuick.Window 2.0
-import QtMultimedia 5.5
+import QtMultimedia 5.9
 import QtQuick.Dialogs 1.2
 import Qt.labs.folderlistmodel 2.1
 import QtQuick.Controls 2.1
