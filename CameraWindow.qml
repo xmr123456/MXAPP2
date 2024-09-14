@@ -38,10 +38,8 @@ SystemWindow {
         {
             showFlag = true
             console.log("相机窗口被激活")
+            show_image.start_captrue()
         }
-    }
-    onAboutToHide: {
-       showFlag = false
     }
 
     Define {id: def}
@@ -79,7 +77,11 @@ SystemWindow {
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.margins: 10
-        onClicked: root.close()
+        onClicked: {
+            root.close()
+            showFlag = false
+            show_image.stop_capture()
+        }
     }
 
     //右上角跳转到图库按钮

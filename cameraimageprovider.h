@@ -45,7 +45,11 @@ class showImage : public QObject
     Q_OBJECT
 public:
     Q_INVOKABLE void captureImg(QString path);
+    Q_INVOKABLE void start_captrue();
+    Q_INVOKABLE void stop_capture();
+
     showImage(QObject *parent = nullptr);
+
     YUYVQThread *thread;
     QImage img;
     CameraImageProvider *cameraImageProvider;

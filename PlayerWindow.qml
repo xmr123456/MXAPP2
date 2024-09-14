@@ -20,67 +20,85 @@
     See <https://www.gnu.org/licenses/lgpl-3.0.html> for more details.
 ***********************************************************************/
 
-import QtQuick 2.0
 import QtMultimedia 5.9
 import QtQuick.Dialogs 1.2
 import Qt.labs.folderlistmodel 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick 2.5
+import QtQuick.Layouts 1.1
+import QtQuick.Window 2.0
 import mvideooutput 1.0
+
 SystemWindow {
     id: root
     width: def.win_width
     height: def.win_height
-//    title: qsTr("视频")
-//    flags: Qt.Dialog        //Dialog,没有最大最小化按钮
 
-//    //第一次打开时才会重新加载
-//    function show()
-//    {
-//        open()
-//    }
-
-//    property bool showFlag: false
-//    onAboutToHide: showFlag = false
     onVisibleChanged: {
         if(showFlag == false){
             showFlag = true;
             setVideoPath(def.videoDefaultLocation)
         }
-		else if(showFlag==true){
-			showFlag=false
-			videoStop()
-			video.source=""
-		}
+        else if(showFlag==true){
+            showFlag=false
+            videoStop()
+        }
     }
 
     Define {
         id: def
-        source_url: video.source
+        source_url: video_image.get_url()
     }
-//    //最底层背景图片
-//    Image {
-//        id: backgroundImage
-//        anchors.fill: parent
-//        width: parent.width
-//        height: parent.height
-//        source: def.url_video_background
-//        fillMode: Image.PreserveAspectFit
-//        clip: true
-//    }
 
-    //视频输出到背景
-    MVideoOutput {
-        //anchors.fill: parent        //充满背景
-        anchors.centerIn: parent  //center
-        source: video
+    property bool counter: false
+    property bool play: false
+
+    function reload() {
+        counter = !counter
+        image.source = "image://videoImageProvider?id=" + counter
+    }
+
+    Image {
+        id: image
+        anchors.fill: parent
+    }
+
+    Connections {
+        target: video_image
+        onCallQmlRefreshImage:{
+            reload()
+        }
+        onCallQmlRefreshProgress:{
+            player.media_duration = duration
+            player.media_postion = position
+        }
+        onCallQmlPlayEnd:{
+            videoBackward()
+        }
+        onCallQmlPlay:{
+            player.enabled = true
+            backButton.button_text = video_image.get_url()
+            btn_play2.visible = false
+            player.playing = true
+        }
+
+        onCallQmlPause:{
+            player.playing = false
+            btn_play2.visible = true
+        }
+
+        onCallQmlStop:{
+            player.playing = false
+            btn_play2.visible = true
+        }
     }
 
     //左上角返回按钮显示视频名称
     MyIconButton {
         id: backButton
         icon_code: def.iconCode_back
-        button_text: video.hasVideo ? def.getFileName() : "返回"
+        button_text: video_image.hasVideo() ? video_image.get_url() : "返回"
         button_color: "white"
         anchors.left: parent.left
         anchors.top: parent.top
@@ -90,7 +108,7 @@ SystemWindow {
             root.close()
         }
     }
-
+/*
     //右上角选择视频文件夹按钮
     MyIconButton {
         id: openButton
@@ -102,23 +120,21 @@ SystemWindow {
         anchors.margins: 10
         onClicked:
         {
-            if(video.hasVideo)
+            if(video_image.hasVideo())
                 videoPause()
-//            fileDialog.open()
             fileBrowser.nameFilter = def.videoNameFilters
             fileBrowser.defaultLocation = def.videoDefaultLocation
-
             fileBrowser.showNormal()
         }
     }
-
+*/
     PlayerControlBar {
         id: player
         visible: true
         width: def.win_width
-        enabled: video.hasVideo & (folderModel.count!=0)
+        enabled: video_image.hasVideo() & (folderModel.count!=0)
         anchors.bottom: parent.bottom
-        media_duration: video.duration
+        media_duration: video_image.duration()
         onClicked_play:videoPlay()
         onClicked_pause: videoPause()
         onClicked_stop: videoStop()
@@ -127,50 +143,39 @@ SystemWindow {
         onClicked_backward: videoBackward()
         onClicked_forward: videoForward()
         hourFlag: true      //时间标签带小时
-        onMoved_slider:
-        {
-            video.seek(slider_value)
-            videoPlay()
-        }
+//        onMoved_slider:
+//        {
+//            video_image.seek(slider_value)
+//        }
     }
 
-    //鼠标进入现实，鼠标退出隐藏的效果实现
-    /*
-    MouseArea {
-        width: player.width
-        height: player.height
-        anchors.bottom: parent.bottom
-        propagateComposedEvents: true
-        hoverEnabled: true
-        onEntered: player.visible = true
-        onExited: player.visible = false
-    }
-    */
     function videoPlay()
     {
-        player.playing = true;
-        video.play();
+        player.playing = true
+        play = true
+        video_image.pause(false)
     }
     function videoPause()
     {
-        player.playing = false;
-        video.pause();
+        player.playing = false
+        play = false
+        video_image.pause(true)
     }
     function videoStop()
     {
-        //videoSwitchFlag = true;
-        player.playing = false;
-        player.media_postion = 0;
-        video.stop();
-        //videoSwitchFlag = false;
+        player.playing = false
+        play = false
+        video_image.stop()
     }
     function videoStepForward()
     {
-        video.seek(video.position+10000)
+        if(video_image.duration() - video_image.position() > 10000)
+            video_image.seek(video_image.position()+10000)
     }
     function videoStepBackward()
     {
-        video.seek(video.position-10000)
+        if(video_image.position() > 10000)
+            video_image.seek(video_image.position()-10000)
     }
     function videoBackward()
     {
@@ -178,33 +183,24 @@ SystemWindow {
         videoStop();
         videoIndex -= 1;
         if(videoIndex < 0)
-            videoIndex = getVideoCount()-1;//-1->4
-		video.source = ""
-        video.source = getVideoURL(videoIndex)
-        console.log("上一曲:" + (videoIndex+1) + "/"  + getVideoCount() + ":" + video.source);
-        videoPlay();
+            videoIndex = getVideoCount()-1;
+        video_image.open(getVideoURL(videoIndex))
         videoSwitchFlag = false;
     }
     function videoForward()
     {
         videoSwitchFlag = true;
         videoIndex += 1;
-        if(videoIndex === getVideoCount() && getVideoCount()>1){   //0-4, 5
-            videoIndex = 0;  //4->0
+        if(videoIndex === getVideoCount() && getVideoCount()>1){
+            videoIndex = 0;
             videoStop();
-            video.source = getVideoURL(videoIndex)
-            console.log("下一曲:" + (videoIndex+1) + "/"  + getVideoCount() + ":" + video.source);
-            videoPlay();
+            video_image.open(getVideoURL(videoIndex))
             videoSwitchFlag = false;
         }
         else if(videoIndex === getVideoCount() && getVideoCount()===1){
-            videoIndex = 0;  //4->0
+            videoIndex = 0;
             videoStop();
-			//video.seek(0);
-            video.source = ""
-            video.source = getVideoURL(videoIndex)
-            console.log("下一曲:" + (videoIndex+1) + "/"  + getVideoCount() + ":" + video.source);
-            videoPlay();
+            video_image.open(getVideoURL(videoIndex))
             videoSwitchFlag = false;
         }
     }
@@ -212,7 +208,7 @@ SystemWindow {
     //暂停时，视频中央显示的大按钮
     MyToolButton {
         id: btn_play2
-        enabled: video.hasVideo & (folderModel.count!=0)
+        enabled: video_image.hasVideo() & (folderModel.count!=0)
         icon_code: def.iconCode_pause
         icon_size: 40
         icon_color: "#ffffff"
@@ -227,7 +223,7 @@ SystemWindow {
     }
     //视频区域单击暂停播放切换
     MouseArea {
-        enabled: video.hasVideo && (getVideoCount() > 0)
+        enabled: video_image.hasVideo() && (getVideoCount() > 0)
         anchors.top: backButton.bottom
         anchors.bottom: player.top
         anchors.left: parent.left
@@ -236,98 +232,53 @@ SystemWindow {
         onClicked: player.playing ? videoPause() : videoPlay();
     }
 
-    //视频播放器
-    MediaPlayer {
-        id: video
-        volume: player.media_volume
-        onPositionChanged: player.media_postion = video.position
-        onPlaybackStateChanged: //1:playing, 2:pause, 0:stop
-        {
-            if(video.playbackState == MediaPlayer.StoppedState ) //播放完成自动停止
-            {
-                if(videoSwitchFlag == false)
-                {
-                    console.log("video stop")
-                    videoForward();     //自动播放下一个
-                }
-            }
-        }
-    }
-
     FolderListModel {
         id: folderModel
         objectName: "folderModel"
         showDirs: false
         nameFilters: def.videoNameFilters
         sortField: FolderListModel.Name
-
-//        onStatusChanged: console.log("status:", folderModel.status);
-
         onFolderChanged: {
-            if(getVideoCount() == 0) {
-                console.log("所选文件夹无视频文件:" + folderModel.folder)
+            if(getVideoCount() === 0) {
                 videoIndex = 0;
             }
             else {
-                console.log("共发现" + getVideoCount() + "个视频文件")
                 videoSwitchFlag = true;
                 videoIndex = 0;
-                video.source = getVideoURL(videoIndex)
+                videoStop()
+                video_image.open(getVideoURL(videoIndex))
                 videoSwitchFlag = false;
             }
         }
     }
 
-    //文件选择对话框，调用系统自带的窗口
-    /*
-    FileDialog {
-        id: fileDialog
-        title: "请选择一个视频文件夹"
-        selectFolder: true  //只能选择文件夹
-        onRejected: {
-            if(video.hasVideo)
-                videoPlay()
-        }
-        //设置folderModel的文件夹为当前选定的文件夹
-        onAccepted: {
-            videoIndex = 0;
-            setVideoPath(fileUrl + "/")
-        }
-    }*/
     //自定义文件浏览器
     FileList{
         id: fileBrowser
         backButtonText: root.title
         onRejected: {
-            if(video.hasVideo)
+            if(video_image.hasVideo())
                 videoPlay()
         }
         onAccepted: {
             videoSwitchFlag = true;
+            //setVideoPath(fileBrowser.fileUrl + "/")
+            //console.log("fileurl:"+fileUrl)
             videoIndex = fileBrowser.fileIndex
-            console.log("FileList index:"+videoIndex)
-            video.source = ""
-            video.source = getVideoURL(videoIndex)
-            setVideoPath(fileUrl + "/");
-            console.log("folder:", fileUrl + "/");
+            videoStop()
+            video_image.open(getVideoURL(videoIndex))
             videoSwitchFlag = false
         }
     }
 
     function setVideoPath(path)
     {
-        console.log(path)
         folderModel.folder = path;
     }
     function getVideoURL(idx)
     {
-        var path = "file://";
         var filepath = folderModel.get(idx, "filePath")
-//        if (filepath[1] === ':') // Windows drive logic, see QUrl::fromLocalFile()
-//            path += '/';
-        path += filepath;
-
-        console.log(path)
+        var path = filepath
         return path;
     }
     function getVideoFolder()

@@ -72,13 +72,8 @@
 /* 命名空间 */
 using namespace std;
 
-struct csi_buffer {
-    void *  start[NUM_PLANES];
-    size_t  length[NUM_PLANES];
-};
-
 struct usb_buffer{
-	void *  start;
+    void *  start;
     size_t  length;
 };
 
@@ -114,38 +109,30 @@ public:
     };
 
     char dev_name[20];
-    char convertcmd[100];
     int fd = -1;
 
     unsigned int n_buffers;
-    int out_buf;
-    int frame_count = 1;
-    int frame_number = 0;
-    int img_width = 640;
-    int img_height = 480;
+
     int status;
     int ret;
-    struct csi_buffer *csi_buffers;
-	struct usb_buffer usb_buffers[FRAMEBUFFER_COUNT];
+
+    struct usb_buffer usb_buffers[FRAMEBUFFER_COUNT];
 
     QImage m_img;
-	int m_type;
+
     /* QThread 虚函数run */
     void run();
 
-    void exit_show();
     int handleData(unsigned char *bufData);
     void yuv_to_rgb(unsigned char* yuv, unsigned char *rgb);
     void set_device(QString device);
     int xioctl(int fh, int request, void *arg);
-    void process_image(const void *p, int size);
-    int read_frame(void);
-    void stop_capturing(int m_type);
+
+    void stop_capturing();
     int mainloop(void);
-    int start_capturing(int m_type);
-    void uninit_device(int m_type);
-    int init_mmap(void);
-    int init_device(int m_type);
+    int start_capturing();
+    void uninit_device();
+    int init_device();
     void close_device(void);
     int open_device(void);
 signals:

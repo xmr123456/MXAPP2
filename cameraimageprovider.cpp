@@ -57,8 +57,19 @@ showImage::showImage(QObject *parent) : QObject(parent)
     cameraImageProvider = new CameraImageProvider;
     thread->set_device(QCameraInfo::defaultCamera().deviceName());
     thread->show_flag = true;
-    thread->start();
     connect(thread,SIGNAL(sign_img(QImage)),this,SLOT(slot_img(QImage)));
+}
+
+void showImage::start_captrue()
+{
+    thread->show_flag = true;
+    thread->start();
+}
+
+void showImage::stop_capture()
+{
+    thread->show_flag = false;
+    //thread->terminate();
 }
 
 void showImage::slot_img(QImage img)

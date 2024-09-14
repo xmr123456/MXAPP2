@@ -30,7 +30,10 @@ SOURCES += \
     mvideooutput.cpp \
     videowidgetsurface.cpp \
     yuyv_qthread.cpp \
-    cameraimageprovider.cpp
+    cameraimageprovider.cpp \
+    videodecode.cpp \
+    videothread.cpp \
+    videoimageprovider.cpp
 
 RESOURCES += qml.qrc
 CONFIG += disable-desktop
@@ -67,6 +70,19 @@ HEADERS += \
     mvideooutput.h \
     videowidgetsurface.h \
     yuyv_qthread.h \
-    cameraimageprovider.h
+    cameraimageprovider.h \
+    videodecode.h \
+    videothread.h \
+    videoimageprovider.h
 TRANSLATIONS = languages/language_zh.ts \
                languages/language_en.ts
+
+LIBS += -L /media/disk_p/xmr/ffmpegi/usr/lib/libavfilter.so
+LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libavcodec.so
+LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libavformat.so
+LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libswscale.so
+LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libavutil.so
+LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libswresample.so
+
+INCLUDEPATH += /media/disk_p/xmr/ffmpeg/ffmpeg/usr/include
+DEPENDPATH += /media/disk_p/xmr/ffmpeg/ffmpeg/usr/include

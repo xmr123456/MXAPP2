@@ -123,7 +123,7 @@ SystemWindow {
             }
         }
     }
-
+/*
     //右上角选择图片文件夹按钮
     MyIconButton {
         id: openButton
@@ -137,10 +137,9 @@ SystemWindow {
             fileBrowser.nameFilter = def.imageNameFilters
             fileBrowser.defaultLocation = def.imageDefaultLocation
             fileBrowser.showNormal()
-//            fileDialog.open()
         }
     }
-
+*/
     FolderListModel {
         id: folderModel
         objectName: "folderModel"
@@ -157,15 +156,7 @@ SystemWindow {
             }
         }
     }
-/*
-    FileDialog {
-        id: fileDialog
-        title: "请选择一个图片文件夹"
-        selectFolder: true  //只能选择文件夹
-        onRejected: console.log("没有选择任何文件夹")
-        onAccepted: setImageFolder(fileUrl + "/");
-    }
-*/
+
     //自定义文件浏览器
     FileList {
         id: fileBrowser

@@ -103,13 +103,13 @@ Rectangle {
                         application: qsTr("摄像头")
                         aqml: "CameraWindow.qml"
                         acolor: "#02b9db"
-                    },/*
+                    },
                     ListElement {
                         aimage:"qrc:/images/wvga/home/media_icon_video_nor.png"
                         application: qsTr("播放器")
                         aqml:"PlayerWindow.qml"
                         acolor:"#02b9db"
-                    },*/
+                    },
                     ListElement {
                         aimage:"qrc:/images/wvga/home/icon_music.png"
                         application: qsTr("音乐")

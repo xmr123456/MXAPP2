@@ -37,7 +37,6 @@ SystemWindow {
         titleIconHeight: 30
         onLeftBarClicked: {
             fileWindow.close()
-            //            info_timer.stop()
         }
 
     }

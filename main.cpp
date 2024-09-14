@@ -36,6 +36,7 @@
 #include "Charge104.h"
 #include "ClearCache.h"
 #include "cameraimageprovider.h"
+#include "videoimageprovider.h"
 #include <QTime>
 
 using namespace std;
@@ -87,6 +88,10 @@ int main(int argc, char *argv[])
     showImage *show_image = new showImage;
     engine.rootContext()->setContextProperty("show_image",show_image);
     engine.addImageProvider(QLatin1String("cameraImageProvider"), show_image->cameraImageProvider);
+
+    videoImage *video_image = new videoImage;
+    engine.rootContext()->setContextProperty("video_image",video_image);
+    engine.addImageProvider(QLatin1String("videoImageProvider"), video_image->videoImageProvider);
 
     ClearCache *clear_cache = new ClearCache;
 

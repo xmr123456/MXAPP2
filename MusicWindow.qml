@@ -142,6 +142,7 @@ SystemWindow {
             root.close()
         }
     }
+/*
     //右上角选择音乐文件夹按钮
     MyIconButton {
         id: openButton
@@ -161,14 +162,14 @@ SystemWindow {
             fileBrowser.showNormal()
         }
     }
-
+*/
     //底部播放控制+进度
     PlayerControlBar {
         id: player
         visible: true
         width: def.win_width
 
-        enabled: music.hasAudio & (folderModel.count!=0)
+        //enabled: music.hasAudio & (folderModel.count!=0)
         anchors.bottom: parent.bottom
         media_duration: music.duration
 
@@ -193,6 +194,7 @@ SystemWindow {
         player.playing = true;
         stylusRoation.angle = 35;
         music.play();
+		console.log("Play button clicked")
 
         if(recordAnimation.running == false)
             recordAnimation.start()

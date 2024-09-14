@@ -29,8 +29,8 @@ ApplicationWindow {
     id: mainWnd
     visible: true
     visibility: Window.FullScreen
-    //width: Screen.desktopAvailableWidth
-    //height: Screen.desktopAvailableHeight
+//    width: Screen.desktopAvailableWidth
+//    height: Screen.desktopAvailableHeight
     title: qsTr("Hello World")
     property int pressX: -1
     property int pressY: -1

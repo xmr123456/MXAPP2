@@ -36,7 +36,7 @@ SystemWindow {
     //输入
     property var nameFilter: def.audioNameFilters
     property string defaultLocation: def.audioDefaultLocation
-//    property alias backButtonText: backButton.button_text
+    //    property alias backButtonText: backButton.button_text
     property string backButtonText: "File Browser"
 
     //输出
@@ -46,9 +46,6 @@ SystemWindow {
     signal accepted
     signal rejected
 
-//    onClosing: {
-//        console.log("FileBrowser is closing");
-//    }
     function showNormal(){
         open()
     }
@@ -60,7 +57,7 @@ SystemWindow {
     MyIconButton {
         id: backButton
         icon_code: def.iconCode_back
-//        button_text: folderModel.status == FolderListModel.Ready ? "媒体文件" : "正在加载"
+        //        button_text: folderModel.status == FolderListModel.Ready ? "媒体文件" : "正在加载"
         button_text: folderModel.folder
         button_color: "white"
         anchors.left: parent.left
@@ -103,17 +100,17 @@ SystemWindow {
         ListView {
             id: listFolder
             visible: true
-          //  width: 800
-           // height: 480
-//            clip: true
+            //  width: 800
+            // height: 480
+            //            clip: true
             spacing: 10
 
             anchors.top: parentButton.bottom
             anchors.topMargin: 10
             anchors.right: parentButton.right
             anchors.left: parentButton.left
-	    anchors.bottom:parent.bottom
-	    anchors.bottomMargin: 10
+            anchors.bottom:parent.bottom
+            anchors.bottomMargin: 10
 
             focus: false
             //model提供数据
@@ -136,22 +133,14 @@ SystemWindow {
                     }
                     else {
                         fileIndex = index;
-                        fileUrl = folderModel.folder;
-                        console.log("index:", index, ":" , fileUrl);
                         root.accepted()
                         close()
-                        console.log(filePath)
-                        console.log(def.getFileSuffix(fileName), ":", fileName);
                     }
-
-
                 }
                 onDoubleClicked: {
                     if(!fileIsDir)  //是一个文件
                     {
                         fileIndex = index;
-                        fileUrl = folderModel.folder;
-                        console.log("index:", index, ":" , fileUrl);
                         root.accepted()
                         close()
                     }
@@ -168,10 +157,8 @@ SystemWindow {
 
             sortField: FolderListModel.Type
             onFolderChanged: {
-                console.log("current folder:", folderModel.folder)
                 fileUrl = folderModel.folder;
             }
-            //            onStatusChanged: console.log("status:", folderModel.status);
         }
     }
 }
