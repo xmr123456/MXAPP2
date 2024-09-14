@@ -77,12 +77,12 @@ HEADERS += \
 TRANSLATIONS = languages/language_zh.ts \
                languages/language_en.ts
 
-LIBS += -L /media/disk_p/xmr/ffmpegi/usr/lib/libavfilter.so
-LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libavcodec.so
-LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libavformat.so
-LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libswscale.so
-LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libavutil.so
-LIBS += -L /media/disk_p/xmr/ffmpeg/usr/lib/libswresample.so
+LIBS += -L $$PWD/ffmpeg/usr/lib/libavfilter.so
+LIBS += -L $$PWD/ffmpeg/usr/lib/libavcodec.so
+LIBS += -L $$PWD/ffmpeg/usr/lib/libavformat.so
+LIBS += -L $$PWD/ffmpeg/usr/lib/libswscale.so
+LIBS += -L $$PWD/ffmpeg/usr/lib/libavutil.so
+LIBS += -L $$PWD/ffmpeg/usr/lib/libswresample.so
 
-INCLUDEPATH += /media/disk_p/xmr/ffmpeg/ffmpeg/usr/include
-DEPENDPATH += /media/disk_p/xmr/ffmpeg/ffmpeg/usr/include
+INCLUDEPATH += $$PWD/ffmpeg/usr/include
+DEPENDPATH += $$PWD/ffmpeg/usr/include
